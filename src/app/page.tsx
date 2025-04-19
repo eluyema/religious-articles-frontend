@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <h1>Люблю Иисуса</h1>
+        <h2>Люблю Иисуса</h2>
       </main>
       <footer className={styles.footer}>
         <a
