@@ -14,9 +14,17 @@ export default function Home() {
             and walk closer with the Lord every day.
           </p>
           <p>
-            Jesus is near to all who call upon Him in truth (Psalm 145:18). Whether you&#39;re a believer or just searching for truth, we invite
+            Jesus is near to all who call upon Him in truth (Psalm 145:18). Whether you're a believer or just searching for truth, we invite
             you to discover the good news of the Gospel and the hope we have in Jesus Christ.
           </p>
+
+          <nav>
+            <ul>
+              <li>
+                <a href="/privacy-policy" className={styles.link}>Privacy Policy</a>
+              </li>
+            </ul>
+          </nav>
         </main>
       </div>
   );
