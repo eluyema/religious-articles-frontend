@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script"; // Import Script from next
+
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,7 +16,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Jesus Near – Find Christ Closer",
-  description: "Jesus Near is a multilingual Christian resource to help you grow in faith, prayer, and understanding of the Gospel.",
+  description:
+      "Jesus Near is a multilingual Christian resource to help you grow in faith, prayer, and understanding of the Gospel.",
   keywords: ["Jesus", "Christianity", "Bible", "Faith", "Prayer", "Salvation"],
   authors: [{ name: "Jesus Near Team", url: "https://jesusnear.com" }],
   creator: "Jesus Near Team",
@@ -42,15 +45,29 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
-}: Readonly<{
+                                     children,
+                                   }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
       <html lang="en">
       <head>
-        <meta name="theme-color" content="#ffffff"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* Google Analytics Script with next/script */}
+        <Script
+            strategy="afterInteractive"
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
+        />
+        <Script
+            id="google-analytics"
+            strategy="afterInteractive"
+        >
+          {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');`}
+        </Script>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
       {children}
