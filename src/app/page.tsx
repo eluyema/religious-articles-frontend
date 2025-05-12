@@ -1,30 +1,39 @@
-import styles from "./page.module.css";
+import styles from "./page.module.scss";
+import Image from "next/image";
+import jesusIntro from '../assets/jesus-with-family.png';
+import classNames from "classnames";
 
 export default function Home() {
   return (
       <div className={styles.page}>
         <main className={styles.main}>
-          <h2>I Love Jesus</h2>
-          <p>
-            Welcome to <strong>Jesus Near</strong> — a place where you can explore the love and teachings of Jesus Christ.
-            We believe that true peace and salvation are found in Him alone.
-          </p>
-          <p>
-            Here you will find Christian articles, prayers, and spiritual reflections to help you grow in your faith, understand the Bible,
-            and walk closer with the Lord every day.
-          </p>
-          <p>
-            Jesus is near to all who call upon Him in truth (Psalm 145:18). Whether you&#39;re a believer or just searching for truth, we invite
-            you to discover the good news of the Gospel and the hope we have in Jesus Christ.
-          </p>
+          <section className={styles.introSection}>
+            <div className={styles.introSectionContent}>
+              <h1 className={styles.introTitle}>
+                Your <em>faithful companion</em> on the journey<br/> to knowing Christ
+              </h1>
 
-          <nav>
-            <ul>
-              <li>
-                <a href="/privacy-policy" className={styles.link}>Privacy Policy</a>
-              </li>
-            </ul>
-          </nav>
+              <p className={styles.introText}>
+                Discover insightful articles that deepen your understanding of Jesus and strengthen your spiritual walk.
+                JesusNear.com is here to guide you closer to God.
+              </p>
+              <button className={styles.introButton}>
+                Learn more
+              </button>
+              <Image src={jesusIntro} alt={"Jesus with your family"} className={classNames(styles.introImage, styles.desktop)} width={600} height={400}/>
+              <Image src={jesusIntro} alt={"Jesus with your family"} className={classNames(styles.introImage, styles.mobile)} width={350} height={235}/>
+
+            </div>
+          </section>
+          <section className={styles.missionSection}>
+            <p className={styles.missionSectionCapture}>
+              Our Mission
+            </p>
+            <h2 className={styles.missionSectionText}>
+              We <em><span></span><span>support</span></em> your journey toward faith, peace, and purpose — by helping
+              you connect with Jesus in your everyday life
+            </h2>
+          </section>
         </main>
       </div>
   );
