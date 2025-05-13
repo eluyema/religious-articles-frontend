@@ -1,5 +1,5 @@
 .header {
-  background-color: #fffafa;
+  background-color: #fffbfb;
   height: 78px;
   display: flex;
   border-bottom: 1px solid #ebd3d3;
@@ -28,4 +28,13 @@
 
 .link {
   display: flex;
+}
+
+.localeSwitcherBlock {
+  display: flex;
+  align-items: center;
+}
+
+.navigation {
+  flex: 1;
 }

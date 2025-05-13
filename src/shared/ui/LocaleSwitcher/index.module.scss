@@ -1,0 +1,19 @@
+.select {
+  padding: 6px 12px;
+  font-size: 14px;
+  border: 1px solid #ebd3d3;
+  border-radius: 6px;
+  background-color: white;
+  color: #370505;
+  cursor: pointer;
+
+  &:hover {
+    border-color: #e39595;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #f88888;
+    box-shadow: 0 0 0 2px rgba(255, 100, 100, 0.2);
+  }
+}
