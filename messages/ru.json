@@ -1,0 +1,60 @@
+{
+  "categories": {
+    "jesus": {
+      "title": "Иисус Христос",
+      "identity": "Личность Иисуса",
+      "teachings": "Учения Иисуса",
+      "miracles": "Чудеса Иисуса",
+      "parables": "Притчи Иисуса",
+      "life-of-jesus": "Жизнь Иисуса",
+      "relationship-with-jesus": "Отношения с Иисусом"
+    },
+    "bible": {
+      "title": "Библия",
+      "bible-overview": "Обзор Библии",
+      "old-testament": "Ветхий Завет",
+      "new-testament": "Новый Завет",
+      "interpretation": "Толкование Библии",
+      "bible-study": "Изучение Библии",
+      "biblical-characters": "Библейские персонажи",
+      "symbols-in-christianity": "Символы в христианстве"
+    },
+    "prayer": {
+      "title": "Молитва и духовность",
+      "how-to-pray": "Как молиться",
+      "daily-prayer": "Ежедневная молитва",
+      "fasting-and-solitude": "Пост и уединение",
+      "spiritual-growth": "Духовный рост",
+      "inner-healing": "Внутреннее исцеление"
+    },
+    "faith-in-life": {
+      "title": "Вера в повседневной жизни",
+      "faith-and-family": "Вера и семья",
+      "faith-and-work": "Вера и работа",
+      "faith-and-money": "Вера и деньги",
+      "christian-discipline": "Христианская дисциплина",
+      "faith-in-difficult-times": "Вера в трудные времена"
+    },
+    "relationships": {
+      "title": "Отношения",
+      "marriage": "Брак",
+      "parenting": "Родительство",
+      "friendship": "Дружба",
+      "conflict-and-forgiveness": "Конфликты и прощение",
+      "community": "Христианское сообщество"
+    }
+  },
+  "homepage": {
+    "introTitle": "Ваш <em>верный спутник</em> на пути<br/> к познанию Христа",
+    "introText": "Читайте вдохновляющие статьи, которые помогут глубже понять Иисуса и укрепиться в вере. JesusNear.com поможет вам приблизиться к Богу.",
+    "introButton": "Узнать больше",
+    "introImageAlt": "Иисус с вашей семьёй",
+    "missionCaption": "Наша миссия",
+    "missionText": "Мы <em><span></span><span>поддерживаем</span></em> ваш путь к вере, миру и смыслу — помогая вам соединиться с Иисусом в повседневной жизни"
+  },
+  "footer": {
+    "privacyPolicy": "Политика конфиденциальности",
+    "contactUs": "Связаться с нами",
+    "email": "email"
+  }
+}

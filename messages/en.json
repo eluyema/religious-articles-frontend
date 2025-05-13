@@ -1,0 +1,60 @@
+{
+  "categories": {
+    "jesus": {
+      "title": "Jesus Christ",
+      "identity": "Identity of Jesus",
+      "teachings": "Teachings of Jesus",
+      "miracles": "Miracles of Jesus",
+      "parables": "Parables of Jesus",
+      "life-of-jesus": "Life of Jesus",
+      "relationship-with-jesus": "Relationship with Jesus"
+    },
+    "bible": {
+      "title": "Bible",
+      "bible-overview": "Bible Overview",
+      "old-testament": "Old Testament",
+      "new-testament": "New Testament",
+      "interpretation": "Bible Interpretation",
+      "bible-study": "Bible Study",
+      "biblical-characters": "Biblical Characters",
+      "symbols-in-christianity": "Symbols in Christianity"
+    },
+    "prayer": {
+      "title": "Prayer & Spirituality",
+      "how-to-pray": "How to Pray",
+      "daily-prayer": "Daily Prayer",
+      "fasting-and-solitude": "Fasting & Solitude",
+      "spiritual-growth": "Spiritual Growth",
+      "inner-healing": "Inner Healing"
+    },
+    "faith-in-life": {
+      "title": "Faith in Daily Life",
+      "faith-and-family": "Faith and Family",
+      "faith-and-work": "Faith and Work",
+      "faith-and-money": "Faith and Money",
+      "christian-discipline": "Christian Discipline",
+      "faith-in-difficult-times": "Faith in Difficult Times"
+    },
+    "relationships": {
+      "title": "Relationships",
+      "marriage": "Marriage",
+      "parenting": "Parenting",
+      "friendship": "Friendship",
+      "conflict-and-forgiveness": "Conflict & Forgiveness",
+      "community": "Christian Community"
+    }
+  },
+  "homepage": {
+    "introTitle": "Your <em>faithful companion</em> on the journey<br/> to knowing Christ",
+    "introText": "Discover insightful articles that deepen your understanding of Jesus and strengthen your spiritual walk. JesusNear.com is here to guide you closer to God.",
+    "introButton": "Learn more",
+    "introImageAlt": "Jesus with your family",
+    "missionCaption": "Our Mission",
+    "missionText": "We <em><span></span><span>support</span></em> your journey toward faith, peace, and purpose — by helping you connect with Jesus in your everyday life"
+  },
+  "footer": {
+    "privacyPolicy": "Privacy Policy",
+    "contactUs": "Contact us",
+    "email": "email"
+  }
+}

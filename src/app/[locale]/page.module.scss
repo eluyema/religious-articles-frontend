@@ -22,7 +22,7 @@ $breakpoint: 768px;
   z-index: 1;
   background: #fff2c9;
   color: #972526;
-  padding: 100px 20px 40px;
+  padding: 40px 20px 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,7 +51,12 @@ $breakpoint: 768px;
 
   .introTitle {
     text-align: center;
-    font-size: 40px;
+    font-size: 36px;
+
+    @media (min-width: $breakpoint) {
+      font-size: 64px;
+
+    }
   }
 
   .introText {
@@ -60,7 +65,11 @@ $breakpoint: 768px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20px;
+    margin-top: 0;
+
+    @media (min-width: $breakpoint) {
+      margin-top: 20px;
+    }
   }
 
   .introButton {
@@ -71,6 +80,7 @@ $breakpoint: 768px;
     border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
+    color: #fff3f3;
 
     &:hover {
       background: #aa282a;

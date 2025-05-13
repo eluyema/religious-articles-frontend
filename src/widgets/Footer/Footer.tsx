@@ -1,15 +1,39 @@
 import styles from "./index.module.scss";
+import {useTranslations} from 'next-intl';
+import Link from "next/link";
 
 const Footer = () => {
-    return <footer className={styles.footer}>
-        <nav className={styles.footerContent}>
-            <ul>
-                <li>
-                    <a href="/privacy-policy" className={styles.link}>Privacy Policy</a>
-                </li>
-            </ul>
-        </nav>
-    </footer>
-}
+    const t = useTranslations('footer');
+
+    return (
+        <footer className={styles.footer}>
+            <div className={styles.footerContent}>
+                {/* Навигационные ссылки */}
+                <nav className={styles.links} aria-label="Footer navigation">
+                    <ul>
+                        <li>
+                            <Link href="/privacy-policy" className={styles.link}>
+                                {t('privacyPolicy')}
+                            </Link>
+                        </li>
+                    </ul>
+                </nav>
+
+                {/* Контактная информация */}
+                <address className={styles.contacts}>
+                    <h5>{t('contactUs')}</h5>
+                    <table className={styles.contactsTable}>
+                        <tbody>
+                        <tr>
+                            <td>{t('email')}</td>
+                            <td className={styles.valuecell}><b>support@jesusnear.com</b></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </address>
+            </div>
+        </footer>
+    );
+};
 
 export default Footer;

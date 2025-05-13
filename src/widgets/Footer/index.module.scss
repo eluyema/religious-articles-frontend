@@ -1,13 +1,56 @@
+$breakpoint: 768px;
+
 .footer {
   min-height: 200px;
   background-color: #6b1a1b;
-  color: #fff;
   display: flex;
   justify-content: center;
-  padding: 20px
+  padding: 20px;
+  color: #ffcece;
 }
 
 .footerContent {
   max-width: 1200px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 50px;
+
+  @media (min-width: $breakpoint) {
+    flex-direction: row;
+    padding-bottom: 0;
+  }
+}
+
+.links {
+  flex: 1;
+  margin-top: 20px;
+  margin-left: 20px;
+
+  @media (min-width: $breakpoint) {
+    width: 30%;
+    margin-left: 0;
+    border-left: 1px solid #ffe9e9;
+  }
+}
+
+.contacts {
+  border-top: 1px solid #ffe9e9;
+  padding-left: 20px;
+  padding-top: 20px;
+  margin-top: 30px;
+
+  @media (min-width: $breakpoint) {
+    margin-top: 0;
+    width: 30%;
+    border-left: 1px solid #ffe9e9;
+  }
+}
+
+.contactsTable {
+  margin-top: 6px;
+}
+
+.valuecell {
+  padding-left: 10px;
 }
