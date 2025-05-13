@@ -61,8 +61,6 @@ export default async function RootLayout({children, params
         notFound();
     }
 
-    const currentPath = location.pathname;
-
     return (
         <html lang={locale}>
         <head>
@@ -78,20 +76,16 @@ export default async function RootLayout({children, params
                 gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');`}
             </Script>
 
-            {/* hreflang для SEO */}
+            {/* todo: move it from root layout*/}
             <link rel="alternate" hrefLang="x-default" href={`${baseUrl}/en`} />
-            {routing.locales.map((loc) => {
-                const localizedPath = `/${loc}${currentPath.replace(`/${locale}`, '')}`;
-                return (
-                    <link
-                        key={loc}
-                        rel="alternate"
-                        hrefLang={loc}
-                        href={`${baseUrl}${localizedPath}`}
-                    />
-                );
-            })}
-
+            {routing.locales.filter(loc=>loc !== locale).map((loc) => (
+                <link
+                    key={loc}
+                    rel="alternate"
+                    hrefLang={loc}
+                    href={`${baseUrl}/${loc}`}
+                />
+            ))}
         </head>
         <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Header/>
