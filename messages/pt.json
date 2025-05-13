@@ -1,4 +1,10 @@
 {
+  "meta": {
+    "title": "Jesus Perto – Encontre Cristo Mais Perto",
+    "description": "Jesus Perto é um recurso cristão multilíngue para ajudar você a crescer na fé, na oração e na compreensão do Evangelho.",
+    "keywords": ["Jesus", "Cristianismo", "Bíblia", "Fé", "Oração", "Salvação"],
+    "ogDescription": "Artigos e recursos cristãos em vários idiomas para aprofundar sua caminhada com Jesus Cristo."
+  },
   "categories": {
     "jesus": {
       "title": "Jesus Cristo",

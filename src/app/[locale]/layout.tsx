@@ -2,7 +2,6 @@ import {NextIntlClientProvider, hasLocale} from 'next-intl';
 import {notFound} from 'next/navigation';
 import {routing} from '@/i18n/routing';
 
-import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script"; // Import Script from next
 import "normalize.css";
@@ -20,36 +19,6 @@ const geistMono = Geist_Mono({
     variable: "--font-geist-mono",
     subsets: ["latin"],
 });
-
-export const metadata: Metadata = {
-    title: "Jesus Near – Find Christ Closer",
-    description:
-        "Jesus Near is a multilingual Christian resource to help you grow in faith, prayer, and understanding of the Gospel.",
-    keywords: ["Jesus", "Christianity", "Bible", "Faith", "Prayer", "Salvation"],
-    authors: [{ name: "Jesus Near Team", url: "https://jesusnear.com" }],
-    creator: "Jesus Near Team",
-    metadataBase: new URL("https://jesusnear.com"),
-    openGraph: {
-        title: "Jesus Near – Find Christ Closer",
-        description:
-            "Multilingual Christian articles and resources to deepen your walk with Jesus Christ.",
-        url: "https://jesusnear.com",
-        siteName: "Jesus Near",
-        images: [
-            {
-                url: "/jesusnear.png",
-                width: 1200,
-                height: 630,
-                alt: "Jesus Near – Christian Resources",
-            },
-        ],
-        locale: "en_US",
-        type: "website",
-    },
-    icons: {
-        icon: "/favicon.ico",
-    },
-};
 
 export default async function RootLayout({children, params
                                    }: Readonly<{

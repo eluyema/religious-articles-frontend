@@ -1,4 +1,10 @@
 {
+  "meta": {
+    "title": "Jesus Near – Find Christ Closer",
+    "description": "Jesus Near is a multilingual Christian resource to help you grow in faith, prayer, and understanding of the Gospel.",
+    "keywords": ["Jesus", "Christianity", "Bible", "Faith", "Prayer", "Salvation"],
+    "ogDescription": "Multilingual Christian articles and resources to deepen your walk with Jesus Christ."
+  },
   "categories": {
     "jesus": {
       "title": "Jesus Christ",

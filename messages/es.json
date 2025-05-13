@@ -1,4 +1,10 @@
 {
+  "meta": {
+    "title": "Jesús Cerca – Encuentra a Cristo Más Cerca",
+    "description": "Jesús Cerca es un recurso cristiano multilingüe para ayudarte a crecer en la fe, la oración y el conocimiento del Evangelio.",
+    "keywords": ["Jesús", "Cristianismo", "Biblia", "Fe", "Oración", "Salvación"],
+    "ogDescription": "Artículos y recursos cristianos en varios idiomas para profundizar tu relación con Jesucristo."
+  },
   "categories": {
     "jesus": {
       "title": "Jesucristo",

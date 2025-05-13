@@ -1,4 +1,10 @@
 {
+  "meta": {
+    "title": "Jésus Proche – Trouve le Christ Plus Près",
+    "description": "Jésus Proche est une ressource chrétienne multilingue pour t’aider à grandir dans la foi, la prière et la compréhension de l’Évangile.",
+    "keywords": ["Jésus", "Christianisme", "Bible", "Foi", "Prière", "Salut"],
+    "ogDescription": "Des articles et ressources chrétiennes multilingues pour approfondir ta marche avec Jésus-Christ."
+  },
   "categories": {
     "jesus": {
       "title": "Jésus-Christ",

@@ -4,6 +4,45 @@ import jesusIntro from '../../assets/jesus-with-family.png';
 import classNames from "classnames";
 import { useTranslations } from "next-intl";
 
+import { getMessages } from 'next-intl/server';
+import { Metadata } from 'next';
+import { baseUrl } from '@/shared/config/baseUrl';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const {locale} = await params;
+
+  const messages = await getMessages({ locale });
+  const meta = messages.meta as typeof messages.meta;
+
+  return {
+    title: meta.title,
+    description: meta.description,
+    keywords: meta.keywords,
+    authors: [{ name: "Jesus Near Team", url: "https://jesusnear.com" }],
+    creator: "Jesus Near Team",
+    metadataBase: new URL(baseUrl),
+    openGraph: {
+      title: meta.title,
+      description: meta.ogDescription,
+      url: baseUrl + '/' + locale,
+      siteName: "Jesus Near",
+      images: [
+        {
+          url: "/jesusnear.png",
+          width: 1200,
+          height: 630,
+          alt: meta.title,
+        },
+      ],
+      locale: locale.replace('-', '_'), // e.g. en-US
+      type: "website",
+    },
+    icons: {
+      icon: "/favicon.ico",
+    },
+  };
+}
+
 export default function Home() {
   const t = useTranslations('homepage');
 

@@ -1,4 +1,10 @@
 {
+  "meta": {
+    "title": "Jesus Nah – Finde Christus näher",
+    "description": "Jesus Nah ist eine mehrsprachige christliche Plattform, die dir hilft, im Glauben, im Gebet und im Verständnis des Evangeliums zu wachsen.",
+    "keywords": ["Jesus", "Christentum", "Bibel", "Glaube", "Gebet", "Erlösung"],
+    "ogDescription": "Mehrsprachige christliche Artikel und Materialien, um deine Beziehung zu Jesus Christus zu vertiefen."
+  },
   "categories": {
     "jesus": {
       "title": "Jesus Christus",
