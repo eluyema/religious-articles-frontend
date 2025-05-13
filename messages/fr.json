@@ -1,0 +1,60 @@
+{
+  "categories": {
+    "jesus": {
+      "title": "Jésus-Christ",
+      "identity": "Identité de Jésus",
+      "teachings": "Enseignements de Jésus",
+      "miracles": "Miracles de Jésus",
+      "parables": "Paraboles de Jésus",
+      "life-of-jesus": "Vie de Jésus",
+      "relationship-with-jesus": "Relation avec Jésus"
+    },
+    "bible": {
+      "title": "La Bible",
+      "bible-overview": "Vue d'ensemble de la Bible",
+      "old-testament": "Ancien Testament",
+      "new-testament": "Nouveau Testament",
+      "interpretation": "Interprétation biblique",
+      "bible-study": "Étude biblique",
+      "biblical-characters": "Personnages bibliques",
+      "symbols-in-christianity": "Symboles du christianisme"
+    },
+    "prayer": {
+      "title": "Prière & Spiritualité",
+      "how-to-pray": "Comment prier",
+      "daily-prayer": "Prière quotidienne",
+      "fasting-and-solitude": "Jeûne & Solitude",
+      "spiritual-growth": "Croissance spirituelle",
+      "inner-healing": "Guérison intérieure"
+    },
+    "faith-in-life": {
+      "title": "Foi au quotidien",
+      "faith-and-family": "Foi et famille",
+      "faith-and-work": "Foi et travail",
+      "faith-and-money": "Foi et argent",
+      "christian-discipline": "Discipline chrétienne",
+      "faith-in-difficult-times": "Foi dans les moments difficiles"
+    },
+    "relationships": {
+      "title": "Relations",
+      "marriage": "Mariage",
+      "parenting": "Parentalité",
+      "friendship": "Amitié",
+      "conflict-and-forgiveness": "Conflits & Pardon",
+      "community": "Communauté chrétienne"
+    }
+  },
+  "homepage": {
+    "introTitle": "Votre <em>compagnon fidèle</em> sur le chemin<br/> de la découverte du Christ",
+    "introText": "Découvrez des articles inspirants pour approfondir votre compréhension de Jésus et fortifier votre vie spirituelle. JesusNear.com vous accompagne vers Dieu.",
+    "introButton": "En savoir plus",
+    "introImageAlt": "Jésus avec votre famille",
+    "missionCaption": "Notre mission",
+    "missionText": "Nous <em><span></span><span>accompagnons</span></em> votre chemin vers la foi, la paix et le sens — en vous aidant à rencontrer Jésus dans votre vie de tous les jours"
+  },
+  "footer": {
+    "privacyPolicy": "Politique de confidentialité",
+    "contactUs": "Nous contacter",
+    "email": "e-mail"
+  }
+}

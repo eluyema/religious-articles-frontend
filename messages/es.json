@@ -1,0 +1,60 @@
+{
+  "categories": {
+    "jesus": {
+      "title": "Jesucristo",
+      "identity": "La Identidad de Jesús",
+      "teachings": "Las Enseñanzas de Jesús",
+      "miracles": "Los Milagros de Jesús",
+      "parables": "Las Parábolas de Jesús",
+      "life-of-jesus": "La Vida de Jesús",
+      "relationship-with-jesus": "Relación con Jesús"
+    },
+    "bible": {
+      "title": "La Biblia",
+      "bible-overview": "Visión general de la Biblia",
+      "old-testament": "Antiguo Testamento",
+      "new-testament": "Nuevo Testamento",
+      "interpretation": "Interpretación Bíblica",
+      "bible-study": "Estudio Bíblico",
+      "biblical-characters": "Personajes Bíblicos",
+      "symbols-in-christianity": "Símbolos en el Cristianismo"
+    },
+    "prayer": {
+      "title": "Oración & Espiritualidad",
+      "how-to-pray": "Cómo Orar",
+      "daily-prayer": "Oración Diaria",
+      "fasting-and-solitude": "Ayuno & Soledad",
+      "spiritual-growth": "Crecimiento Espiritual",
+      "inner-healing": "Sanación Interior"
+    },
+    "faith-in-life": {
+      "title": "Fe en la Vida Cotidiana",
+      "faith-and-family": "Fe y Familia",
+      "faith-and-work": "Fe y Trabajo",
+      "faith-and-money": "Fe y Finanzas",
+      "christian-discipline": "Disciplina Cristiana",
+      "faith-in-difficult-times": "Fe en Tiempos Difíciles"
+    },
+    "relationships": {
+      "title": "Relaciones",
+      "marriage": "Matrimonio",
+      "parenting": "Paternidad",
+      "friendship": "Amistad",
+      "conflict-and-forgiveness": "Conflictos & Perdón",
+      "community": "Comunidad Cristiana"
+    }
+  },
+  "homepage": {
+    "introTitle": "Tu <em>compañero fiel</em> en el viaje<br/> para conocer a Cristo",
+    "introText": "Descubre artículos profundos que amplían tu comprensión de Jesús y fortalecen tu caminar espiritual. JesusNear.com está aquí para acercarte más a Dios.",
+    "introButton": "Aprende más",
+    "introImageAlt": "Jesús con tu familia",
+    "missionCaption": "Nuestra Misión",
+    "missionText": "Nosotros <em><span></span><span>acompañamos</span></em> tu viaje hacia la fe, la paz y el propósito — ayudándote a conectar con Jesús en tu vida diaria"
+  },
+  "footer": {
+    "privacyPolicy": "Política de Privacidad",
+    "contactUs": "Contáctanos",
+    "email": "correo electrónico"
+  }
+}

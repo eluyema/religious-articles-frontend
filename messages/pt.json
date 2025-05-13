@@ -1,0 +1,60 @@
+{
+  "categories": {
+    "jesus": {
+      "title": "Jesus Cristo",
+      "identity": "Identidade de Jesus",
+      "teachings": "Ensinamentos de Jesus",
+      "miracles": "Milagres de Jesus",
+      "parables": "Parábolas de Jesus",
+      "life-of-jesus": "Vida de Jesus",
+      "relationship-with-jesus": "Relacionamento com Jesus"
+    },
+    "bible": {
+      "title": "A Bíblia",
+      "bible-overview": "Visão geral da Bíblia",
+      "old-testament": "Antigo Testamento",
+      "new-testament": "Novo Testamento",
+      "interpretation": "Interpretação bíblica",
+      "bible-study": "Estudo bíblico",
+      "biblical-characters": "Personagens bíblicos",
+      "symbols-in-christianity": "Símbolos no Cristianismo"
+    },
+    "prayer": {
+      "title": "Oração & Espiritualidade",
+      "how-to-pray": "Como orar",
+      "daily-prayer": "Oração diária",
+      "fasting-and-solitude": "Jejum & Solidão",
+      "spiritual-growth": "Crescimento espiritual",
+      "inner-healing": "Cura interior"
+    },
+    "faith-in-life": {
+      "title": "Fé no dia a dia",
+      "faith-and-family": "Fé e família",
+      "faith-and-work": "Fé e trabalho",
+      "faith-and-money": "Fé e finanças",
+      "christian-discipline": "Disciplina cristã",
+      "faith-in-difficult-times": "Fé em tempos difíceis"
+    },
+    "relationships": {
+      "title": "Relacionamentos",
+      "marriage": "Casamento",
+      "parenting": "Paternidade",
+      "friendship": "Amizade",
+      "conflict-and-forgiveness": "Conflitos & Perdão",
+      "community": "Comunidade cristã"
+    }
+  },
+  "homepage": {
+    "introTitle": "Seu <em>companheiro fiel</em> na jornada<br/> de conhecer a Cristo",
+    "introText": "Descubra artigos inspiradores que aprofundam sua fé e fortalecem sua caminhada com Deus. O JesusNear.com está aqui para te aproximar de Jesus.",
+    "introButton": "Saiba mais",
+    "introImageAlt": "Jesus com sua família",
+    "missionCaption": "Nossa missão",
+    "missionText": "Nós <em><span></span><span>acompanhamos</span></em> sua jornada rumo à fé, à paz e ao propósito — ajudando você a encontrar Jesus na sua vida cotidiana"
+  },
+  "footer": {
+    "privacyPolicy": "Política de Privacidade",
+    "contactUs": "Fale conosco",
+    "email": "e-mail"
+  }
+}

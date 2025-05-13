@@ -1,0 +1,60 @@
+{
+  "categories": {
+    "jesus": {
+      "title": "Jesus Christus",
+      "identity": "Die Identität von Jesus",
+      "teachings": "Lehren von Jesus",
+      "miracles": "Wunder von Jesus",
+      "parables": "Gleichnisse von Jesus",
+      "life-of-jesus": "Das Leben von Jesus",
+      "relationship-with-jesus": "Beziehung zu Jesus"
+    },
+    "bible": {
+      "title": "Die Bibel",
+      "bible-overview": "Überblick über die Bibel",
+      "old-testament": "Altes Testament",
+      "new-testament": "Neues Testament",
+      "interpretation": "Bibelinterpretation",
+      "bible-study": "Bibelstudium",
+      "biblical-characters": "Biblische Charaktere",
+      "symbols-in-christianity": "Symbole im Christentum"
+    },
+    "prayer": {
+      "title": "Gebet & Spiritualität",
+      "how-to-pray": "Wie man betet",
+      "daily-prayer": "Tägliches Gebet",
+      "fasting-and-solitude": "Fasten & Einsamkeit",
+      "spiritual-growth": "Spirituelles Wachstum",
+      "inner-healing": "Innere Heilung"
+    },
+    "faith-in-life": {
+      "title": "Glaube im Alltag",
+      "faith-and-family": "Glaube und Familie",
+      "faith-and-work": "Glaube und Arbeit",
+      "faith-and-money": "Glaube und Geld",
+      "christian-discipline": "Christliche Disziplin",
+      "faith-in-difficult-times": "Glaube in schwierigen Zeiten"
+    },
+    "relationships": {
+      "title": "Beziehungen",
+      "marriage": "Ehe",
+      "parenting": "Erziehung",
+      "friendship": "Freundschaft",
+      "conflict-and-forgiveness": "Konflikte & Vergebung",
+      "community": "Christliche Gemeinschaft"
+    }
+  },
+  "homepage": {
+    "introTitle": "Ihr <em>treuer Begleiter</em> auf der Reise<br/> zu Christus",
+    "introText": "Entdecken Sie aufschlussreiche Artikel, die Ihr Verständnis von Jesus vertiefen und Ihren geistlichen Weg stärken. JesusNear.com ist hier, um Sie näher zu Gott zu führen.",
+    "introButton": "Mehr erfahren",
+    "introImageAlt": "Jesus mit deiner Familie",
+    "missionCaption": "Unsere Mission",
+    "missionText": "Wir <em><span></span><span>begleiten</span></em> Ihren Weg zu Glauben, Frieden und Sinn — indem wir Ihnen helfen, Jesus im Alltag zu begegnen"
+  },
+  "footer": {
+    "privacyPolicy": "Datenschutzrichtlinie",
+    "contactUs": "Kontaktieren Sie uns",
+    "email": "E-Mail"
+  }
+}

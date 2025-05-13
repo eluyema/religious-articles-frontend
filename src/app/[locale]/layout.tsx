@@ -61,6 +61,8 @@ export default async function RootLayout({children, params
         notFound();
     }
 
+    const currentPath = location.pathname;
+
     return (
         <html lang={locale}>
         <head>
@@ -77,15 +79,19 @@ export default async function RootLayout({children, params
             </Script>
 
             {/* hreflang для SEO */}
-            <link rel="alternate" hrefLang="x-default" href={`${baseUrl}`} />
-            {routing.locales.map((loc) => (
-                <link
-                    key={loc}
-                    rel="alternate"
-                    hrefLang={loc}
-                    href={loc === 'en' ? `${baseUrl}/` : `${baseUrl}/${loc}`}
-                />
-            ))}
+            <link rel="alternate" hrefLang="x-default" href={`${baseUrl}/en`} />
+            {routing.locales.map((loc) => {
+                const localizedPath = `/${loc}${currentPath.replace(`/${locale}`, '')}`;
+                return (
+                    <link
+                        key={loc}
+                        rel="alternate"
+                        hrefLang={loc}
+                        href={`${baseUrl}${localizedPath}`}
+                    />
+                );
+            })}
+
         </head>
         <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Header/>
