@@ -3,29 +3,44 @@ import Link from "next/link";
 import LocaleSwitcher from "@/shared/ui/LocaleSwitcher";
 import styles from './index.module.scss';
 
+import { useTranslations } from "next-intl";
+import MobileMenu from "./MobileMenu"; // Client component
+import {categoriesConfig} from "@/shared/config/categoriesConfig";
+
 const Header = () => {
+    const t = useTranslations('categories');
 
-    return <header className={styles.header}>
-        <div className={styles.headerContent}>
-            <Link href="/" className={styles.link}>
-                <Image className={styles.icon} width={42} height={42} src="/jesusnear.png"
-                       alt="Christian cross logo of website"/>
-                <p className={styles.logoText}>Jesus Near</p>
-            </Link>
-            <nav className={styles.navigation}>
-                <ul>
-                    <li>
+    return (
+        <header className={styles.header}>
+            <div className={styles.headerContent}>
+                <MobileMenu/>
 
-                    </li>
-                </ul>
-            </nav>
-            <div className={styles.localeSwitcherBlock}>
-                <LocaleSwitcher
-                    className={styles.localeSwitcher}
-                />
+                <div className={styles.logoBlock}>
+                    <Link href="/" className={styles.link}>
+                        <Image className={styles.icon} width={42} height={42} src="/jesusnear.png"
+                               alt="Christian cross logo of website"/>
+                        <p className={styles.logoText}>Jesus Near</p>
+                    </Link>
+                </div>
+
+                <nav className={styles.navigation}>
+                    <ul className={styles.navigationContent}>
+                        {categoriesConfig.map((category) => (
+                            <Link className={styles.navLink} href={`/articles/${category.code}`} key={category.code}>
+                                <span className={styles.navLinkText}>
+                                    {t(`${category.code}.title`)}
+                                </span>
+                            </Link>
+                        ))}
+                    </ul>
+                </nav>
+
+                <div className={styles.localeSwitcherBlock}>
+                    <LocaleSwitcher className={styles.localeSwitcher}/>
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
+    );
 };
 
 export default Header;

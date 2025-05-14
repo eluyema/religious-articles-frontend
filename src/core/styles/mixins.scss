@@ -1,0 +1,13 @@
+@import "vars.module";
+
+@mixin desktop-only {
+  @media (min-width: calc(#{$maxMobileWidth} + 1px)) {
+    @content;
+  }
+}
+
+@mixin mobile-only {
+  @media (max-width: #{$maxMobileWidth}) {
+    @content;
+  }
+}

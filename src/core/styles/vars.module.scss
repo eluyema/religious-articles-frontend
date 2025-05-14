@@ -1,0 +1,7 @@
+$maxMobileWidth: 1024px;
+$headerHeight: 78px;
+
+:export {
+  maxMobileWidth: $maxMobileWidth;
+  headerHeight: $headerHeight;
+}

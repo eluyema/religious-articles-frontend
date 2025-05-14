@@ -1,9 +1,9 @@
-$breakpoint: 768px;
+@import "src/core/styles/mixins";
 
 .mobile {
   display: block;
 
-  @media (min-width: $breakpoint) {
+  @include desktop-only {
     display: none;
   }
 }
@@ -11,7 +11,7 @@ $breakpoint: 768px;
 .desktop {
   display: none;
 
-  @media (min-width: $breakpoint) {
+  @include desktop-only {
     display: block;
   }
 }
@@ -53,9 +53,8 @@ $breakpoint: 768px;
     text-align: center;
     font-size: 36px;
 
-    @media (min-width: $breakpoint) {
+    @include desktop-only {
       font-size: 64px;
-
     }
   }
 
@@ -67,7 +66,7 @@ $breakpoint: 768px;
     margin-right: auto;
     margin-top: 0;
 
-    @media (min-width: $breakpoint) {
+    @include desktop-only {
       margin-top: 20px;
     }
   }

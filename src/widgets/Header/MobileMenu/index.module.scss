@@ -1,0 +1,58 @@
+@import "src/core/styles/vars.module";
+@import "src/core/styles/mixins";
+
+.menuBlock {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+
+  @include desktop-only {
+    display: none;
+  }
+}
+
+.burgerButton {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 34px;
+  height: 34px;
+}
+
+.mobileNavOverlay {
+  position: fixed;
+  z-index: 101;
+  top: $headerHeight;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #6b1a1b;
+  transform: translateX(-100%);
+  transition: transform 0.15s ease-in-out;
+  will-change: transform;
+}
+
+.mobileNavOverlayOpen {
+  transform: translateX(0);
+}
+
+.navigationContent {
+  padding-top: 20px;
+}
+
+.navigationContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.navLink {
+  font-size: 28px;
+  color: #ffebeb;
+  padding: 25px 20px;
+  border-top: 1px solid #e59191;
+
+  &:last-child {
+    border-bottom: 1px solid #e59191;
+  }
+}

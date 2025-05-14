@@ -1,4 +1,4 @@
-$breakpoint: 768px;
+@import "src/core/styles/mixins";
 
 .footer {
   min-height: 200px;
@@ -16,7 +16,7 @@ $breakpoint: 768px;
   flex-direction: column;
   padding-bottom: 50px;
 
-  @media (min-width: $breakpoint) {
+  @include desktop-only {
     flex-direction: row;
     padding-bottom: 0;
   }
@@ -27,7 +27,7 @@ $breakpoint: 768px;
   margin-top: 20px;
   margin-left: 20px;
 
-  @media (min-width: $breakpoint) {
+  @include desktop-only {
     width: 30%;
     margin-left: 0;
   }
@@ -39,7 +39,7 @@ $breakpoint: 768px;
   padding-top: 20px;
   margin-top: 30px;
 
-  @media (min-width: $breakpoint) {
+  @include desktop-only {
     border-top: none;
     margin-top: 0;
     width: 30%;
