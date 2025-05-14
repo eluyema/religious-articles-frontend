@@ -33,21 +33,26 @@ export default async function RootLayout({children, params
     return (
         <html lang={locale}>
         <head>
-            <meta name="theme-color" content="#ffffff" />
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <meta name="theme-color" content="#ffffff"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
             {/* Google Analytics */}
-            <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`} />
+            <Script strategy="afterInteractive"
+                    src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}/>
             <Script id="google-analytics" strategy="afterInteractive">
                 {`window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');`}
             </Script>
+            <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+            <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+            <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+            <link rel="manifest" href="/manifest.json"/>
 
             {/* todo: move it from root layout*/}
-            <link rel="alternate" hrefLang="x-default" href={`${baseUrl}/en`} />
-            {routing.locales.filter(loc=>loc !== locale).map((loc) => (
+            <link rel="alternate" hrefLang="x-default" href={`${baseUrl}/en`}/>
+            {routing.locales.filter(loc => loc !== locale).map((loc) => (
                 <link
                     key={loc}
                     rel="alternate"
