@@ -5,6 +5,43 @@
     "keywords": ["Jesus", "Cristianismo", "Bíblia", "Fé", "Oração", "Salvação"],
     "ogDescription": "Artigos e recursos cristãos em vários idiomas para aprofundar sua caminhada com Jesus Cristo."
   },
+  "categoriesArticles": {
+    "jesus": {
+      "metaTitle": "Quem é Jesus Cristo? Ensinamentos, vida e relacionamento",
+      "metaDescription": "Descubra a identidade, os ensinamentos, os milagres e as parábolas de Jesus Cristo. Aprenda a desenvolver um relacionamento pessoal com Ele e entenda Seu legado para a fé cristã.",
+      "title": "Jesus Cristo",
+      "description": "Explore a vida e a mensagem de Jesus Cristo — Sua identidade, milagres, ensinamentos e parábolas. Veja como Sua vida molda nossa fé e como podemos nos aproximar d’Ele hoje.",
+      "imageAlt": "Jesus Cristo ensinando a multidão"
+    },
+    "bible": {
+      "metaTitle": "Estudo e interpretação da Bíblia – Antigo e Novo Testamento",
+      "metaDescription": "Compreenda a estrutura e a mensagem da Bíblia. Estude o Antigo e o Novo Testamento, conheça personagens importantes e o significado dos símbolos cristãos.",
+      "title": "Bíblia",
+      "description": "Mergulhe na narrativa rica da Bíblia — de Gênesis ao Apocalipse. Explore temas centrais, figuras marcantes e como a Palavra de Deus fala conosco hoje.",
+      "imageAlt": "Bíblia aberta iluminada pela luz do sol"
+    },
+    "prayer": {
+      "metaTitle": "Oração e crescimento espiritual – Guia cristão",
+      "metaDescription": "Fortaleça sua vida espiritual com oração, jejum e cura interior. Aprenda a desenvolver um hábito diário de oração e aprofunde seu relacionamento com Deus.",
+      "title": "Oração e Espiritualidade",
+      "description": "Cresça espiritualmente por meio da oração, meditação, silêncio e cura interior. Descubra orientações práticas para se aproximar de Deus todos os dias.",
+      "imageAlt": "Mãos postas em oração à luz de velas"
+    },
+    "faith-in-life": {
+      "metaTitle": "Vivendo a fé no dia a dia – Família, trabalho e desafios",
+      "metaDescription": "Aplique sua fé na vida diária — família, trabalho, finanças e lutas. Encontre sabedoria e força para viver como cristão em todas as áreas da vida.",
+      "title": "Fé no Cotidiano",
+      "description": "A fé não é apenas para os domingos. Descubra como viver sua fé todos os dias — no trabalho, na família e nos desafios — com disciplina cristã e confiança em Deus.",
+      "imageAlt": "Pessoa caminhando em direção ao nascer do sol, simbolizando a fé diária"
+    },
+    "relationships": {
+      "metaTitle": "Relacionamentos cristãos – Casamento, filhos e amizade",
+      "metaDescription": "Explore princípios cristãos para relacionamentos saudáveis — casamento, paternidade, perdão e comunidade. Aprenda a amar e servir com compaixão, como Cristo.",
+      "title": "Relacionamentos",
+      "description": "Relacionamentos estão no centro da vida cristã. Cresça em amor, perdão e comunidade com base na orientação bíblica para casamento, criação de filhos e amizade.",
+      "imageAlt": "Duas pessoas de mãos dadas em um momento de apoio e carinho"
+    }
+  },
   "categories": {
     "jesus": {
       "title": "Jesus Cristo",

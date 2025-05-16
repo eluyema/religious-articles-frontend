@@ -5,6 +5,43 @@
     "keywords": ["Jesus", "Christentum", "Bibel", "Glaube", "Gebet", "Erlösung"],
     "ogDescription": "Mehrsprachige christliche Artikel und Materialien, um deine Beziehung zu Jesus Christus zu vertiefen."
   },
+  "categoriesArticles": {
+    "jesus": {
+      "metaTitle": "Wer ist Jesus Christus? Lehren, Leben und Beziehung",
+      "metaDescription": "Entdecken Sie die Identität, Lehren, Wunder und Gleichnisse von Jesus Christus. Erfahren Sie, wie Sie eine persönliche Beziehung zu Ihm aufbauen können und welche Bedeutung Sein Leben für uns hat.",
+      "title": "Jesus Christus",
+      "description": "Erforschen Sie das Leben und die Botschaft von Jesus Christus – Seine Identität, Wunder, Lehren und Gleichnisse. Lernen Sie, wie Sein Leben unseren Glauben prägt und wie wir Ihm heute näherkommen können.",
+      "imageAlt": "Jesus Christus lehrt eine Menschenmenge"
+    },
+    "bible": {
+      "metaTitle": "Bibelstudium & Auslegung – Altes und Neues Testament",
+      "metaDescription": "Verstehen Sie den Aufbau und die Botschaft der Bibel. Studieren Sie das Alte und Neue Testament, entdecken Sie zentrale biblische Figuren und die Bedeutung christlicher Symbole.",
+      "title": "Bibel",
+      "description": "Tauchen Sie in die reichhaltige Erzählung der Bibel ein – von Genesis bis Offenbarung. Entdecken Sie zentrale Themen, bedeutende Persönlichkeiten und wie Gottes Wort heute zu uns spricht.",
+      "imageAlt": "Geöffnete Bibel im Sonnenlicht"
+    },
+    "prayer": {
+      "metaTitle": "Gebet und geistliches Wachstum – Ein christlicher Leitfaden",
+      "metaDescription": "Stärken Sie Ihr geistliches Leben durch Gebet, Fasten und innere Heilung. Erfahren Sie, wie Sie ein tägliches Gebetsleben entwickeln und Ihre Beziehung zu Gott vertiefen können.",
+      "title": "Gebet & Spiritualität",
+      "description": "Wachsen Sie geistlich durch Gebet, Meditation, Stille und innere Heilung. Finden Sie praktische Impulse, um Gott täglich näherzukommen.",
+      "imageAlt": "Gefaltete Hände im Kerzenschein"
+    },
+    "faith-in-life": {
+      "metaTitle": "Glauben im Alltag leben – Familie, Arbeit und Herausforderungen",
+      "metaDescription": "Leben Sie Ihren Glauben jeden Tag – in Familie, Beruf, Finanzen und schwierigen Zeiten. Finden Sie Weisheit und Kraft, als Christ im Alltag zu bestehen.",
+      "title": "Glaube im Alltag",
+      "description": "Glaube ist nicht nur für den Sonntag. Entdecken Sie, wie Sie Ihren christlichen Glauben täglich leben können – bei der Arbeit, in der Familie und inmitten von Herausforderungen.",
+      "imageAlt": "Person auf einem Weg mit aufgehender Sonne – Symbol für gelebten Glauben"
+    },
+    "relationships": {
+      "metaTitle": "Christliche Beziehungen – Ehe, Familie und Freundschaft",
+      "metaDescription": "Entdecken Sie christliche Prinzipien für gesunde Beziehungen – Ehe, Elternschaft, Vergebung und Gemeinschaft. Lernen Sie, mit christlicher Liebe und Mitgefühl zu leben.",
+      "title": "Beziehungen",
+      "description": "Beziehungen stehen im Zentrum des christlichen Lebens. Wachsen Sie in Liebe, Vergebung und Gemeinschaft durch biblische Impulse zu Ehe, Familie und Freundschaft.",
+      "imageAlt": "Zwei Menschen halten sich liebevoll an den Händen"
+    }
+  },
   "categories": {
     "jesus": {
       "title": "Jesus Christus",

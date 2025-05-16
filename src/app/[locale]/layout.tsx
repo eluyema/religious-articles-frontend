@@ -6,8 +6,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script"; // Import Script from next
 import "normalize.css";
 import "./globals.css";
-import Header from "@/widgets/Header/Header";
-import Footer from "@/widgets/Footer/Footer";
+import Header from "@/widgets/Header";
+import Footer from "@/widgets/Footer";
 import {baseUrl} from "@/shared/config/baseUrl";
 
 const geistSans = Geist({

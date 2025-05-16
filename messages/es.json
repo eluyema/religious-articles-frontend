@@ -5,6 +5,43 @@
     "keywords": ["Jesús", "Cristianismo", "Biblia", "Fe", "Oración", "Salvación"],
     "ogDescription": "Artículos y recursos cristianos en varios idiomas para profundizar tu relación con Jesucristo."
   },
+  "categoriesArticles": {
+    "jesus": {
+      "metaTitle": "¿Quién es Jesucristo? Enseñanzas, vida y relación personal",
+      "metaDescription": "Descubre la identidad, enseñanzas, milagros y parábolas de Jesucristo. Aprende cómo tener una relación personal con Él y conocer el significado de Su vida para nuestra fe.",
+      "title": "Jesucristo",
+      "description": "Explora la vida y el mensaje de Jesucristo — Su identidad, milagros, enseñanzas y parábolas. Descubre cómo Su vida transforma nuestra fe y cómo acercarnos más a Él hoy.",
+      "imageAlt": "Jesucristo enseñando a la multitud"
+    },
+    "bible": {
+      "metaTitle": "Estudio e interpretación bíblica – Antiguo y Nuevo Testamento",
+      "metaDescription": "Comprende la estructura y el mensaje de la Biblia. Estudia el Antiguo y el Nuevo Testamento, conoce figuras clave y el simbolismo cristiano.",
+      "title": "Biblia",
+      "description": "Sumérgete en la narrativa de la Biblia — desde el Génesis hasta el Apocalipsis. Explora los grandes temas bíblicos, personajes clave y cómo la Palabra de Dios habla hoy a nuestras vidas.",
+      "imageAlt": "Biblia abierta con luz del sol sobre sus páginas"
+    },
+    "prayer": {
+      "metaTitle": "Oración y crecimiento espiritual – Guía cristiana",
+      "metaDescription": "Profundiza tu vida espiritual mediante la oración, el ayuno y la sanidad interior. Aprende a desarrollar un hábito diario de oración y fortalece tu relación con Dios.",
+      "title": "Oración y Espiritualidad",
+      "description": "Fortalece tu camino espiritual con oración, meditación, silencio y sanidad interior. Recibe orientación práctica para acercarte a Dios cada día.",
+      "imageAlt": "Manos en oración a la luz de las velas"
+    },
+    "faith-in-life": {
+      "metaTitle": "Viviendo la fe en lo cotidiano – Familia, trabajo y dificultades",
+      "metaDescription": "Aplica tu fe en la vida diaria — familia, trabajo, finanzas y pruebas. Encuentra sabiduría y fuerza para vivir como cristiano en cada aspecto de tu vida.",
+      "title": "Fe en la Vida Diaria",
+      "description": "La fe no es solo para los domingos. Aprende a vivir tu fe día a día — en el trabajo, la familia y las dificultades — con disciplina cristiana y confianza en Dios.",
+      "imageAlt": "Persona caminando hacia el amanecer, símbolo de fe cotidiana"
+    },
+    "relationships": {
+      "metaTitle": "Relaciones cristianas – Matrimonio, familia y amistad",
+      "metaDescription": "Descubre principios cristianos para relaciones sanas — matrimonio, crianza, perdón y comunidad. Aprende a amar y servir con compasión como Cristo.",
+      "title": "Relaciones",
+      "description": "Las relaciones son fundamentales en la vida cristiana. Crece en amor, perdón y comunidad con orientación bíblica para el matrimonio, la familia y la amistad.",
+      "imageAlt": "Dos personas tomadas de la mano en un momento cálido y solidario"
+    }
+  },
   "categories": {
     "jesus": {
       "title": "Jesucristo",

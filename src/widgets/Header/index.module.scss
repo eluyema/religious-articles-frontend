@@ -1,5 +1,21 @@
 @import "src/core/styles/mixins";
 
+.mobile {
+  display: block;
+
+  @include desktop-only {
+    display: none;
+  }
+}
+
+.desktop {
+  display: none;
+
+  @include desktop-only {
+    display: block;
+  }
+}
+
 .header {
   background-color: #fffbfb;
   height: 78px;
@@ -31,7 +47,7 @@
 
 .logoText {
   margin-left: 10px;
-  font-size: 34px;
+  font-size: 26px;
   font-weight: 700;
   color: #b93032;
 

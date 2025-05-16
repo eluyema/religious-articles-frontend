@@ -2,8 +2,8 @@ const CrossIcon = () => {
     return (<svg
         xmlns="http://www.w3.org/2000/svg"
         xmlSpace="preserve"
-        width={20}
-        height={20}
+        width={22}
+        height={22}
         viewBox="0 0 512 512"
     >
         <path

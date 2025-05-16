@@ -6,6 +6,7 @@ import styles from './index.module.scss';
 import { useTranslations } from "next-intl";
 import MobileMenu from "./MobileMenu"; // Client component
 import {categoriesConfig} from "@/shared/config/categoriesConfig";
+import classNames from "classnames";
 
 const Header = () => {
     const t = useTranslations('categories');
@@ -17,7 +18,9 @@ const Header = () => {
 
                 <div className={styles.logoBlock}>
                     <Link href="/" className={styles.link}>
-                        <Image className={styles.icon} width={42} height={42} src="/jesusnear.png"
+                        <Image className={classNames(styles.icon, styles.desktop)} width={42} height={42} src="/jesusnear.png"
+                               alt="Christian cross logo of website"/>
+                        <Image className={classNames(styles.icon, styles.mobile)} width={28} height={28} src="/jesusnear.png"
                                alt="Christian cross logo of website"/>
                         <p className={styles.logoText}>Jesus Near</p>
                     </Link>
