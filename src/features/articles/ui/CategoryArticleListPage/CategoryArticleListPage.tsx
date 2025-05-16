@@ -22,7 +22,7 @@ type CategoryArticleListPageProps = {
     articles: Article[];
 };
 
-const CategoryArticleListPage = ({category, articles}:CategoryArticleListPageProps) => {
+const CategoryArticleListPage = ({category}:CategoryArticleListPageProps) => {
     const t = useTranslations('categoriesArticles');
 
     const imageUrl = categoryImages[category] as StaticImageData || "";
