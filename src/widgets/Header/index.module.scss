@@ -88,6 +88,21 @@
       position: relative;
       text-wrap: nowrap;
 
+      &.navLinkActive {
+        color: #b93032;
+
+        & .navLinkText::after {
+          content: "";
+          display: block;
+          width: 100%;
+          height: 1px;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          background: #b93032;
+        }
+      }
+
       &:hover {
         color: #b93032;
 

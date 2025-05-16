@@ -6,8 +6,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script"; // Import Script from next
 import "normalize.css";
 import "./globals.css";
-import Header from "@/widgets/Header";
-import Footer from "@/widgets/Footer";
 import {baseUrl} from "@/shared/config/baseUrl";
 
 const geistSans = Geist({
@@ -63,9 +61,7 @@ export default async function RootLayout({children, params
         </head>
         <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <NextIntlClientProvider>
-            <Header/>
             {children}
-            <Footer/>
         </NextIntlClientProvider>
         </body>
         </html>

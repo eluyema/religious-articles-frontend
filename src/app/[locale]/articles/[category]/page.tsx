@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import CategoryArticleListPage from "@/features/articles/ui/CategoryArticleListPage";
 import { categoriesConfig } from "@/shared/config/categoriesConfig";
+import Header from "@/widgets/Header";
+import Footer from "@/widgets/Footer";
 
 export function generateStaticParams() {
     const categories = categoriesConfig.map(({ code }) => code);
@@ -38,7 +40,11 @@ const Page = async ({ params }: Props) => {
     const { category } = await params;
 
     return (
+        <>
+            <Header activeCategory={category}/>
         <CategoryArticleListPage category={category} articles={[]} />
+            <Footer/>
+    </>
     );
 };
 

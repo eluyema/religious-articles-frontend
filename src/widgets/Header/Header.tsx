@@ -8,7 +8,9 @@ import MobileMenu from "./MobileMenu"; // Client component
 import {categoriesConfig} from "@/shared/config/categoriesConfig";
 import classNames from "classnames";
 
-const Header = () => {
+type HeaderProps = {activeCategory?: string};
+
+const Header = ({activeCategory}:HeaderProps) => {
     const t = useTranslations('categories');
 
     return (
@@ -29,7 +31,7 @@ const Header = () => {
                 <nav className={styles.navigation}>
                     <ul className={styles.navigationContent}>
                         {categoriesConfig.map((category) => (
-                            <Link className={styles.navLink} href={`/articles/${category.code}`} key={category.code}>
+                            <Link className={classNames(styles.navLink, {[styles.navLinkActive]: activeCategory === category.code})} href={`/articles/${category.code}`} key={category.code}>
                                 <span className={styles.navLinkText}>
                                     {t(`${category.code}.title`)}
                                 </span>

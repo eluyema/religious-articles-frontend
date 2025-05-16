@@ -3,7 +3,8 @@ import Image from "next/image";
 import jesusIntro from '../../assets/jesus-with-family.png';
 import classNames from "classnames";
 import { useTranslations } from "next-intl";
-
+import Header from "@/widgets/Header";
+import Footer from "@/widgets/Footer";
 import { getMessages } from 'next-intl/server';
 import { Metadata } from 'next';
 import { baseUrl } from '@/shared/config/baseUrl';
@@ -57,6 +58,8 @@ export default function Page() {
   const t = useTranslations('homepage');
 
   return (
+      <>
+      <Header/>
       <div className={styles.page}>
         <main className={styles.main}>
           <section className={styles.introSection}>
@@ -94,5 +97,7 @@ export default function Page() {
           </section>
         </main>
       </div>
+      <Footer/>
+      </>
   );
 }
