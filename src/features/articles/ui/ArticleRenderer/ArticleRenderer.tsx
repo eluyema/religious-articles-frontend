@@ -27,8 +27,8 @@ const ArticleRenderer: React.FC<Props> = ({ data }) => {
                 return block.data.style === 'ordered' ? <ol key={block.id}>{items}</ol> : <ul key={block.id}>{items}</ul>;
             case 'quote':
                 return (
-                    <blockquote key={index}>
-                        <p>{data.text}</p>
+                    <blockquote key={block.id}>
+                        <p dangerouslySetInnerHTML={{ __html: block.data.text }} />
                         {data.caption && <cite>— {data.caption}</cite>}
                     </blockquote>
                 );
