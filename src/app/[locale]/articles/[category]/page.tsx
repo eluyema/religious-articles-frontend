@@ -30,9 +30,21 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
     const {locale, category} = await params;
     const t = await getTranslations({ locale, namespace: 'categoriesArticles' });
 
+    const baseUrl = "https://jesusnear.com";
+    const locales = ["en", "es", "de", "fr", "pt", "ru"];
+
     return {
         title: t(`${category}.metaTitle`),
-        description: t(`${category}.metaDescription`)
+        description: t(`${category}.metaDescription`),
+        alternates: {
+            canonical: `${baseUrl}/${locale}/${category}`,
+            languages: Object.fromEntries(
+                locales.map((lng) => [
+                    lng,
+                    `${baseUrl}/${lng}/${category}`,
+                ])
+            ),
+        },
     };
 }
 

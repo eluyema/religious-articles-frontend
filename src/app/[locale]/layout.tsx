@@ -33,6 +33,7 @@ export default async function RootLayout({children, params
         <head>
             <meta name="theme-color" content="#ffffff"/>
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <link rel="shortcut icon" href="/favicon.ico"/>
 
             {/* Google Analytics */}
             <Script strategy="afterInteractive"
@@ -48,16 +49,6 @@ export default async function RootLayout({children, params
             <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
             <link rel="manifest" href="/manifest.json"/>
 
-            {/* todo: move it from root layout*/}
-            <link rel="alternate" hrefLang="x-default" href={`${baseUrl}/en`}/>
-            {routing.locales.filter(loc => loc !== locale).map((loc) => (
-                <link
-                    key={loc}
-                    rel="alternate"
-                    hrefLang={loc}
-                    href={`${baseUrl}/${loc}`}
-                />
-            ))}
         </head>
         <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <NextIntlClientProvider>
