@@ -10,6 +10,7 @@
       "metaTitle": "Who Is Jesus Christ? Teachings, Life, and Relationship",
       "metaDescription": "Discover the identity, teachings, miracles, and parables of Jesus Christ. Learn how to build a personal relationship with Him and explore His life and legacy.",
       "title": "Jesus Christ",
+      "explore": "Explore the person and teachings of Jesus",
       "description": "Explore the life and message of Jesus Christ—His identity, miracles, teachings, and parables. Learn how His life shapes our faith and how we can grow in relationship with Him today.",
       "imageAlt": "Jesus Christ depicted teaching the crowd"
     },
@@ -17,6 +18,7 @@
       "metaTitle": "Bible Study & Interpretation – Old and New Testament",
       "metaDescription": "Understand the structure and message of the Bible. Study the Old and New Testaments, explore key biblical figures, and uncover the meaning behind Christian symbols.",
       "title": "Bible",
+      "explore": "Explore the books and message of the Bible",
       "description": "Dive into the Bible’s rich narrative—from Genesis to Revelation. Explore major biblical themes, characters, and how the Word of God speaks to us today through study and interpretation.",
       "imageAlt": "Open Bible with sunlight shining on its pages"
     },
@@ -24,6 +26,7 @@
       "metaTitle": "Prayer and Spiritual Growth – A Christian Guide",
       "metaDescription": "Grow your spiritual life through prayer, fasting, and inner healing. Learn how to develop a daily prayer habit and deepen your relationship with God.",
       "title": "Prayer & Spirituality",
+      "explore": "Deepen your prayer and spiritual growth",
       "description": "Strengthen your spiritual journey through prayer, meditation, solitude, and inner healing. Discover practical guidance to grow closer to God each day.",
       "imageAlt": "Hands folded in prayer in soft candlelight"
     },
@@ -31,6 +34,7 @@
       "metaTitle": "Living Your Faith Daily – Family, Work, and Challenges",
       "metaDescription": "Apply your faith to everyday life—family, work, finances, and trials. Find wisdom and strength to live as a Christian in every area of life.",
       "title": "Faith in Daily Life",
+      "explore": "Live your faith in everyday life",
       "description": "Faith is not just for Sundays. Discover how to live out your beliefs in daily life—from work and money to family and hardships—with Christian discipline and trust in God.",
       "imageAlt": "Person walking down a path with sunrise ahead, symbolizing daily faith"
     },
@@ -38,10 +42,12 @@
       "metaTitle": "Christian Relationships – Marriage, Parenting, and Friendship",
       "metaDescription": "Explore Christian principles for healthy relationships—marriage, parenting, forgiveness, and community. Learn how to love and serve others with Christ-like compassion.",
       "title": "Relationships",
+      "explore": "Cultivate healthy Christian relationships",
       "description": "Relationships are central to Christian living. Grow in love, forgiveness, and community through biblical guidance for marriage, parenting, and friendships.",
       "imageAlt": "Two people holding hands in a warm, supportive moment"
     }
   },
+
   "categories": {
     "jesus": {
       "title": "Jesus Christ",
