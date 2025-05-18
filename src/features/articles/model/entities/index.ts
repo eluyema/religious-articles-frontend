@@ -50,4 +50,5 @@ export interface ArticlePath {
     subcategory: string;
     slug: string;
     language: string;
+    active: boolean;
 }

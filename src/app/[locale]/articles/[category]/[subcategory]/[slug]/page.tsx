@@ -9,12 +9,12 @@ import {FullArticle} from "@/features/articles/model/entities";
 export async function generateStaticParams() {
     const allPath = await loadAllArticlePath();
 
-    return allPath.flatMap(({language: locale, category, subcategory, slug}) =>
+    return allPath.filter(({active})=>active).flatMap(({language: locale, category, subcategory, slug}) =>
        ({
             locale,
             category,
             subcategory,
-            slug
+            slug,
         }));
 }
 

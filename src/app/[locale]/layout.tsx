@@ -6,7 +6,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script"; // Import Script from next
 import "normalize.css";
 import "./globals.css";
-import {baseUrl} from "@/shared/config/baseUrl";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
