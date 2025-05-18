@@ -9,7 +9,7 @@ type Props = {
 
 const ArticleRenderer: React.FC<Props> = ({ data }) => {
     if (!data || !data.blocks) return null;
-
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const renderBlock = (block: any, index: number) => {
         const { type, data } = block;
 

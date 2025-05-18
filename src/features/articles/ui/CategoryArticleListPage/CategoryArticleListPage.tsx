@@ -38,7 +38,7 @@ const CategoryArticleListPage = ({category, locale, articles }:CategoryArticleLi
     }));
 
     const imageUrl = categoryImages[category] as StaticImageData || "";
-    // const articles = await res.json();
+
     return (
         <div>
             <Head>
