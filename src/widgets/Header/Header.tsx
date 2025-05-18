@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
-import LocaleSwitcher from "@/shared/ui/LocaleSwitcher";
+import {Link} from "@/i18n/navigation";
+import LocaleSwitcher from "../../shared/ui/LocaleSwitcher";
 import styles from './index.module.scss';
 
 import { useTranslations } from "next-intl";

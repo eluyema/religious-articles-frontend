@@ -1,6 +1,6 @@
 import styles from "./index.module.scss";
 import {useTranslations} from 'next-intl';
-import Link from "next/link";
+import {Link} from "@/i18n/navigation";
 
 const Footer = () => {
     const t = useTranslations('footer');

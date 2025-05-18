@@ -9,7 +9,6 @@
   height: 600px;
   position: relative;
   flex-direction: column;
-  min-height: 70vh;
 
   &:before {
     width: 100%;
@@ -26,7 +25,6 @@
 
   @include desktop-only {
     flex-direction: row;
-    min-height: 75vh;
   }
 }
 
@@ -69,6 +67,38 @@
   width: 100%;
 }
 
-.title {
+.articlesSection {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 100px 20px;
 
+  .listTitle {
+    font-size: 26px;
+    color: #b93032;
+
+    @include desktop-only {
+      font-size: 36px;
+    }
+  }
+
+  .articlesList {
+    margin-top: 44px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include desktop-only {
+      gap: 32px;
+    }
+  }
+
+  .notFoundText {
+    margin-top: 20px;
+    font-size: 18px;
+
+    @include desktop-only {
+      font-size: 24px;
+    }
+  }
 }

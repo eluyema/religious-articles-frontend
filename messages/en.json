@@ -95,6 +95,12 @@
     "missionCaption": "Our Mission",
     "missionText": "We <em><span></span><span>support</span></em> your journey toward faith, peace, and purpose — by helping you connect with Jesus in your everyday life"
   },
+  "articlesList": {
+    "exploreCategory": "Explore {articleTitle}"
+  },
+  "common": {
+    "notFoundInYouLanguage": "Not available in your language. It may be available in another — feel free to switch."
+  },
   "footer": {
     "privacyPolicy": "Privacy Policy",
     "contactUs": "Contact us",

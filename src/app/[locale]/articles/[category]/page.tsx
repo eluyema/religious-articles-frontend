@@ -4,6 +4,7 @@ import CategoryArticleListPage from "@/features/articles/ui/CategoryArticleListP
 import { categoriesConfig } from "@/shared/config/categoriesConfig";
 import Header from "@/widgets/Header";
 import Footer from "@/widgets/Footer";
+import {loadArticlesByCategory} from "@/features/articles/api/endpoints/loadArticlesByCategory";
 
 export function generateStaticParams() {
     const categories = categoriesConfig.map(({ code }) => code);
@@ -35,15 +36,14 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
     };
 }
 
-
 const Page = async ({ params }: Props) => {
-    const { category } = await params;
+    const { category, locale } = await params;
+
+    const articles = await loadArticlesByCategory(category);
 
     return (
-        <>
-            <Header activeCategory={category}/>
-        <CategoryArticleListPage category={category} articles={[]} />
-            <Footer/>
+        <><Header activeCategory={category}/>
+        <CategoryArticleListPage category={category} articles={articles} locale={locale}/><Footer/>
     </>
     );
 };

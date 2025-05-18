@@ -8,10 +8,10 @@ import Footer from "@/widgets/Footer";
 import { getMessages } from 'next-intl/server';
 import { Metadata } from 'next';
 import { baseUrl } from '@/shared/config/baseUrl';
+import {Link} from "@/i18n/navigation";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const {locale} = await params;
-
   const messages = await getMessages({ locale });
   const meta = messages.meta as typeof messages.meta;
 
@@ -69,7 +69,7 @@ export default function Page() {
                   dangerouslySetInnerHTML={{ __html: t.raw('introTitle') }}
               />
               <p className={styles.introText}>{t('introText')}</p>
-              <button className={styles.introButton}>{t('introButton')}</button>
+              <Link href="/articles/bible" className={styles.introButton}>{t('introButton')}</Link>
 
               <Image
                   src={jesusIntro}

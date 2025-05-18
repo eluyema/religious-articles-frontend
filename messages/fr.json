@@ -5,9 +5,13 @@
     "keywords": ["Jésus", "Christianisme", "Bible", "Foi", "Prière", "Salut"],
     "ogDescription": "Des articles et ressources chrétiennes multilingues pour approfondir ta marche avec Jésus-Christ."
   },
+  "articlesList": {
+    "exploreCategory": "Explorer {articleTitle}"
+  },
   "categoriesArticles": {
     "jesus": {
       "metaTitle": "Qui est Jésus-Christ ? Enseignements, vie et relation personnelle",
+      "explore": "Explorez la personne et les enseignements de Jésus",
       "metaDescription": "Découvrez l'identité, les enseignements, les miracles et les paraboles de Jésus-Christ. Apprenez à développer une relation personnelle avec Lui et explorez Sa vie et Son héritage.",
       "title": "Jésus-Christ",
       "description": "Explorez la vie et le message de Jésus-Christ — Son identité, Ses miracles, Ses enseignements et Ses paraboles. Découvrez comment Sa vie façonne notre foi et comment approfondir notre relation avec Lui aujourd’hui.",
@@ -15,6 +19,7 @@
     },
     "bible": {
       "metaTitle": "Étude biblique et interprétation – Ancien et Nouveau Testament",
+      "explore": "Explorez les livres et le sens de la Bible",
       "metaDescription": "Comprenez la structure et le message de la Bible. Étudiez l’Ancien et le Nouveau Testament, découvrez les personnages bibliques clés et la signification des symboles chrétiens.",
       "title": "Bible",
       "description": "Plongez dans la richesse de la Bible — de la Genèse à l’Apocalypse. Explorez les grands thèmes bibliques, les figures majeures, et comment la Parole de Dieu nous parle aujourd’hui à travers l’étude et l’interprétation.",
@@ -22,6 +27,7 @@
     },
     "prayer": {
       "metaTitle": "Prière et croissance spirituelle – Guide chrétien",
+      "explore": "Approfondissez votre prière et votre croissance spirituelle",
       "metaDescription": "Renforcez votre vie spirituelle à travers la prière, le jeûne et la guérison intérieure. Apprenez à instaurer une habitude de prière quotidienne et à approfondir votre relation avec Dieu.",
       "title": "Prière & Spiritualité",
       "description": "Approfondissez votre cheminement spirituel grâce à la prière, la méditation, la solitude et la guérison intérieure. Trouvez des conseils pratiques pour vous rapprocher de Dieu chaque jour.",
@@ -29,6 +35,7 @@
     },
     "faith-in-life": {
       "metaTitle": "Vivre sa foi au quotidien – Famille, travail et épreuves",
+      "explore": "Vivez votre foi au quotidien dans tous les aspects de la vie",
       "metaDescription": "Mettez votre foi en pratique dans la vie quotidienne — famille, travail, finances et difficultés. Trouvez la sagesse et la force de vivre en chrétien chaque jour.",
       "title": "Foi au Quotidien",
       "description": "La foi ne se limite pas au dimanche. Découvrez comment vivre votre foi chaque jour — au travail, en famille, face aux défis — avec discipline chrétienne et confiance en Dieu.",
@@ -36,6 +43,7 @@
     },
     "relationships": {
       "metaTitle": "Relations chrétiennes – Mariage, parentalité et amitié",
+      "explore": "Cultivez des relations chrétiennes saines et aimantes",
       "metaDescription": "Découvrez les principes chrétiens pour des relations saines — mariage, parentalité, pardon et vie communautaire. Apprenez à aimer et servir les autres avec compassion, à l’image du Christ.",
       "title": "Relations",
       "description": "Les relations sont au cœur de la vie chrétienne. Grandissez dans l’amour, le pardon et la communauté grâce à des conseils bibliques sur le mariage, la parentalité et l’amitié.",
@@ -99,5 +107,8 @@
     "privacyPolicy": "Politique de confidentialité",
     "contactUs": "Nous contacter",
     "email": "e-mail"
+  },
+  "common": {
+    "notFoundInYouLanguage": "Non disponible dans votre langue. Il se peut qu’il existe dans une autre — n’hésitez pas à changer."
   }
 }

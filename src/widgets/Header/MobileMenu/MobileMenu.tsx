@@ -6,7 +6,7 @@ import CrossIcon from "@/widgets/Header/CrossIcon";
 import styles from './index.module.scss';
 // import dynamic from 'next/dynamic';
 import {categoriesConfig} from "@/shared/config/categoriesConfig";
-import Link from "next/link";
+import {Link} from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import classNames from "classnames";
 
