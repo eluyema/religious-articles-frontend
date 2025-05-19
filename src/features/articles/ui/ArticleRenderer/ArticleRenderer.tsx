@@ -34,7 +34,7 @@ const ArticleRenderer: React.FC<Props> = ({ data }) => {
                 );
             case 'image':
                 return (
-                    <div key={block.id} style={{position: 'relative', width: '100%', height: '400px', marginTop: '1em'}}>
+                    <div key={block.id} style={{position: 'relative', width: '100%', aspectRatio: '16 / 9', marginTop: '1em'}}>
                         <Image
                             src={block.data.file.url}
                             alt={block.data.caption || 'Article image'}
