@@ -107,7 +107,8 @@
   },
   "header": {
     "closeMenu": "Menü schließen",
-    "openMenu": "Menü öffnen"
+    "openMenu": "Menü öffnen",
+    "localeSwitchLabel": "Sprache auswählen"
   },
   "common": {
     "notFoundInYouLanguage": "In Ihrer Sprache nicht verfügbar. Es könnte in einer anderen verfügbar sein — wechseln Sie gerne."

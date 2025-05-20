@@ -114,6 +114,7 @@
   "footer": {
     "privacyPolicy": "Privacy Policy",
     "contactUs": "Contact us",
-    "email": "email"
+    "email": "email",
+    "localeSwitchLabel": "Select language"
   }
 }

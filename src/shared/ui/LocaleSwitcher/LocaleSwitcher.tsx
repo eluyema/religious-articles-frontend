@@ -25,7 +25,7 @@ const LocaleSwitcher = ({ className = '' }: LocaleSwitcherProps) => {
     };
 
     return (
-        <select className={classNames(styles.select, className)} value={currentLocale} onChange={handleChange}>
+        <select className={classNames(styles.select, className)} value={currentLocale} onChange={handleChange} aria-label="Select language">
             {supportedLocales.map((locale) => (
                 <option key={locale} value={locale}>
                     {localeLabels[locale]}
