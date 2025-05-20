@@ -52,7 +52,7 @@ const CategoryArticleListPage = ({category, locale, articles }:CategoryArticleLi
                     </div>
                 </div>
                 <div className={styles.imageBlock}>
-                    <Image className={styles.categoryImage} src={imageUrl} alt={t(`${category}.imageAlt`)} fill
+                    <Image priority className={styles.categoryImage} src={imageUrl} alt={t(`${category}.imageAlt`)} fill
                            objectFit="contain"/>
                 </div>
             </section>

@@ -80,6 +80,7 @@ export default function Page() {
               />
               <Image
                   src={jesusIntro}
+                  priority
                   alt={t('introImageAlt')}
                   className={classNames(styles.introImage, styles.mobile)}
                   width={350}
