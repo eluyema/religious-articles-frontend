@@ -81,14 +81,20 @@
     justify-content: center;
     gap: 5px;
 
-    & .navLink {
+    & .navLinkBlock {
       padding: 0 14px;
       align-items: center;
       display: flex;
       position: relative;
       text-wrap: nowrap;
 
-      &.navLinkActive {
+      & .navLink {
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+
+      &.navLinkBlockActive {
         color: #b93032;
 
         & .navLinkText::after {

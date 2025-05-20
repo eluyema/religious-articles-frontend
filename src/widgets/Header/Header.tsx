@@ -31,11 +31,13 @@ const Header = ({activeCategory}:HeaderProps) => {
                 <nav className={styles.navigation}>
                     <ul className={styles.navigationContent}>
                         {categoriesConfig.map((category) => (
-                            <Link className={classNames(styles.navLink, {[styles.navLinkActive]: activeCategory === category.code})} href={`/articles/${category.code}`} key={category.code}>
+                            <li key={category.code} className={classNames(styles.navLinkBlock, {[styles.navLinkBlockActive]: activeCategory === category.code})}>
+                                <Link className={styles.navLink} href={`/articles/${category.code}`}>
                                 <span className={styles.navLinkText}>
                                     {t(`${category.code}.title`)}
                                 </span>
-                            </Link>
+                                </Link>
+                            </li>
                         ))}
                     </ul>
                 </nav>
