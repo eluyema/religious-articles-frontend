@@ -51,4 +51,6 @@ export interface ArticlePath {
     slug: string;
     language: string;
     active: boolean;
+    createdAt: string; // ISO date string
+    updatedAt: string; // ISO date string
 }
