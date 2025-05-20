@@ -21,7 +21,7 @@ const Footer = () => {
 
                 {/* Контактная информация */}
                 <address className={styles.contacts}>
-                    <h5>{t('contactUs')}</h5>
+                    <h3 className={styles.contactsTitle}>{t('contactUs')}</h3>
                     <table className={styles.contactsTable}>
                         <tbody>
                         <tr>
