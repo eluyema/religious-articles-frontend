@@ -46,13 +46,19 @@
   flex-direction: column;
 }
 
-.navLink {
+.navLinkBlock {
   font-size: 28px;
   color: #ffebeb;
-  padding: 25px 20px;
   border-top: 1px solid #e59191;
 
   &:last-child {
     border-bottom: 1px solid #e59191;
   }
+}
+
+.navLink {
+  height: 100%;
+  padding: 25px 20px;
+  display: flex;
+  align-items: center;
 }
