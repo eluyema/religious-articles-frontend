@@ -13,10 +13,11 @@ import classNames from "classnames";
 const MobileMenu = () => {
     const [open, setOpen] = useState(false);
     const t = useTranslations('categories');
+    const tHeader = useTranslations('header');
 
     return (
             <div className={styles.menuBlock}>
-                <button onClick={() => setOpen(!open)} className={styles.burgerButton}>
+                <button onClick={() => setOpen(!open)} className={styles.burgerButton} aria-label={open ? tHeader("closeMenu") : tHeader("openMenu") }>
                     {open ? <CrossIcon/> : <BurgerIcon/>}
                 </button>
                 <div

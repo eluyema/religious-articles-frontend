@@ -100,6 +100,10 @@
     "missionCaption": "Nuestra Misión",
     "missionText": "Nosotros <em><span></span><span>acompañamos</span></em> tu viaje hacia la fe, la paz y el propósito — ayudándote a conectar con Jesús en tu vida diaria"
   },
+  "header": {
+    "closeMenu": "Cerrar menú",
+    "openMenu": "Abrir menú"
+  },
   "footer": {
     "privacyPolicy": "Política de Privacidad",
     "contactUs": "Contáctanos",

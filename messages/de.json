@@ -105,6 +105,10 @@
     "contactUs": "Kontaktieren Sie uns",
     "email": "E-Mail"
   },
+  "header": {
+    "closeMenu": "Menü schließen",
+    "openMenu": "Menü öffnen"
+  },
   "common": {
     "notFoundInYouLanguage": "In Ihrer Sprache nicht verfügbar. Es könnte in einer anderen verfügbar sein — wechseln Sie gerne."
   }

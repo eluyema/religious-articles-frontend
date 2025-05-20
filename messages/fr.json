@@ -108,6 +108,10 @@
     "contactUs": "Nous contacter",
     "email": "e-mail"
   },
+  "header": {
+    "closeMenu": "Fermer le menu",
+    "openMenu": "Ouvrir le menu"
+  },
   "common": {
     "notFoundInYouLanguage": "Non disponible dans votre langue. Il se peut qu’il existe dans une autre — n’hésitez pas à changer."
   }
