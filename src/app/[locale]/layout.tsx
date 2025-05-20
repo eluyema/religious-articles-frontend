@@ -6,6 +6,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script"; // Import Script from next
 import "normalize.css";
 import "./globals.css";
+import Polyfills from "@/core/libs/polyfills";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -50,7 +51,8 @@ export default async function RootLayout({children, params
 
         </head>
         <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <NextIntlClientProvider>
+            <Polyfills/>
+            <NextIntlClientProvider>
             {children}
         </NextIntlClientProvider>
         </body>
