@@ -2,7 +2,7 @@
 import styles from './index.module.scss';
 
 import { useRouter, usePathname } from 'next/navigation';
-import { supportedLocales, localeLabels } from '@/shared/config/supportedLocales';
+import {supportedLocales, localeLabels, defaultLocale} from '@/shared/config/supportedLocales';
 import classNames from 'classnames';
 
 type LocaleSwitcherProps = {
@@ -12,14 +12,19 @@ type LocaleSwitcherProps = {
 const LocaleSwitcher = ({ className = '' }: LocaleSwitcherProps) => {
     const router = useRouter();
     const pathname = usePathname();
-    const currentLocale = pathname.split('/')[1];
+
+    const currentLocale = supportedLocales.find(locale => pathname.startsWith(`/${locale}/`)) || defaultLocale;
 
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const newLocale = e.target.value;
 
         document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000`;
 
-        const newPath = `/${newLocale}${pathname.replace(/^\/[a-z]{2}/, '')}`;
+        const withoutLocale = pathname.replace(/^\/[a-z]{2}(?=\/|$)/, '');
+
+        const newPath = newLocale === defaultLocale
+            ? withoutLocale || '/'
+            : `/${newLocale}${withoutLocale}`;
 
         router.push(newPath);
     };

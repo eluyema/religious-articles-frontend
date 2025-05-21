@@ -26,6 +26,27 @@ type Props = {
     }>;
 };
 
+export function generateAlternates({
+                                       baseUrl,
+                                       locale,
+                                       locales,
+                                       category,
+                                   }: {
+    baseUrl: string;
+    locale: string;
+    locales: string[];
+    category: string;
+}) {
+    const normalize = (lng: string) =>
+        `${baseUrl}/${lng === "en" ? "" : lng}/${category}`.replace(/\/+/g, "/");
+
+    return {
+        canonical: normalize(locale),
+        languages: Object.fromEntries(locales.map((lng) => [lng, normalize(lng)])),
+    };
+}
+
+
 export async function generateMetadata({ params }: { params: Promise<{ category: string; locale: string }>; }): Promise<Metadata> {
     const {locale, category} = await params;
     const t = await getTranslations({ locale, namespace: 'categoriesArticles' });
@@ -36,15 +57,8 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
     return {
         title: t(`${category}.metaTitle`),
         description: t(`${category}.metaDescription`),
-        alternates: {
-            canonical: `${baseUrl}/${locale}/${category}`,
-            languages: Object.fromEntries(
-                locales.map((lng) => [
-                    lng,
-                    `${baseUrl}/${lng}/${category}`,
-                ])
-            ),
-        },
+        alternates:
+        generateAlternates({baseUrl, locale, locales, category}),
     };
 }
 

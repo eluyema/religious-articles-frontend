@@ -9,11 +9,38 @@ import { getMessages } from 'next-intl/server';
 import { Metadata } from 'next';
 import { baseUrl } from '@/shared/config/baseUrl';
 import {Link} from "@/i18n/navigation";
+import {supportedLocales} from "@/shared/config/supportedLocales";
+
+function generateAlternates({
+                              baseUrl,
+                              locale,
+                              locales,
+                              path = '',
+                            }: {
+  baseUrl: string;
+  locale: string;
+  locales: string[];
+  path?: string;
+}) {
+  const normalize = (lng: string) =>
+      `${baseUrl}/${lng === 'en' ? '' : lng}/${path}`.replace(/\/+/g, '/');
+
+  return {
+    canonical: normalize(locale),
+    languages: Object.fromEntries(locales.map((lng) => [lng, normalize(lng)])),
+  };
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const {locale} = await params;
   const messages = await getMessages({ locale });
   const meta = messages.meta as typeof messages.meta;
+  const { canonical, languages } = generateAlternates({
+    baseUrl,
+    locale,
+    locales: supportedLocales,
+    path: '', // Root page
+  });
 
   return {
     title: meta.title,
@@ -25,7 +52,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     openGraph: {
       title: meta.title,
       description: meta.ogDescription,
-      url: baseUrl + '/' + locale,
+      url: canonical,
       siteName: "Jesus Near",
       images: [
         {
@@ -35,8 +62,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
           alt: meta.title,
         },
       ],
-      locale: locale.replace('-', '_'), // e.g. en-US
+      locale: locale.replace('-', '_'),
       type: "website",
+    },
+    alternates: {
+      canonical,
+      languages,
     },
     icons: {
       icon: [
@@ -50,7 +81,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         { rel: 'icon', url: '/android-chrome-192x192.png' },
         { rel: 'icon', url: '/android-chrome-512x512.png' },
       ],
-    }
+    },
   };
 }
 

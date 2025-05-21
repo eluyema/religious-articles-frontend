@@ -1,40 +1,17 @@
-import {NextIntlClientProvider, hasLocale} from 'next-intl';
-import {notFound} from 'next/navigation';
-import {routing} from '@/i18n/routing';
-
+import { NextIntlClientProvider } from 'next-intl';
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script"; // Import Script from next
 import "normalize.css";
 import "./globals.css";
+import Script from "next/script";
 
-const geistSans = Geist({
-    variable: "--font-geist-sans",
-    subsets: ["latin"],
-});
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
-    subsets: ["latin"],
-});
-
-export default async function RootLayout({children, params
-                                   }: Readonly<{
-    children: React.ReactNode;
-    params: Promise<{locale: string}>
-}>) {
-    const { locale } = await params;
-    if (!hasLocale(routing.locales, locale)) {
-        notFound();
-    }
-
+export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang={locale}>
+        <html lang="en">
         <head>
-            <meta name="theme-color" content="#ffffff"/>
-            <meta name="viewport" content="width=device-width, initial-scale=1"/>
-            <link rel="shortcut icon" href="/favicon.ico"/>
-
-            {/* Google Analytics */}
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
             <Script strategy="afterInteractive"
                     src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}/>
             <Script id="google-analytics" strategy="afterInteractive">
@@ -48,10 +25,9 @@ export default async function RootLayout({children, params
             <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
             <link rel="icon" href="/favicon-32x32.png" type="image/png" />
             <link rel="manifest" href="/manifest.json"/>
-
         </head>
         <body className={`${geistSans.variable} ${geistMono.variable}`}>
-            <NextIntlClientProvider>
+        <NextIntlClientProvider locale="en">
             {children}
         </NextIntlClientProvider>
         </body>
