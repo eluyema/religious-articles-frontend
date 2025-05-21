@@ -26,7 +26,7 @@ type Props = {
     }>;
 };
 
-export function generateAlternates({
+function generateAlternates({
                                        baseUrl,
                                        locale,
                                        locales,
