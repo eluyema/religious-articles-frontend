@@ -1,16 +1,20 @@
-import { FullArticle } from "@/features/articles/model/entities";
+import {Article, FullArticle} from "@/features/articles/model/entities";
 import styles from "./index.module.scss";
 import Image from "next/image";
 import {Link} from "@/i18n/navigation";
 import {useTranslations} from "next-intl";
 import ArticleRenderer from "@/features/articles/ui/ArticleRenderer";
+import CategoryArticlesList from "@/features/articles/ui/CateogoryArticleList/CateogoryArticleList";
 
 type ArticlePageProps = {
     article: FullArticle;
+    categoryArticles: {category: string; articles: Article[] }[]
+    locale: string;
 };
 
-const ArticlePage = ({ article }: ArticlePageProps) => {
+const ArticlePage = ({ article, categoryArticles, locale }: ArticlePageProps) => {
     const t = useTranslations('categoriesArticles');
+
     return (
         <>
         <section className={styles.previewSection}>
@@ -40,6 +44,9 @@ const ArticlePage = ({ article }: ArticlePageProps) => {
                 <ArticleRenderer data={article.content} />
             </div>
         </section>
+            {categoryArticles.map(({category, articles}) =>
+                !!articles.length && <CategoryArticlesList key={category} category={category} locale={locale} articles={articles}/>)}
+
     </>
     );
 };

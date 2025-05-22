@@ -4,7 +4,8 @@ import Footer from "@/widgets/Footer";
 import { loadFullArticle } from "@/features/articles/api/endpoints/loadFullArticle";
 import ArticlePage from "@/features/articles/ui/ArticlePage";
 import { loadAllArticlePath } from "@/features/articles/api/endpoints/loadAllArticlePath";
-import { FullArticle } from "@/features/articles/model/entities";
+import {loadArticlesRecommendations} from "@/features/articles/api/endpoints/loadArticlesRecommendations";
+import {categoriesConfig} from "@/shared/config/categoriesConfig";
 
 const baseUrl = 'https://jesusnear.com';
 
@@ -120,14 +121,24 @@ export async function generateMetadata({
     };
 }
 
+const loadRecommendations = async (currentSlug: string) => {
+    return Promise.all(
+        categoriesConfig.map(({code}) => (
+            async ()=> ({category: code, articles: (await loadArticlesRecommendations({ category: code, limit: 3 })).filter(article=>
+                    article.slug !== currentSlug)
+            }))()
+        ));
+}
+
 const Page = async ({ params }: Props) => {
     const { category, locale, slug } = await params;
-    const article: FullArticle = await loadFullArticle({ slug, locale });
+    const article = await loadFullArticle({ slug, locale });
+    const categoryArticles = await loadRecommendations(slug);
 
     return (
         <>
             <Header activeCategory={category} />
-            <ArticlePage article={article} />
+            <ArticlePage article={article} categoryArticles={categoryArticles} locale={locale}/>
             <Footer />
         </>
     );

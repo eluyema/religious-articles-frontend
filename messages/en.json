@@ -99,7 +99,9 @@
     "introButton": "Learn more",
     "introImageAlt": "Jesus with your family",
     "missionCaption": "Our Mission",
-    "missionText": "We <em><span></span><span>support</span></em> your journey toward faith, peace, and purpose — by helping you connect with Jesus in your everyday life"
+    "missionText": "We <em><span></span><span>support</span></em> your journey toward faith, peace, and purpose — by helping you connect with Jesus in your everyday life",
+    "findCategoriesTitle": "Walk with Christ",
+    "findCategoriesDescription": "Choose a path to grow in Him:"
   },
   "articlesList": {
     "exploreCategory": "Explore {articleTitle}"

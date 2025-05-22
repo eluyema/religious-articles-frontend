@@ -98,7 +98,9 @@
     "introButton": "Mehr erfahren",
     "introImageAlt": "Jesus mit deiner Familie",
     "missionCaption": "Unsere Mission",
-    "missionText": "Wir <em><span></span><span>begleiten</span></em> Ihren Weg zu Glauben, Frieden und Sinn — indem wir Ihnen helfen, Jesus im Alltag zu begegnen"
+    "missionText": "Wir <em><span></span><span>begleiten</span></em> Ihren Weg zu Glauben, Frieden und Sinn — indem wir Ihnen helfen, Jesus im Alltag zu begegnen",
+    "findCategoriesTitle": "Geh mit Christus",
+    "findCategoriesDescription": "Wähle einen Weg, um in Ihm zu wachsen:"
   },
   "footer": {
     "privacyPolicy": "Datenschutzrichtlinie",

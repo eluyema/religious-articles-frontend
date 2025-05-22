@@ -98,7 +98,9 @@
     "introButton": "Узнать больше",
     "introImageAlt": "Иисус с вашей семьёй",
     "missionCaption": "Наша миссия",
-    "missionText": "Мы <em><span></span><span>поддерживаем</span></em> ваш путь к вере, миру и смыслу — помогая вам соединиться с Иисусом в повседневной жизни"
+    "missionText": "Мы <em><span></span><span>поддерживаем</span></em> ваш путь к вере, миру и смыслу — помогая вам соединиться с Иисусом в повседневной жизни",
+    "findCategoriesTitle": "Иди с Христом",
+    "findCategoriesDescription": "Выбери путь, чтобы возрастать в Нем:"
   },
   "footer": {
     "privacyPolicy": "Политика конфиденциальности",

@@ -1,15 +1,10 @@
-import styles from "./page.module.scss";
-import Image from "next/image";
-import jesusIntro from '../assets/jesus-with-family.png';
-import classNames from "classnames";
-import { useTranslations } from "next-intl";
-import Header from "@/widgets/Header";
-import Footer from "@/widgets/Footer";
 import { getMessages } from 'next-intl/server';
 import { Metadata } from 'next';
 import { baseUrl } from '@/shared/config/baseUrl';
-import { Link } from "@/i18n/navigation";
-import {supportedLocales} from "@/shared/config/supportedLocales";
+import {defaultLocale, supportedLocales} from "@/shared/config/supportedLocales";
+import HomePage from "@/shared/ui/HomePage/HomePage";
+import {categoriesConfig} from "@/shared/config/categoriesConfig";
+import {loadArticlesRecommendations} from "@/features/articles/api/endpoints/loadArticlesRecommendations";
 
 // 🔹 Utility function to generate alternate URLs
 function generateAlternates({
@@ -87,53 +82,11 @@ export async function generateMetadata(): Promise<Metadata> {
     };
 }
 
-export default function Page() {
-    const t = useTranslations('homepage');
-
-    return (
-        <>
-            <Header />
-            <div className={styles.page}>
-                <main className={styles.main}>
-                    <section className={styles.introSection}>
-                        <div className={styles.introSectionContent}>
-                            <h1
-                                className={styles.introTitle}
-                                dangerouslySetInnerHTML={{ __html: t.raw('introTitle') }}
-                            />
-                            <p className={styles.introText}>{t('introText')}</p>
-                            <Link href="/articles/bible" className={styles.introButton}>
-                                {t('introButton')}
-                            </Link>
-
-                            <Image
-                                src={jesusIntro}
-                                alt={t('introImageAlt')}
-                                className={classNames(styles.introImage, styles.desktop)}
-                                width={600}
-                                height={400}
-                            />
-                            <Image
-                                src={jesusIntro}
-                                priority
-                                alt={t('introImageAlt')}
-                                className={classNames(styles.introImage, styles.mobile)}
-                                width={350}
-                                height={235}
-                            />
-                        </div>
-                    </section>
-
-                    <section className={styles.missionSection}>
-                        <p className={styles.missionSectionCapture}>{t('missionCaption')}</p>
-                        <h2
-                            className={styles.missionSectionText}
-                            dangerouslySetInnerHTML={{ __html: t.raw('missionText') }}
-                        />
-                    </section>
-                </main>
-            </div>
-            <Footer />
-        </>
-    );
-}
+export default async function Page(){
+    const categoryArticles = await Promise.all(
+        categoriesConfig.map(({code}) => (
+            async ()=> ({category: code, articles: await loadArticlesRecommendations({ category: code, limit: 3 })
+            }))()
+        ));
+    return <HomePage categoryArticles={categoryArticles} locale={defaultLocale}/>
+};

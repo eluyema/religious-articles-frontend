@@ -98,7 +98,9 @@
     "introButton": "Saiba mais",
     "introImageAlt": "Jesus com sua família",
     "missionCaption": "Nossa missão",
-    "missionText": "Nós <em><span></span><span>acompanhamos</span></em> sua jornada rumo à fé, à paz e ao propósito — ajudando você a encontrar Jesus na sua vida cotidiana"
+    "missionText": "Nós <em><span></span><span>acompanhamos</span></em> sua jornada rumo à fé, à paz e ao propósito — ajudando você a encontrar Jesus na sua vida cotidiana",
+    "findCategoriesTitle": "Caminhe com Cristo",
+    "findCategoriesDescription": "Escolha um caminho para crescer n'Ele:"
   },
   "footer": {
     "privacyPolicy": "Política de Privacidade",
