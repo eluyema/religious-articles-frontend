@@ -12,7 +12,7 @@ export const loadArticlesRecommendations = async ({ category, limit = 5 }: Param
         headers['X-CLIENT-SECRET'] = envConfig.secretKey;
     }
 
-    const res = await fetch(`${envConfig.serverUrl}/api/christianity/client/article/recommendations?category=${category}`, {
+    const res = await fetch(`${envConfig.serverUrl}/api/christianity/client/article/recommendations?category=${category}&limit=${limit}`, {
         headers,
         next: {
             revalidate: minutes
