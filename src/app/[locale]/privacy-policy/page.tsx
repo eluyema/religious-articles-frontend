@@ -30,8 +30,8 @@ function generateAlternates({
     };
 }
 
-export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
-    const locale = params.locale || defaultLocale;
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+    const locale = (await params).locale || defaultLocale;
     const messages = await getMessages({ locale });
     const meta = messages.meta?.privacyPolicy as typeof messages.meta.privacyPolicy;
 
