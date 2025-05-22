@@ -45,7 +45,7 @@ const ArticlePage = ({ article, categoryArticles, locale }: ArticlePageProps) =>
             </div>
         </section>
             {categoryArticles.map(({category, articles}) =>
-                !!articles.length && <CategoryArticlesList key={category} category={category} locale={locale} articles={articles}/>)}
+                !!articles.length && <CategoryArticlesList className={styles.categorySection} key={category} category={category} locale={locale} articles={articles}/>)}
 
     </>
     );

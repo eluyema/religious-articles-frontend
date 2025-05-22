@@ -72,7 +72,7 @@ const HomePage = ({categoryArticles, locale}:HomePageProps) => {
                         </div>
                     </section>
                     {categoryArticles.map(({category, articles}) =>
-                        <CategoryArticlesList key={category} category={category} locale={locale} articles={articles}/>)}
+                        <CategoryArticlesList className={styles.categorySection} key={category} category={category} locale={locale} articles={articles}/>)}
                 </main>
             </div>
         <Footer/>

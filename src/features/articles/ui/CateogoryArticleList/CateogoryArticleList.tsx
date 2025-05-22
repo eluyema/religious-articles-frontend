@@ -2,14 +2,16 @@ import { useTranslations } from "next-intl";
 import {Article, ArticleTranslation} from "@/features/articles/model/entities";
 import ArticleTranslationPreview from "@/features/articles/ui/ArticleTranslationPreview";
 import styles from "./index.module.scss";
+import classNames from "classnames";
 
 type CategoryArticlesListProps = {
     category: string;
     articles: Article[];
     locale: string;
+    className?: string;
 };
 
-const CategoryArticlesList = ({ category, articles, locale }: CategoryArticlesListProps) => {
+const CategoryArticlesList = ({ category, articles, locale, className = '' }: CategoryArticlesListProps) => {
     const t = useTranslations("categoriesArticles");
     const tCommon = useTranslations("common");
 
@@ -23,7 +25,7 @@ const CategoryArticlesList = ({ category, articles, locale }: CategoryArticlesLi
     }));
 
     return (
-        <section className={styles.articlesSection}>
+        <section className={classNames(styles.articlesSection, className)}>
             <h2 className={styles.listTitle}>{t(`${category}.explore`)}</h2>
             {!articles.length && (
                 <p className={styles.notFoundText}>{tCommon("notFoundInYouLanguage")}</p>
