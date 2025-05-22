@@ -1,6 +1,6 @@
 import {useTranslations} from "next-intl";
 import Image, {StaticImageData} from "next/image";
-import {Article, ArticleTranslation} from "@/features/articles/model/entities";
+import {Article} from "@/features/articles/model/entities";
 import bibleCategoryImg from "@/assets/categories/bible.png";
 import jesusCategoryImg from "@/assets/categories/jesus.png";
 import Head from "next/head";
