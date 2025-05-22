@@ -1,15 +1,12 @@
-import fs from 'fs/promises';
-import path from 'path';
-import { Metadata } from 'next';
 import { getMessages } from 'next-intl/server';
-
+import { Metadata } from 'next';
 import { baseUrl } from '@/shared/config/baseUrl';
-import { defaultLocale, supportedLocales } from '@/shared/config/supportedLocales';
+import {defaultLocale, supportedLocales} from "@/shared/config/supportedLocales";
+import HomePage from "@/shared/ui/HomePage/HomePage";
+import {categoriesConfig} from "@/shared/config/categoriesConfig";
+import {loadArticlesRecommendations} from "@/features/articles/api/endpoints/loadArticlesRecommendations";
 
-import Header from '@/widgets/Header';
-import Footer from '@/widgets/Footer';
-import styles from './index.module.scss';
-
+// 🔹 Utility function to generate alternate URLs
 function generateAlternates({
                                 baseUrl,
                                 locale,
@@ -30,28 +27,28 @@ function generateAlternates({
     };
 }
 
-export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
-    const locale = params.locale || defaultLocale;
+export async function generateMetadata(): Promise<Metadata> {
+    const locale = 'en';
     const messages = await getMessages({ locale });
-    const meta = messages.meta?.privacyPolicy as typeof messages.meta.privacyPolicy;
+    const meta = messages.meta as typeof messages.meta;
 
     const { canonical, languages } = generateAlternates({
         baseUrl,
         locale,
         locales: supportedLocales,
-        path: 'privacy-policy',
+        path: '',
     });
 
     return {
-        title: meta?.title ?? 'Privacy Policy',
-        description: meta?.description,
-        keywords: meta?.keywords,
+        title: meta.title,
+        description: meta.description,
+        keywords: meta.keywords,
         authors: [{ name: "Jesus Near Team", url: "https://jesusnear.com" }],
         creator: "Jesus Near Team",
         metadataBase: new URL(baseUrl),
         openGraph: {
-            title: meta?.title,
-            description: meta?.ogDescription,
+            title: meta.title,
+            description: meta.ogDescription,
             url: canonical,
             siteName: "Jesus Near",
             images: [
@@ -59,7 +56,7 @@ export async function generateMetadata({ params }: { params: { locale: string } 
                     url: "/jesusnear.png",
                     width: 1200,
                     height: 630,
-                    alt: meta?.title,
+                    alt: meta.title,
                 },
             ],
             locale: locale.replace('-', '_'),
@@ -85,20 +82,11 @@ export async function generateMetadata({ params }: { params: { locale: string } 
     };
 }
 
-export default async function PrivacyPolicyPage({ params }: { params: { locale: string } }) {
-    const filePath = path.join(process.cwd(), 'src', 'app', params.locale, 'privacy-policy', 'policy.html');
-    const html = await fs.readFile(filePath, 'utf-8');
-
-    return (
-        <>
-            <Header />
-            <main className={styles.container}>
-                <div
-                    className={styles.content}
-                    dangerouslySetInnerHTML={{ __html: html }}
-                />
-            </main>
-            <Footer />
-        </>
-    );
-}
+export default async function Page(){
+    const categoryArticles = await Promise.all(
+        categoriesConfig.map(({code}) => (
+            async ()=> ({category: code, articles: await loadArticlesRecommendations({ category: code, limit: 3 })
+            }))()
+        ));
+    return <HomePage categoryArticles={categoryArticles} locale={defaultLocale}/>
+};

@@ -114,5 +114,10 @@
   },
   "common": {
     "notFoundInYouLanguage": "In Ihrer Sprache nicht verfügbar. Es könnte in einer anderen verfügbar sein — wechseln Sie gerne."
+  },
+  "privacyPolicy": {
+    "title": "Datenschutzrichtlinie",
+    "description": "Erfahren Sie, wie wir Ihre persönlichen Daten sammeln, verwenden und schützen.",
+    "keywords": "Datenschutz, Daten, Sicherheit, persönliche Informationen"
   }
 }

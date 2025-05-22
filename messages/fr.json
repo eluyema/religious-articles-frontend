@@ -117,5 +117,10 @@
   },
   "common": {
     "notFoundInYouLanguage": "Non disponible dans votre langue. Il se peut qu’il existe dans une autre — n’hésitez pas à changer."
+  },
+  "privacyPolicy": {
+    "title": "Politique de confidentialité",
+    "description": "Découvrez comment nous collectons, utilisons et protégeons vos données personnelles.",
+    "keywords": "confidentialité, données, sécurité, informations personnelles"
   }
 }

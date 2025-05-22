@@ -118,5 +118,10 @@
     "contactUs": "Contact us",
     "email": "email",
     "localeSwitchLabel": "Select language"
+  },
+  "privacyPolicy": {
+    "title": "Privacy Policy",
+    "description": "Learn how we collect, use, and protect your personal data.",
+    "keywords": "privacy, data, security, personal information"
   }
 }

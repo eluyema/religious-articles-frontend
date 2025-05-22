@@ -114,5 +114,10 @@
   },
   "common": {
     "notFoundInYouLanguage": "No disponible en tu idioma. Puede estar en otro — puedes cambiarlo si lo deseas."
+  },
+  "privacyPolicy": {
+    "title": "Política de privacidad",
+    "description": "Descubre cómo recopilamos, usamos y protegemos tu información personal.",
+    "keywords": "privacidad, datos, seguridad, información personal"
   }
 }
