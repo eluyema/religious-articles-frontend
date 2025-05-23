@@ -20,7 +20,7 @@ const HomePage = ({categoryArticles, locale}:HomePageProps) => {
     const tCategories = useTranslations('categories');
 
     return (<>
-            <Header currentLocale={locale}/>
+            <Header />
             <div className={styles.page}>
                 <main className={styles.main}>
                     <section className={styles.introSection}>

@@ -1,18 +1,23 @@
 'use client';
 import styles from './index.module.scss';
 
-import { usePathname, useRouter} from 'next/navigation';
+import {useParams, usePathname, useRouter} from 'next/navigation';
 import {supportedLocales, localeLabels, defaultLocale} from '@/shared/config/supportedLocales';
 
 import classNames from 'classnames';
 
 type LocaleSwitcherProps = {
     className?: string;
-    currentLocale: string;
 };
 
-const LocaleSwitcher = ({ className = '', currentLocale}: LocaleSwitcherProps) => {
+const LocaleSwitcher = ({ className = '' }: LocaleSwitcherProps) => {
     const router = useRouter();
+    const params = useParams();
+
+    // Correctly extract current locale from the route param
+    const currentLocale = typeof params?.locale === 'string' && supportedLocales.includes(params.locale)
+        ? params.locale
+        : defaultLocale;
 
     const pathname = usePathname();
 

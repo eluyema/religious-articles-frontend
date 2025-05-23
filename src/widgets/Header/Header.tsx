@@ -8,20 +8,15 @@ import MobileMenu from "./MobileMenu"; // Client component
 import {categoriesConfig} from "@/shared/config/categoriesConfig";
 import classNames from "classnames";
 
-type HeaderProps = {activeCategory?: string; currentLocale: string};
+type HeaderProps = {activeCategory?: string};
 
-const Header = ({activeCategory, currentLocale}:HeaderProps) => {
+const Header = ({activeCategory}:HeaderProps) => {
     const t = useTranslations('categories');
-
-    const categories = categoriesConfig.map(({code}) => ({name: t(`${code}.title`), code: code}));
-
-    const tHeader = useTranslations('header');
-    const mobileMenuButtons = { openMenu: tHeader("closeMenu"), closeMenu: tHeader("openMenu") };
 
     return (
         <header className={styles.header}>
             <div className={styles.headerContent}>
-                <MobileMenu categories={categories} buttons={mobileMenuButtons}/>
+                <MobileMenu/>
 
                 <div className={styles.logoBlock}>
                     <Link href="/" className={styles.link}>
@@ -48,7 +43,7 @@ const Header = ({activeCategory, currentLocale}:HeaderProps) => {
                 </nav>
 
                 <div className={styles.localeSwitcherBlock}>
-                    <LocaleSwitcher className={styles.localeSwitcher} currentLocale={currentLocale} />
+                    <LocaleSwitcher className={styles.localeSwitcher}/>
                 </div>
             </div>
         </header>
