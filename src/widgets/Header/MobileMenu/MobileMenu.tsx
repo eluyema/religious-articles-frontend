@@ -4,15 +4,17 @@ import { useState } from 'react';
 import BurgerIcon from "@/widgets/Header/BurgerIcon";
 import CrossIcon from "@/widgets/Header/CrossIcon";
 import styles from './index.module.scss';
-// import dynamic from 'next/dynamic';
-import {categoriesConfig} from "@/shared/config/categoriesConfig";
 import {Link} from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import classNames from "classnames";
 
-const MobileMenu = () => {
+type MobileMenuProps = {
+    categories: {code: string; name: string}[];
+    buttons: {closeMenu: string}
+};
+
+const MobileMenu = ({categories}:MobileMenuProps) => {
     const [open, setOpen] = useState(false);
-    const t = useTranslations('categories');
     const tHeader = useTranslations('header');
 
     return (
@@ -27,11 +29,11 @@ const MobileMenu = () => {
                 >
                     <nav className={styles.navigation}>
                         <ul className={styles.navigationContent}>
-                            {categoriesConfig.map((category) => (
+                            {categories.map((category) => (
                                 <li className={styles.navLinkBlock} key={category.code}>
                                     <Link onClick={()=>setOpen(false)} className={styles.navLink} href={`/articles/${category.code}`}>
                                         <span className={styles.navLinkText}>
-                                            {t(`${category.code}.title`)}
+                                            {category.name}
                                         </span>
                                     </Link>
                                 </li>

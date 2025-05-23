@@ -137,7 +137,7 @@ const Page = async ({ params }: Props) => {
 
     return (
         <>
-            <Header activeCategory={category} />
+            <Header activeCategory={category} currentLocale={locale}/>
             <ArticlePage article={article} categoryArticles={categoryArticles} locale={locale}/>
             <Footer />
         </>
