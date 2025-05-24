@@ -4,7 +4,7 @@ import { useState } from 'react';
 import BurgerIcon from "@/widgets/Header/BurgerIcon";
 import CrossIcon from "@/widgets/Header/CrossIcon";
 import styles from './index.module.scss';
-// import dynamic from 'next/dynamic';
+
 import {categoriesConfig} from "@/shared/config/categoriesConfig";
 import {Link} from "@/i18n/navigation";
 import { useTranslations } from "next-intl";

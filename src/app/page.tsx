@@ -5,8 +5,9 @@ import {defaultLocale, supportedLocales} from "@/shared/config/supportedLocales"
 import HomePage from "@/shared/ui/HomePage/HomePage";
 import {categoriesConfig} from "@/shared/config/categoriesConfig";
 import {loadArticlesRecommendations} from "@/features/articles/api/endpoints/loadArticlesRecommendations";
+import {NextIntlClientProvider} from "next-intl";
+import HtmlLayoutWrapper from "@/core/providers/HtmlLayoutWrapper";
 
-// 🔹 Utility function to generate alternate URLs
 function generateAlternates({
                                 baseUrl,
                                 locale,
@@ -88,5 +89,6 @@ export default async function Page(){
             async ()=> ({category: code, articles: await loadArticlesRecommendations({ category: code, limit: 3 })
             }))()
         ));
-    return <HomePage categoryArticles={categoryArticles} locale={defaultLocale}/>
+    return <HtmlLayoutWrapper locale={defaultLocale}>
+        <NextIntlClientProvider locale={defaultLocale}><HomePage categoryArticles={categoryArticles} locale={defaultLocale}/> </NextIntlClientProvider></HtmlLayoutWrapper>;
 };
