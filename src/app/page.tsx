@@ -54,7 +54,7 @@ export async function generateMetadata(): Promise<Metadata> {
             siteName: "Jesus Near",
             images: [
                 {
-                    url: "/jesusnear.png",
+                    url: "/jesusnear-v2.png",
                     width: 1200,
                     height: 630,
                     alt: meta.title,
@@ -69,15 +69,15 @@ export async function generateMetadata(): Promise<Metadata> {
         },
         icons: {
             icon: [
-                { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-                { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-                { url: '/favicon.ico', type: 'image/x-icon' },
+                { url: '/favicon-32x32-v2.png', sizes: '32x32', type: 'image/png' },
+                { url: '/favicon-16x16-v2.png', sizes: '16x16', type: 'image/png' },
+                { url: '/favicon-v2.ico', type: 'image/x-icon' },
             ],
-            apple: '/apple-touch-icon.png',
-            shortcut: '/favicon.ico',
+            apple: '/apple-touch-icon-v2.png',
+            shortcut: '/favicon-v2.ico',
             other: [
-                { rel: 'icon', url: '/android-chrome-192x192.png' },
-                { rel: 'icon', url: '/android-chrome-512x512.png' },
+                { rel: 'icon', url: '/android-chrome-192x192-v2.png' },
+                { rel: 'icon', url: '/android-chrome-512x512-v2.png' },
             ],
         },
     };

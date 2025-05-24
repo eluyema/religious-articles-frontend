@@ -16,13 +16,14 @@ export default function HtmlLayoutWrapper({ locale, children }: LayoutWrapperPro
     return (
         <html lang={locale}>
         <Head>
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-            <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-            <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-            <link rel="manifest" href="/manifest.json" />
-            <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
-            <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <link rel="apple-touch-icon" href="/apple-touch-icon-v2.png"/>
+            <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32-v2.png"/>
+            <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16-v2.png"/>
+            <link rel="manifest" href="/manifest.json"/>
+            <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192-v2.png"/>
+            <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512-v2.png"/>
+            <link rel="shortcut icon" href="/favicon-v2.ico"/>
         </Head>
         <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Script

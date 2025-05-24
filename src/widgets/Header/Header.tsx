@@ -20,9 +20,9 @@ const Header = ({activeCategory}:HeaderProps) => {
 
                 <div className={styles.logoBlock}>
                     <Link href="/" className={styles.link}>
-                        <Image className={classNames(styles.icon, styles.desktop)} width={42} height={42} src="/jesusnear.png"
+                        <Image className={classNames(styles.icon, styles.desktop)} width={42} height={42} src="/jesusnear-v2.png"
                                alt="Christian cross logo of website"/>
-                        <Image className={classNames(styles.icon, styles.mobile)} width={28} height={28} src="/jesusnear.png"
+                        <Image className={classNames(styles.icon, styles.mobile)} width={28} height={28} src="/jesusnear-v2.png"
                                alt="Christian cross logo of website"/>
                         <p className={styles.logoText}>Jesus Near</p>
                     </Link>
