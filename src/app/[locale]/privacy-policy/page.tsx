@@ -85,8 +85,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     };
 }
 
-export default async function PrivacyPolicyPage({ params }: { params: Promise<{ locale: string }> }) {
-    const filePath = path.join(process.cwd(), 'src', 'app', (await params).locale, 'privacy-policy', 'policy.html');
+export default async function PrivacyPolicyPage({ }: { params: Promise<{ locale: string }> }) {
+    const filePath = path.join(process.cwd(), 'src', 'app', '[locale]', 'privacy-policy', 'policy.html');
     const html = await fs.readFile(filePath, 'utf-8');
 
     return (
