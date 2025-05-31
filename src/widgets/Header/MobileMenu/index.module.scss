@@ -35,6 +35,10 @@
 
 .mobileNavOverlayOpen {
   transform: translateX(0);
+
+  &.#main-header {
+    transform: none !important;
+  }
 }
 
 .navigationContent {
