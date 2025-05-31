@@ -4,17 +4,19 @@ import LocaleSwitcher from "../../shared/ui/LocaleSwitcher";
 import styles from './index.module.scss';
 
 import { useTranslations } from "next-intl";
-import MobileMenu from "./MobileMenu"; // Client component
+import MobileMenu from "./MobileMenu";
 import {categoriesConfig} from "@/shared/config/categoriesConfig";
 import classNames from "classnames";
+import HeaderScrollScript from "@/widgets/Header/HeaderScrollScript";
 
-type HeaderProps = {activeCategory?: string};
+type HeaderProps = {activeCategory?: string; className?: string};
 
-const Header = ({activeCategory}:HeaderProps) => {
+const Header = ({activeCategory, className = ''}:HeaderProps) => {
     const t = useTranslations('categories');
 
     return (
-        <header className={styles.header}>
+        <header id="main-header" className={classNames(styles.header, className)}>
+            <HeaderScrollScript/>
             <div className={styles.headerContent}>
                 <MobileMenu/>
 
