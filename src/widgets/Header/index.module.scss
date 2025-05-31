@@ -1,4 +1,9 @@
 @import "src/core/styles/mixins";
+@import "src/core/styles/vars.module";
+
+body {
+  padding-top: $headerHeight;
+}
 
 .mobile {
   display: block;
@@ -17,8 +22,13 @@
 }
 
 .header {
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   background-color: #fffbfb;
-  height: 78px;
+  height: $headerHeight;
   display: flex;
   border-bottom: 1px solid #ebd3d3;
   justify-content: center;
