@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from 'next/font/google';
 import 'normalize.css';
-import './globals.css';
+import './globals.scss';
 import Script from 'next/script';
 import Head from "next/head";
 

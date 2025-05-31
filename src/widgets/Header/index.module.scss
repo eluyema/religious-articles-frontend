@@ -1,10 +1,6 @@
 @import "src/core/styles/mixins";
 @import "src/core/styles/vars.module";
 
-body {
-  padding-top: $headerHeight;
-}
-
 .mobile {
   display: block;
 
