@@ -35,10 +35,10 @@
 
 .mobileNavOverlayOpen {
   transform: translateX(0);
+}
 
-  &.#main-header {
-    transform: none !important;
-  }
+#main-header:has(.mobileNavOverlayOpen) {
+  transform: none !important;
 }
 
 .navigationContent {
