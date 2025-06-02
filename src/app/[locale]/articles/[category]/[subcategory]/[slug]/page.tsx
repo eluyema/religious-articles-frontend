@@ -87,6 +87,8 @@ export async function generateMetadata({
                 },
             ],
             locale,
+            publishedTime: article.createdAt ?? undefined,
+            modifiedTime: article.updatedAt ?? undefined,
         },
         twitter: {
             card: 'summary_large_image',
