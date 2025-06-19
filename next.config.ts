@@ -5,6 +5,7 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const nextConfig: NextConfig = {
     images: {
         remotePatterns: [new URL('https://d3kixxf71ic3lt.cloudfront.net/**')],
+        unoptimized: true,
     },
 };
 
