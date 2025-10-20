@@ -1,0 +1,172 @@
+@import "src/core/styles/mixins";
+
+.previewSection {
+  background: #fff2c9;
+  position: relative;
+  padding-bottom: 20px;
+
+  & .categoryLink {
+    color: #b93032;
+    font-size: 18px;
+
+    @include desktop-only {
+      font-size: 28px;
+    }
+
+    &:hover {
+      transition-duration: 0.35s;
+      color: #d49f11;
+    }
+  }
+
+  &:before {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    background: url('/noises.webp');
+    opacity: 0.05;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+
+  @include desktop-only {
+    padding-top: 54px;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+
+  @include desktop-only {
+    flex-direction: column;
+  }
+}
+
+.textBlock {
+  z-index: 1;
+}
+
+.overline {
+  display: inline-block;
+  margin-bottom: 2.4rem;
+  color: #295c3d; // замените на ваш $color-forest
+  font-family: "O2", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #b6721a;
+  }
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #b93032;
+  margin-top: 10px;
+
+  @include desktop-only {
+    font-size: 51px;
+  }
+}
+
+.description {
+  font-size: 20px;
+  margin-top: 20px;
+  color: #333;
+}
+
+.imageBlock {
+  max-width: 100%;
+  margin-top: 20px;
+  position: relative;
+  aspect-ratio: 2/1;
+  width: 100%;
+}
+
+.previewImage {
+  border-radius: 1rem;
+
+  @include desktop-only {
+    border-radius: 50rem;
+  }
+}
+
+.categorySection {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.verseArticle {
+  line-height: 1.7;
+  font-size: 18px;
+
+  p {
+    margin-bottom: 0.8em;
+  }
+
+  h1, h2, h3 {
+    margin-top: 1.5em;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  pre {
+    background: #f5f5f5;
+    padding: 1em;
+    overflow-x: auto;
+  }
+
+  blockquote {
+    border-left: 4px solid #ccc;
+    padding-left: 1em;
+    color: #666;
+    margin: 1em 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    td, th {
+      border: 1px solid #ddd;
+      padding: 0.5em;
+    }
+  }
+
+  ul {
+    padding-left: 1.5em;
+    margin: 1em 0;
+
+    li {
+      list-style: disc;
+      margin-bottom: 0.5em;
+    }
+  }
+
+  .checklist {
+    list-style: none;
+    padding: 0;
+    li {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+  }
+
+  @include desktop-only {
+    font-size: 20px;
+  }
+}

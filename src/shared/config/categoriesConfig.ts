@@ -54,5 +54,9 @@ export const categoriesConfig = [
             { code: "conflict-and-forgiveness"},
             { code: "community" }
         ]
+    },
+    {
+        code: "verses",
+        subcategories: []
     }
 ]

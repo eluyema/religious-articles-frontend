@@ -29,7 +29,7 @@ const MobileMenu = () => {
                         <ul className={styles.navigationContent}>
                             {categoriesConfig.map((category) => (
                                 <li className={styles.navLinkBlock} key={category.code}>
-                                    <Link onClick={()=>setOpen(false)} className={styles.navLink} href={`/articles/${category.code}`}>
+                                    <Link onClick={()=>setOpen(false)} className={styles.navLink} href={category.code == "verses" ? "/verses" : `/articles/${category.code}`}>
                                         <span className={styles.navLinkText}>
                                             {t(`${category.code}.title`)}
                                         </span>

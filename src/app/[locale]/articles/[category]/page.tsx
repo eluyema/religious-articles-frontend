@@ -67,6 +67,7 @@ const Page = async ({ params }: Props) => {
 
     const articles = await loadArticlesByCategory(category);
 
+
     return (
         <><Header activeCategory={category}/>
         <CategoryArticleListPage category={category} articles={articles} locale={locale}/><Footer/>

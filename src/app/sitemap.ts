@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { supportedLocales } from "@/shared/config/supportedLocales";
 import { categoriesConfig } from "@/shared/config/categoriesConfig";
 import { loadAllArticlePath } from "@/features/articles/api/endpoints/loadAllArticlePath";
+import {loadVersePreviewList} from "@/features/verses/api/loadVersePreviewList";
 
 const getBase = (locale: string) => {
     if(locale === "en") return "https://www.jesusnear.com";
@@ -9,8 +10,9 @@ const getBase = (locale: string) => {
     return `https://www.jesusnear.com/${locale}`;
 }
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> { // TODO: make it more clean 0_0
     const allPath = await loadAllArticlePath();
+    const versePreviews = await loadVersePreviewList();
 
     const articlesUrls: MetadataRoute.Sitemap = allPath
         .filter(({ active }) => active)
@@ -20,9 +22,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             return ({
             url: `${base}/articles/${category}/${subcategory}/${slug}`,
             lastModified: new Date(updatedAt),
-            changeFrequency: 'monthly',
+            changeFrequency: 'yearly',
             priority: 0.4,
         })});
+
+    const versesUrls: MetadataRoute.Sitemap = versePreviews
+        .map(({ slug, language, updatedAt }) => {
+            const base = getBase(language);
+
+            return ({
+                url: `${base}/verses/${slug}`,
+                lastModified: new Date(updatedAt),
+                changeFrequency: 'yearly',
+                priority: 0.4,
+            })});
 
     const now = new Date();
 
@@ -30,7 +43,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         const baseUrl = getBase(locale);
 
         const categoryUrls = categoriesConfig.map(category => ({
-            url: `${baseUrl}/articles/${category.code}`,
+            url: category.code === "verses" ?`${baseUrl}/verses` : `${baseUrl}/articles/${category.code}`,
             lastModified: now,
             changeFrequency: 'weekly' as const,
             priority: 0.8,
@@ -58,5 +71,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
 
 
-    return [...staticUrls, ...articlesUrls];
+    return [...staticUrls, ...articlesUrls, ...versesUrls];
 }

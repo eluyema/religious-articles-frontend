@@ -32,15 +32,18 @@ const Header = ({activeCategory, className = ''}:HeaderProps) => {
 
                 <nav className={styles.navigation}>
                     <ul className={styles.navigationContent}>
-                        {categoriesConfig.map((category) => (
-                            <li key={category.code} className={classNames(styles.navLinkBlock, {[styles.navLinkBlockActive]: activeCategory === category.code})}>
-                                <Link className={styles.navLink} href={`/articles/${category.code}`}>
+                        {categoriesConfig.map((category) => {
+                            const linkHref = category.code === "verses" ? "/verses" : `/articles/${category.code}`;
+                            return (
+                            <li key={category.code}
+                                className={classNames(styles.navLinkBlock, {[styles.navLinkBlockActive]: activeCategory === category.code})}>
+                                <Link className={styles.navLink} href={linkHref}>
                                 <span className={styles.navLinkText}>
                                     {t(`${category.code}.title`)}
                                 </span>
                                 </Link>
                             </li>
-                        ))}
+                        )})}
                     </ul>
                 </nav>
 

@@ -63,25 +63,25 @@
   color: #b93032;
 
   @include desktop-only {
-    font-size: 38px;
+    font-size: 20px;
   }
 }
 
 .link {
   display: flex;
+  align-items: center;
 }
 
 .localeSwitcherBlock {
   display: flex;
   align-items: center;
   justify-content: end;
-  flex: 1;
 }
 
 .navigation {
   display: none;
   flex: 1;
-  padding-left: 30px;
+  padding-left: 10px;
   padding-right: 8px;
   align-items: end;
 
@@ -93,7 +93,7 @@
     gap: 5px;
 
     & .navLinkBlock {
-      padding: 0 14px;
+      padding: 0 10px;
       align-items: center;
       display: flex;
       position: relative;
@@ -139,5 +139,6 @@
 
   @include desktop-only {
     display: flex;
+    justify-content: center;
   }
 }
