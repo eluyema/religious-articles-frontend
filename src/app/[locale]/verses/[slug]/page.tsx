@@ -110,8 +110,16 @@ export async function generateMetadata({
     };
 }
 
+function shuffle<T>(arr: Array<T>): Array<T> {
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+
 const loadRecommendations = async (currentSlug: string) => {
-    return (await loadVersePreviewList()).filter(verse => verse.slug !== currentSlug); // TODO in server
+    return shuffle((await loadVersePreviewList()).filter(verse => verse.slug !== currentSlug)).slice(0, 25); // TODO in server
 }
 
 const activeCategory = 'verse';
@@ -119,7 +127,7 @@ const activeCategory = 'verse';
 const Page = async ({ params }: Props) => {
     const { locale, slug } = await params;
     const verse = await loadVerse({ slug, locale });
-    const versePreviews = await loadRecommendations(slug);
+    const versePreviews = (await loadRecommendations(slug));
 
     return (
         <>
