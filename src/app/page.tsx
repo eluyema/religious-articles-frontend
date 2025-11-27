@@ -7,6 +7,8 @@ import {categoriesConfig} from "@/shared/config/categoriesConfig";
 import {loadArticlesRecommendations} from "@/features/articles/api/endpoints/loadArticlesRecommendations";
 import {NextIntlClientProvider} from "next-intl";
 import HtmlLayoutWrapper from "@/core/providers/HtmlLayoutWrapper";
+import {loadVersePreviewList} from "@/features/verses/api/loadVersePreviewList";
+import {shuffle} from "@/shared/utils/shuffle";
 
 function generateAlternates({
                                 baseUrl,
@@ -83,12 +85,22 @@ export async function generateMetadata(): Promise<Metadata> {
     };
 }
 
+const loadVersesRecommendations = async () => {
+    return shuffle((await loadVersePreviewList())).slice(0, 10); // TODO in server
+}
+
+
 export default async function Page(){
-    const categoryArticles = await Promise.all(
+    const categoryArticlesPromise = Promise.all(
         categoriesConfig.map(({code}) => (
             async ()=> ({category: code, articles: await loadArticlesRecommendations({ category: code, limit: 3 })
             }))()
         ));
+
+    const versePreviewListPromise = loadVersesRecommendations();
+
+    const [categoryArticles,versePreviewList] = await Promise.all([categoryArticlesPromise, versePreviewListPromise]);
+
     return <HtmlLayoutWrapper locale={defaultLocale}>
-        <NextIntlClientProvider locale={defaultLocale}><HomePage categoryArticles={categoryArticles} locale={defaultLocale}/> </NextIntlClientProvider></HtmlLayoutWrapper>;
+        <NextIntlClientProvider locale={defaultLocale}><HomePage categoryArticles={categoryArticles} versePreviewList={versePreviewList} locale={defaultLocale}/> </NextIntlClientProvider></HtmlLayoutWrapper>;
 };

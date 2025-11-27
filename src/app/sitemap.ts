@@ -3,6 +3,7 @@ import { supportedLocales } from "@/shared/config/supportedLocales";
 import { categoriesConfig } from "@/shared/config/categoriesConfig";
 import { loadAllArticlePath } from "@/features/articles/api/endpoints/loadAllArticlePath";
 import {loadVersePreviewList} from "@/features/verses/api/loadVersePreviewList";
+import { logDuplicateDomainUrl } from "@/shared/utils/logDuplicateDomainUrl";
 
 const getBase = (locale: string) => {
     if(locale === "en") return "https://www.jesusnear.com";
@@ -18,9 +19,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> { // TOD
         .filter(({ active }) => active)
         .map(({ slug, language, category, subcategory, updatedAt }) => {
             const base = getBase(language);
-
+            const url = `${base}/articles/${category}/${subcategory}/${slug}`;
+            logDuplicateDomainUrl(url, { 
+                language, 
+                category, 
+                subcategory, 
+                slug,
+                base,
+                rawData: { slug, language, category, subcategory }
+            });
             return ({
-            url: `${base}/articles/${category}/${subcategory}/${slug}`,
+            url,
             lastModified: new Date(updatedAt),
             changeFrequency: 'yearly',
             priority: 0.4,
@@ -29,9 +38,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> { // TOD
     const versesUrls: MetadataRoute.Sitemap = versePreviews
         .map(({ slug, language, updatedAt }) => {
             const base = getBase(language);
-
+            const url = `${base}/verses/${slug}`;
+            logDuplicateDomainUrl(url, { 
+                language, 
+                slug,
+                base,
+                rawData: { slug, language }
+            });
             return ({
-                url: `${base}/verses/${slug}`,
+                url,
                 lastModified: new Date(updatedAt),
                 changeFrequency: 'yearly',
                 priority: 0.4,

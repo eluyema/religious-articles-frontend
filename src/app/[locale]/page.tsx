@@ -5,6 +5,8 @@ import {supportedLocales} from "@/shared/config/supportedLocales";
 import HomePage from "@/shared/ui/HomePage/HomePage";
 import {loadArticlesRecommendations} from "@/features/articles/api/endpoints/loadArticlesRecommendations";
 import {categoriesConfig} from "@/shared/config/categoriesConfig";
+import {shuffle} from "@/shared/utils/shuffle";
+import {loadVersePreviewList} from "@/features/verses/api/loadVersePreviewList";
 
 function generateAlternates({
                               baseUrl,
@@ -80,13 +82,22 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
+const loadVersesRecommendations = async () => {
+  return shuffle((await loadVersePreviewList())).slice(0, 10); // TODO in server
+}
+
 export default async function Page({ params }: { params: Promise<{ locale: string }> }){
   const { locale } = await params;
 
-  const categoryArticles = await Promise.all(
+  const categoryArticlesPromise = Promise.all(
       categoriesConfig.map(({code}) => (
           async ()=> ({category: code, articles: await loadArticlesRecommendations({ category: code, limit: 3 })
           }))()
-  ));
-  return <HomePage categoryArticles={categoryArticles} locale={locale}/>
+      ));
+
+    const versePreviewListPromise = loadVersesRecommendations();
+
+  const [categoryArticles,versePreviewList] = await Promise.all([categoryArticlesPromise, versePreviewListPromise]);
+
+  return <HomePage categoryArticles={categoryArticles} locale={locale} versePreviewList={versePreviewList}/>
 };

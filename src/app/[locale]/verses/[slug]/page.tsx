@@ -5,6 +5,8 @@ import Footer from "@/widgets/Footer";
 import {loadVersePreviewList} from "@/features/verses/api/loadVersePreviewList";
 import {loadVerse} from "@/features/verses/api/loadVerse";
 import VersePage from "@/features/verses/ui/VersePage";
+import { logDuplicateDomainUrl } from "@/shared/utils/logDuplicateDomainUrl";
+import { handleNotFound } from "@/shared/utils/handleNotFound";
 
 const baseUrl = 'https://jesusnear.com';
 
@@ -56,7 +58,14 @@ export async function generateMetadata({
     }>;
 }): Promise<Metadata> {
     const { locale, slug } = await params;
-    const verse = await loadVerse({ slug, locale });
+    
+    let verse;
+    try {
+        verse = await loadVerse({ slug, locale });
+    } catch (error) {
+        handleNotFound(error, { slug, locale });
+        throw error;
+    }
 
     const { canonical, languages } = generateAlternates({
         baseUrl,
@@ -64,6 +73,9 @@ export async function generateMetadata({
         locales: ['ru', 'en', 'fr', 'pt', 'es', 'ru'], // hardcode
         slug,
     });
+    
+    logDuplicateDomainUrl(canonical, { locale, slug });
+    Object.values(languages).forEach(url => logDuplicateDomainUrl(url, { locale, slug }));
 
     return {
         title: verse.metadata.title,
@@ -126,7 +138,15 @@ const activeCategory = 'verse';
 
 const Page = async ({ params }: Props) => {
     const { locale, slug } = await params;
-    const verse = await loadVerse({ slug, locale });
+    
+    let verse;
+    try {
+        verse = await loadVerse({ slug, locale });
+    } catch (error) {
+        handleNotFound(error, { slug, locale });
+        throw verse;
+    }
+    
     const versePreviews = (await loadRecommendations(slug));
 
     return (

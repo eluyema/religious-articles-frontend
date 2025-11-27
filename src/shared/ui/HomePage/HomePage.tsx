@@ -9,13 +9,16 @@ import Footer from "@/widgets/Footer";
 import {Article} from "@/features/articles/model/entities";
 import CategoryArticlesList from "@/features/articles/ui/CateogoryArticleList/CateogoryArticleList";
 import {categoriesConfig} from "@/shared/config/categoriesConfig";
+import {VersePreview} from "@/features/verses/model/VersePreview";
+import CategoryVerseList from "@/features/verses/ui/CateogoryVerseList/CateogoryVerseList";
 
 type HomePageProps = {
     categoryArticles: {category: string; articles: Article[] }[]
+    versePreviewList: VersePreview[];
     locale: string;
 };
 
-const HomePage = ({categoryArticles, locale}:HomePageProps) => {
+const HomePage = ({categoryArticles, locale, versePreviewList}:HomePageProps) => {
     const t = useTranslations('homepage');
     const tCategories = useTranslations('categories');
 
@@ -73,6 +76,8 @@ const HomePage = ({categoryArticles, locale}:HomePageProps) => {
                     </section>
                     {categoryArticles.map(({category, articles}) =>
                         <CategoryArticlesList className={styles.categorySection} key={category} category={category} locale={locale} articles={articles}/>)}
+
+                    <CategoryVerseList className={styles.categorySection} locale={locale} verses={versePreviewList}/>)
                 </main>
             </div>
         <Footer/>

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import Header from "@/widgets/Header";
 import Footer from "@/widgets/Footer";
 import { loadFullArticle } from "@/features/articles/api/endpoints/loadFullArticle";
@@ -6,6 +7,9 @@ import ArticlePage from "@/features/articles/ui/ArticlePage";
 import { loadAllArticlePath } from "@/features/articles/api/endpoints/loadAllArticlePath";
 import {loadArticlesRecommendations} from "@/features/articles/api/endpoints/loadArticlesRecommendations";
 import {categoriesConfig} from "@/shared/config/categoriesConfig";
+import { logDuplicateDomainUrl } from "@/shared/utils/logDuplicateDomainUrl";
+import { handleNotFound } from "@/shared/utils/handleNotFound";
+import {FullArticle} from "@/features/articles/model/entities";
 
 const baseUrl = 'https://jesusnear.com';
 
@@ -62,7 +66,14 @@ export async function generateMetadata({
     }>;
 }): Promise<Metadata> {
     const { locale, slug, category, subcategory } = await params;
-    const article = await loadFullArticle({ slug, locale });
+
+    let article;
+    try {
+        article = await loadFullArticle({ slug, locale });
+    } catch (error) {
+        handleNotFound(error, { slug, locale, category, subcategory });
+        throw error;
+    }
 
     const path = `${category}/${subcategory}/${slug}`;
     const { canonical, languages } = generateAlternates({
@@ -71,6 +82,9 @@ export async function generateMetadata({
         locales: article.availableLanguages,
         path,
     });
+    
+    logDuplicateDomainUrl(canonical, { locale, category, subcategory, slug });
+    Object.values(languages).forEach(url => logDuplicateDomainUrl(url, { locale, category, subcategory, slug }));
 
     return {
         title: article.title,
@@ -134,7 +148,15 @@ const loadRecommendations = async (currentSlug: string) => {
 
 const Page = async ({ params }: Props) => {
     const { category, locale, slug } = await params;
-    const article = await loadFullArticle({ slug, locale });
+    
+    let article;
+    try {
+        article = await loadFullArticle({ slug, locale });
+    } catch (error) {
+        handleNotFound(error, { slug, locale, category });
+        throw error;
+    }
+    
     const categoryArticles = await loadRecommendations(slug);
 
     return (
