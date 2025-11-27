@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
 import Header from "@/widgets/Header";
 import Footer from "@/widgets/Footer";
 import { loadFullArticle } from "@/features/articles/api/endpoints/loadFullArticle";
@@ -9,7 +8,6 @@ import {loadArticlesRecommendations} from "@/features/articles/api/endpoints/loa
 import {categoriesConfig} from "@/shared/config/categoriesConfig";
 import { logDuplicateDomainUrl } from "@/shared/utils/logDuplicateDomainUrl";
 import { handleNotFound } from "@/shared/utils/handleNotFound";
-import {FullArticle} from "@/features/articles/model/entities";
 
 const baseUrl = 'https://jesusnear.com';
 
