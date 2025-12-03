@@ -74,7 +74,7 @@ const HomePage = ({categoryArticles, locale, versePreviewList}:HomePageProps) =>
                             {categoriesConfig.map(({code})=> <Link key={code} className={styles.categoriesLink} href={`/articles/${code}`}>{tCategories(`${code}.title`)}</Link>)}
                         </div>
                     </section>
-                    {categoryArticles.map(({category, articles}) =>
+                    {categoryArticles.filter(({category})=>category !== 'verses').map(({category, articles}) =>
                         <CategoryArticlesList className={styles.categorySection} key={category} category={category} locale={locale} articles={articles}/>)}
 
                     <CategoryVerseList className={styles.categorySection} locale={locale} verses={versePreviewList}/>)
