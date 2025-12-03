@@ -32,7 +32,9 @@ const ArticlePage = ({ article, categoryArticles, locale }: ArticlePageProps) =>
 
     // Generate canonical URL for sharing
     const articlePath = `articles/${article.category}/${article.subcategory}/${article.slug}`;
-    const shareUrl = `${baseUrl}/${locale === 'en' ? '' : `${locale}/`}${articlePath}`.replace(/\/+/g, '/');
+    const localePrefix = locale === 'en' ? '' : `${locale}/`;
+    // Construct URL and normalize slashes (remove double slashes except after protocol)
+    const shareUrl = `${baseUrl}/${localePrefix}${articlePath}`.replace(/([^:]\/)\/+/g, '$1');
 
     return (
         <>

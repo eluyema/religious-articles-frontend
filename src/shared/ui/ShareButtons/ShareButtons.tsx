@@ -36,11 +36,58 @@ const ShareButtons = ({ url, title, description }: ShareButtonsProps) => {
         }
     }, []);
 
-    // Use the provided canonical URL instead of window.location.href
-    // This ensures we always share the correct canonical URL, even if the current URL has query params or hash
-    const fullUrl = url;
+    // Validate and normalize the URL for Facebook sharing
+    // Facebook requires a valid absolute URL with http/https protocol
+    const getValidUrl = (): string => {
+        let urlToUse = url;
+        
+        // If no URL provided or empty, use current page URL
+        if (!urlToUse || typeof urlToUse !== 'string' || urlToUse.trim() === '') {
+            if (typeof window !== 'undefined' && window.location.href) {
+                urlToUse = window.location.href;
+            } else {
+                return ''; // Can't determine URL
+            }
+        }
+        
+        // Normalize the URL
+        urlToUse = urlToUse.trim();
+        
+        // If URL doesn't start with http:// or https://, it's not absolute
+        // Try to construct absolute URL from relative path
+        if (!urlToUse.startsWith('http://') && !urlToUse.startsWith('https://')) {
+            if (typeof window !== 'undefined') {
+                // If it's a relative path, make it absolute
+                const base = window.location.origin;
+                urlToUse = urlToUse.startsWith('/') 
+                    ? `${base}${urlToUse}` 
+                    : `${base}/${urlToUse}`;
+            }
+        }
+        
+        // Validate it's a proper URL
+        try {
+            const urlObj = new URL(urlToUse);
+            // Ensure it has http or https protocol
+            if (urlObj.protocol === 'http:' || urlObj.protocol === 'https:') {
+                // Remove trailing slash for consistency (Facebook prefers this)
+                return urlObj.href.replace(/\/$/, '');
+            }
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        } catch (error) {
+            // URL is invalid, fallback to current page
+            if (typeof window !== 'undefined' && window.location.href) {
+                return window.location.href;
+            }
+        }
+        
+        return urlToUse;
+    };
+
+    const fullUrl = getValidUrl();
     const shareText = description || title;
 
+    // Double-encode the URL for Facebook (Facebook requires this)
     const encodedUrl = encodeURIComponent(fullUrl);
     const encodedTitle = encodeURIComponent(title);
     const emailSubject = encodeURIComponent(title);
@@ -92,9 +139,11 @@ const ShareButtons = ({ url, title, description }: ShareButtonsProps) => {
             });
         }
 
-        if (platform === 'email' || platform === 'facebook') {
+        if (platform === 'email') {
             window.location.href = shareUrl;
         } else {
+            // Use window.open for all social platforms including Facebook
+            // This is more reliable and doesn't redirect the current page
             window.open(shareUrl, '_blank', 'width=600,height=400,menubar=no,toolbar=no');
         }
     };

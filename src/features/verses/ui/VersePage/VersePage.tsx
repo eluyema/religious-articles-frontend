@@ -21,7 +21,9 @@ const VersePage = ({ verse, recommendations, locale, slug }: VersePageProps) => 
     
     // Generate canonical URL for sharing
     const versePath = `verses/${slug}`;
-    const shareUrl = `${baseUrl}/${locale === 'en' ? '' : `${locale}/`}${versePath}`.replace(/\/+/g, '/');
+    const localePrefix = locale === 'en' ? '' : `${locale}/`;
+    // Construct URL and normalize slashes (remove double slashes except after protocol)
+    const shareUrl = `${baseUrl}/${localePrefix}${versePath}`.replace(/([^:]\/)\/+/g, '$1');
     const shareTitle = `${verse.verseText} - ${tBooks(`${verse.book}`)} ${verse.chapter}:${verse.verse}`;
     return (
         <>
