@@ -49,24 +49,73 @@ function generateAlternates({
 
 export async function generateMetadata({ params }: { params: Promise<{ category: string; locale: string }>; }): Promise<Metadata> {
     const {locale, category} = await params;
+    
+    // Validate that category exists in categoriesConfig
+    const validCategory = categoriesConfig.find(cat => cat.code === category);
+    if (!validCategory) {
+        // If category doesn't exist, return default metadata
+        return {
+            title: 'Articles - Jesus Near',
+            description: 'Browse Christian articles and resources.',
+        };
+    }
+
     const t = await getTranslations({ locale, namespace: 'categoriesArticles' });
 
     const baseUrl = "https://jesusnear.com";
     const locales = ["en", "es", "de", "fr", "pt", "ru"];
 
+    const { canonical } = generateAlternates({baseUrl, locale, locales, category});
+
+    // Use fallback values if translation doesn't exist
+    const metaTitle = t(`${category}.metaTitle`, { defaultValue: `${category} Articles` });
+    const metaDescription = t(`${category}.metaDescription`, { defaultValue: `Browse ${category} articles on Jesus Near.` });
+
     return {
-        title: t(`${category}.metaTitle`),
-        description: t(`${category}.metaDescription`),
-        alternates:
-        generateAlternates({baseUrl, locale, locales, category}),
+        title: metaTitle,
+        description: metaDescription,
+        metadataBase: new URL(baseUrl),
+        openGraph: {
+            title: metaTitle,
+            description: metaDescription,
+            url: canonical,
+            siteName: 'Jesus Near',
+            images: [
+                {
+                    url: '/jesusnear-v2.png',
+                    width: 1200,
+                    height: 630,
+                    alt: metaTitle,
+                },
+            ],
+            locale: locale.replace('-', '_'),
+            type: 'website',
+        },
+        alternates: generateAlternates({baseUrl, locale, locales, category}),
     };
 }
 
 const Page = async ({ params }: Props) => {
     const { category, locale } = await params;
 
-    const articles = await loadArticlesByCategory(category);
+    // Validate that category exists in categoriesConfig
+    const validCategory = categoriesConfig.find(cat => cat.code === category);
+    if (!validCategory) {
+        // If category doesn't exist, this should be handled by middleware or 404
+        // For now, return a simple error message
+        return (
+            <>
+                <Header />
+                <div style={{ padding: '2rem', textAlign: 'center' }}>
+                    <h1>Category not found</h1>
+                    <p>The category &#34;{category}&#34; does not exist.</p>
+                </div>
+                <Footer />
+            </>
+        );
+    }
 
+    const articles = await loadArticlesByCategory(category);
 
     return (
         <><Header activeCategory={category}/>

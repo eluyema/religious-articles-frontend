@@ -209,6 +209,16 @@
       "emailLabel": "Direct email"
     }
   },
+  "share": {
+    "share": "Share",
+    "shareVia": "Share via",
+    "shareOnFacebook": "Share on Facebook",
+    "shareOnX": "Share on X",
+    "shareOnWhatsApp": "Share on WhatsApp",
+    "shareViaEmail": "Share via Email",
+    "copyLink": "Copy link",
+    "copied": "Copied!"
+  },
   "bibleBooks": {
     "1": "Genesis",
     "2": "Exodus",

@@ -9,6 +9,9 @@ type Props = {
 
 const ArticleRenderer: React.FC<Props> = ({ data }) => {
     if (!data || !data.blocks) return null;
+    
+    let headingIndex = 0;
+    
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const renderBlock = (block: any, index: number) => {
         const { type, data } = block;
@@ -18,7 +21,18 @@ const ArticleRenderer: React.FC<Props> = ({ data }) => {
                 return <p key={index} dangerouslySetInnerHTML={{ __html: data.text }} />;
             case 'header':
                 const Tag = `h${data.level}` as keyof JSX.IntrinsicElements;
-                return <Tag key={index}>{data.text}</Tag>;
+                // Generate ID for headings (h2, h3) for table of contents
+                if (data.level === 2 || data.level === 3) {
+                    // Strip HTML tags from heading text before generating ID
+                    const cleanText = data.text.replace(/<[^>]*>/g, '').trim();
+                    const id = `heading-${headingIndex}-${cleanText
+                        .toLowerCase()
+                        .replace(/[^a-z0-9]+/g, '-')
+                        .replace(/^-+|-+$/g, '')}`;
+                    headingIndex++;
+                    return <Tag key={index} id={id} dangerouslySetInnerHTML={{ __html: data.text }} />;
+                }
+                return <Tag key={index} dangerouslySetInnerHTML={{ __html: data.text }} />;
             case 'list':
                 const items = (block.data.items as (string | { content?: string })[]).map((item, idx) => (
                     <li key={idx}>{typeof item === 'string' ? item : item?.content ?? ''}</li>

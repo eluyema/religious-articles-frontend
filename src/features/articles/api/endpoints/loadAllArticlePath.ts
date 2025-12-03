@@ -4,22 +4,32 @@ import { ArticlePath } from "@/features/articles/model/entities";
 const minutes = 60;
 
 export const loadAllArticlePath = async (): Promise<ArticlePath[]> => {
+    if (!envConfig.serverUrl) {
+        return [];
+    }
+
     const headers: HeadersInit = {};
 
     if (envConfig.secretKey) {
         headers['X-CLIENT-SECRET'] = envConfig.secretKey;
     }
 
-    const res = await fetch(`${envConfig.serverUrl}/api/christianity/client/articles-paths`, {
-        headers,
-        next: {
-            revalidate: minutes,
-        },
-    });
+    try {
+        const res = await fetch(`${envConfig.serverUrl}/api/christianity/client/articles-paths`, {
+            headers,
+            next: {
+                revalidate: minutes,
+            },
+        });
 
-    if (!res.ok) {
-        throw new Error('Failed to fetch article paths');
+        if (!res.ok) {
+            return [];
+        }
+
+        const data = await res.json();
+        return Array.isArray(data) ? data : [];
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (error) {
+        return [];
     }
-
-    return res.json();
 };

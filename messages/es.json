@@ -205,6 +205,16 @@
       "emailLabel": "Correo directo"
     }
   },
+  "share": {
+    "share": "Compartir",
+    "shareVia": "Compartir vía",
+    "shareOnFacebook": "Compartir en Facebook",
+    "shareOnX": "Compartir en X",
+    "shareOnWhatsApp": "Compartir en WhatsApp",
+    "shareViaEmail": "Compartir por email",
+    "copyLink": "Copiar enlace",
+    "copied": "¡Copiado!"
+  },
   "bibleBooks": {
     "1": "Génesis",
     "2": "Éxodo",

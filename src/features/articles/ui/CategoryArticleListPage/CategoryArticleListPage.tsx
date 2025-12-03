@@ -3,7 +3,6 @@ import Image, {StaticImageData} from "next/image";
 import {Article} from "@/features/articles/model/entities";
 import bibleCategoryImg from "@/assets/categories/bible.png";
 import jesusCategoryImg from "@/assets/categories/jesus.png";
-import Head from "next/head";
 import styles from "./index.module.scss";
 import faithInLifeImg from '@/assets/categories/faith-in-life.png'
 import jesusPrayImg from '@/assets/categories/jesus-pray.png';
@@ -31,9 +30,6 @@ const CategoryArticleListPage = ({category, locale, articles }:CategoryArticleLi
 
     return (
         <div>
-            <Head>
-                <title>{category}</title>
-            </Head>
             <section className={styles.categorySection}>
                 <div className={styles.content}>
                     <div className={styles.textBlock}>

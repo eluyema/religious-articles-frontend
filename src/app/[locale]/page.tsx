@@ -39,6 +39,40 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     path: '', // Root page
   });
 
+  // Organization and WebSite structured data
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Jesus Near',
+    url: baseUrl,
+    logo: `${baseUrl}/jesusnear-v2.png`,
+    description: meta.description,
+    sameAs: [],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: 'support@jesusnear.com',
+      contactType: 'customer support',
+      availableLanguage: supportedLocales,
+    },
+  };
+
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Jesus Near',
+    url: baseUrl,
+    description: meta.description,
+    inLanguage: supportedLocales,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${baseUrl}/search?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
+  };
+
   return {
     title: meta.title,
     description: meta.description,
@@ -46,6 +80,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     authors: [{ name: "Jesus Near Team", url: "https://jesusnear.com" }],
     creator: "Jesus Near Team",
     metadataBase: new URL(baseUrl),
+    viewport: {
+      width: 'device-width',
+      initialScale: 1,
+    },
+    themeColor: '#ffffff',
     openGraph: {
       title: meta.title,
       description: meta.ogDescription,
@@ -78,6 +117,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         { rel: 'icon', url: '/android-chrome-192x192-v2.png' },
         { rel: 'icon', url: '/android-chrome-512x512-v2.png' },
       ],
+    },
+    other: {
+      'application/ld+json': JSON.stringify([organizationSchema, websiteSchema]),
     },
   };
 }

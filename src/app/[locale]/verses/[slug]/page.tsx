@@ -14,15 +14,15 @@ function generateAlternates({
                                 baseUrl,
                                 locale,
                                 locales,
-                                slug,
+                                path,
                             }: {
     baseUrl: string;
     locale: string;
     locales: string[];
-    slug: string;
+    path: string;
 }) {
     const normalize = (lng: string) =>
-        `${baseUrl}/${lng === 'en' ? '' : lng}/${slug}`.replace(/\/+/g, '/');
+        `${baseUrl}/${lng === 'en' ? '' : lng}/${path}`.replace(/\/+/g, '/');
 
     return {
         canonical: normalize(locale),
@@ -67,17 +67,19 @@ export async function generateMetadata({
         throw error;
     }
 
+    const path = `verses/${slug}`;
     const { canonical, languages } = generateAlternates({
         baseUrl,
         locale,
         locales: ['ru', 'en', 'fr', 'pt', 'es', 'ru'], // hardcode
-        slug,
+        path,
     });
     
     logDuplicateDomainUrl(canonical, { locale, slug });
     Object.values(languages).forEach(url => logDuplicateDomainUrl(url, { locale, slug }));
 
     return {
+        metadataBase: new URL(baseUrl),
         title: verse.metadata.title,
         description: verse.metadata.description,
         openGraph: {
@@ -85,16 +87,25 @@ export async function generateMetadata({
             description: verse.metadata.ogDescription,
             url: canonical,
             type: 'article',
-            images: [],
+            images: [
+                {
+                    url: '/jesusnear-v2.png',
+                    width: 1200,
+                    height: 630,
+                    alt: verse.metadata.title,
+                },
+            ],
             locale,
             publishedTime: verse.createdAt ?? undefined,
             modifiedTime: verse.updatedAt ?? undefined,
+            authors: ['Jesus Near Team'],
+            siteName: 'Jesus Near',
         },
         twitter: {
             card: 'summary_large_image',
             title: verse.metadata.title,
             description: verse.metadata.description,
-            images: [],
+            images: ['/jesusnear-v2.png'],
         },
         alternates: {
             canonical,
@@ -152,7 +163,7 @@ const Page = async ({ params }: Props) => {
     return (
         <>
             <Header activeCategory={activeCategory} />
-            <VersePage verse={verse} recommendations={versePreviews} locale={locale}/>
+            <VersePage verse={verse} recommendations={versePreviews} locale={locale} slug={slug}/>
             <Footer />
         </>
     );

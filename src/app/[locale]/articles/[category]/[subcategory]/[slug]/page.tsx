@@ -11,6 +11,10 @@ import { handleNotFound } from "@/shared/utils/handleNotFound";
 
 const baseUrl = 'https://jesusnear.com';
 
+// Make route dynamic if static generation fails
+export const dynamicParams = true;
+export const revalidate = 3600; // Revalidate every hour
+
 function generateAlternates({
                                 baseUrl,
                                 locale,
@@ -32,16 +36,27 @@ function generateAlternates({
 }
 
 export async function generateStaticParams() {
-    const allPath = await loadAllArticlePath();
+    try {
+        const allPath = await loadAllArticlePath();
 
-    return allPath
-        .filter(({ active }) => active)
-        .map(({ language: locale, category, subcategory, slug }) => ({
-            locale,
-            category,
-            subcategory,
-            slug,
-        }));
+        if (!allPath || allPath.length === 0) {
+            return [];
+        }
+
+        const params = allPath
+            .filter(({ active }) => active === true)
+            .map(({ language: locale, category, subcategory, slug }) => ({
+                locale,
+                category,
+                subcategory,
+                slug,
+            }));
+
+        return params;
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (error) {
+        return [];
+    }
 }
 
 type Props = {
@@ -73,7 +88,7 @@ export async function generateMetadata({
         throw error;
     }
 
-    const path = `${category}/${subcategory}/${slug}`;
+    const path = `articles/${category}/${subcategory}/${slug}`;
     const { canonical, languages } = generateAlternates({
         baseUrl,
         locale,
@@ -85,8 +100,10 @@ export async function generateMetadata({
     Object.values(languages).forEach(url => logDuplicateDomainUrl(url, { locale, category, subcategory, slug }));
 
     return {
+        metadataBase: new URL(baseUrl),
         title: article.title,
         description: article.description,
+        authors: [{ name: "Jesus Near Team", url: "https://jesusnear.com" }],
         openGraph: {
             title: article.title,
             description: article.description,
@@ -96,11 +113,15 @@ export async function generateMetadata({
                 {
                     url: article.previewImageUrl,
                     alt: article.previewImageAlt,
+                    width: 1200,
+                    height: 630,
                 },
             ],
             locale,
             publishedTime: article.createdAt ?? undefined,
             modifiedTime: article.updatedAt ?? undefined,
+            authors: ['Jesus Near Team'],
+            siteName: 'Jesus Near',
         },
         twitter: {
             card: 'summary_large_image',
@@ -121,8 +142,17 @@ export async function generateMetadata({
                 image: article.previewImageUrl,
                 author: {
                     "@type": "Organization",
-                    name: "JesusNear",
+                    name: "Jesus Near",
                     url: "https://jesusnear.com",
+                },
+                publisher: {
+                    "@type": "Organization",
+                    name: "Jesus Near",
+                    url: "https://jesusnear.com",
+                    logo: {
+                        "@type": "ImageObject",
+                        url: "https://jesusnear.com/jesusnear-v2.png",
+                    },
                 },
                 datePublished: article.createdAt,
                 dateModified: article.updatedAt,

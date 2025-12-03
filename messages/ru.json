@@ -205,6 +205,16 @@
       "emailLabel": "Прямой e-mail"
     }
   },
+  "share": {
+    "share": "Поделиться",
+    "shareVia": "Поделиться через",
+    "shareOnFacebook": "Поделиться в Facebook",
+    "shareOnX": "Поделиться в X",
+    "shareOnWhatsApp": "Поделиться в WhatsApp",
+    "shareViaEmail": "Поделиться по email",
+    "copyLink": "Копировать ссылку",
+    "copied": "Скопировано!"
+  },
   "bibleBooks": {
     "1": "Бытие",
     "2": "Исход",
