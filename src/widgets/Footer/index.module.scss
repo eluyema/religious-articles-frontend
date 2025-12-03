@@ -27,6 +27,23 @@
   margin-top: 20px;
   margin-left: 20px;
 
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-left: 0;
+  }
+
+  .link {
+    color: #ffe1d6;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
   @include desktop-only {
     width: 30%;
     margin-left: 0;

@@ -81,6 +81,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> { // TOD
                 changeFrequency: 'monthly' as const,
                 priority: 0.5,
             });
+        urls.push({
+            url: `${baseUrl}/about`,
+            lastModified: now,
+            changeFrequency: 'monthly' as const,
+            priority: 0.6,
+        });
 
         return urls;
     });

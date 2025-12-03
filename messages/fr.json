@@ -117,6 +117,7 @@
     "findCategoriesDescription": "Choisis un chemin pour grandir en Lui :"
   },
   "footer": {
+    "about": "À propos de Jesus Near",
     "privacyPolicy": "Politique de confidentialité",
     "contactUs": "Nous contacter",
     "email": "e-mail"
@@ -133,6 +134,79 @@
     "title": "Politique de confidentialité",
     "description": "Découvrez comment nous collectons, utilisons et protégeons vos données personnelles.",
     "keywords": "confidentialité, données, sécurité, informations personnelles"
+  },
+  "about": {
+    "meta": {
+      "title": "À propos de Jesus Near et Dan – Étudiant de la Bible",
+      "description": "Découvrez comment Dan, disciple de Jésus passionné par l'Écriture, partage des articles chrétiens en six langues pour rapprocher les lecteurs du Christ.",
+      "keywords": ["Jesus Near", "articles chrétiens", "À propos de Dan", "site biblique", "mission de foi"],
+      "ogDescription": "Rencontrez Dan, l'intendant de Jesus Near qui diffuse des articles centrés sur la Bible dans six langues."
+    },
+    "hero": {
+      "eyebrow": "À propos de Jesus Near",
+      "title": "Enraciné dans l'Écriture, porté par la prière",
+      "description": "JesusNear.com est confié à Dan — un disciple de Jésus qui consacre son temps libre à méditer la Parole, à explorer l'histoire de l'Église et à partager l'espérance de l'Évangile. Il peut ainsi proposer des perspectives christocentriques en six langues.",
+      "imageAlt": "Illustration de Dan méditant la Bible en servant Jesus Near",
+      "badgeTitle": "Dan • Disciple et étudiant de la Bible",
+      "badgeSubtitle": "Il sert JesusNear.com avec prière",
+      "highlights": [
+        { "title": "Christ au centre", "description": "Articles et méditations qui gardent l'Évangile au cœur." },
+        { "title": "Intendance priante", "description": "Contenus relus avec dévotion, responsabilité et humilité devant Jésus." },
+        { "title": "Portée mondiale", "description": "Disponible en English, Español, Deutsch, Français, Português et Русский." }
+      ]
+    },
+    "mission": {
+      "title": "Pourquoi cette mission simple existe",
+      "description": "Chaque article, traduction et visuel cherche à diriger les cœurs vers Jésus, à expliquer l'Écriture clairement et à encourager le discipulat quotidien.",
+      "list": [
+        "Offrir un enseignement biblique soigné avec la chaleur d'un mentor proche.",
+        "Allier étude assidue et discernement conduit par l'Esprit avant publication.",
+        "Gagner la confiance par la transparence, le multilinguisme et des sources fiables."
+      ]
+    },
+    "dan": {
+      "title": "Rencontrez Dan, le cœur du site",
+      "lead": "Dan est un disciple de Jésus qui consacre ses heures libres à étudier la Bible, à explorer l'histoire de l'Église, à prier avec des amis et à vivre les enseignements du Christ jour après jour.",
+      "details": [
+        "Il tient des notes d'étude qui deviennent des méditations accessibles.",
+        "Il croit que la théologie est crédible lorsqu'elle se vit dans le service et les relations.",
+        "Il aime relier les croyants à des enseignants fiables, à des églises locales et à des partenaires de prière."
+      ]
+    },
+    "values": {
+      "title": "Des valeurs fiables",
+      "description": "Ces principes façonnent chaque article, fonctionnalité et détail visuel sur Jesus Near.",
+      "items": [
+        { "title": "Fidélité biblique", "description": "Versets, contexte et références sont vérifiés pour rester fidèles à la Parole." },
+        { "title": "Clarté & beauté", "description": "Un langage et un design sobres pour laisser briller le message du Christ." },
+        { "title": "Leadership serviteur", "description": "Des contenus publiés pour servir familles, Églises et chercheurs — pas les tendances." }
+      ]
+    },
+    "timeline": {
+      "title": "Un chemin simple d'obéissance",
+      "items": [
+        { "label": "Écouter", "title": "Apprendre et prier", "description": "Des années d'étude biblique et de prière ont poussé Dan à partager ce qu'il recevait." },
+        { "label": "Préparer", "title": "Tracer la route du service", "description": "Dan a structuré les thèmes, demandé la direction du Seigneur et traduit des ressources pour plusieurs langues." },
+        { "label": "Servir", "title": "Publier et affiner", "description": "Aujourd'hui il améliore textes, visuels et visibilité pour que davantage de personnes trouvent des ressources fiables." }
+      ]
+    },
+    "trust": {
+      "title": "Conçu pour la confiance",
+      "description": "Depuis l'étude priante jusqu'aux sources théologiques, rien n'est précipité. Dan documente chaque changement afin que chacun sache qui porte les mots.",
+      "quote": "« Je gère les mots comme j'étudie la Bible : avec patience, prière et respect pour chaque détail. »",
+      "signature": "Dan, intendant de Jesus Near",
+      "points": [
+        "Écrits originaux revus avec les références bibliques.",
+        "Auteur transparent — un intendant signe chaque mise à jour.",
+        "Infrastructure sécurisée, analyses respectueuses et chargements rapides."
+      ]
+    },
+    "cta": {
+      "title": "Restons en contact",
+      "description": "Si vous avez un témoignage, une suggestion ou un sujet de prière, Dan sera honoré de vous lire.",
+      "button": "Écrire à Dan",
+      "emailLabel": "E-mail direct"
+    }
   },
   "bibleBooks": {
     "1": "Genèse",

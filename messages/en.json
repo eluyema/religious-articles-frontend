@@ -125,6 +125,7 @@
     "openMenu": "Open menu"
   },
   "footer": {
+    "about": "About Jesus Near",
     "privacyPolicy": "Privacy Policy",
     "contactUs": "Contact us",
     "email": "email",
@@ -134,6 +135,79 @@
     "title": "Privacy Policy",
     "description": "Learn how we collect, use, and protect your personal data.",
     "keywords": "privacy, data, security, personal information"
+  },
+  "about": {
+    "meta": {
+      "title": "About Jesus Near & Dan – Bible Student Sharing Christ",
+      "description": "Discover how Dan, a disciple of Jesus with a passion for Scripture, curates multilingual Christian articles on JesusNear.com to help believers grow closer to Christ.",
+      "keywords": ["Jesus Near", "Christian articles", "About Dan", "Bible study website", "faith mission"],
+      "ogDescription": "Meet Dan, the steward of Jesus Near, who prayerfully shares Bible-centered articles in six languages."
+    },
+    "hero": {
+      "eyebrow": "About Jesus Near",
+      "title": "Rooted in Scripture, stewarded with prayer",
+      "description": "JesusNear.com is cared for by Dan — a follower of Jesus who spends every spare moment meditating on the Word, learning church history, and sharing Gospel hope. This space lets him offer Christ-centered insights in six languages so more people can love Jesus deeply.",
+      "imageAlt": "Illustration of Dan studying the Bible while designing Jesus Near",
+      "badgeTitle": "Dan • Disciple & Bible student",
+      "badgeSubtitle": "Serving JesusNear.com with prayerful care",
+      "highlights": [
+        { "title": "Centered on Scripture", "description": "Teachings and reflections that keep the Gospel of Christ at the center." },
+        { "title": "Prayerful Stewardship", "description": "Content reviewed through devotion, accountability, and humble submission to Jesus." },
+        { "title": "Global Reach", "description": "Available in English, Español, Deutsch, Français, Português, and Русский." }
+      ]
+    },
+    "mission": {
+      "title": "Why this simple mission exists",
+      "description": "Every article, translation, and visual aims to point hearts toward Jesus, explain Scripture clearly, and encourage daily discipleship.",
+      "list": [
+        "Offer curated Bible teaching with the warmth of a personal mentor.",
+        "Blend diligent study with Spirit-led discernment before publishing.",
+        "Earn readers' trust through transparency, multilingual access, and careful sourcing."
+      ]
+    },
+    "dan": {
+      "title": "Meet Dan, the heart behind the site",
+      "lead": "Dan is a disciple of Jesus who spends his free hours studying the Bible, exploring church history, praying with friends, and practicing the teachings of Christ in everyday life.",
+      "details": [
+        "Keeps Scripture study notes that become accessible reflections for others.",
+        "Believes theology is most credible when it is lived out in relationships and service.",
+        "Loves connecting believers with trusted teachers, local churches, and prayer partners."
+      ]
+    },
+    "values": {
+      "title": "Guiding values you can rely on",
+      "description": "These principles shape every article, feature, and UI detail on Jesus Near.",
+      "items": [
+        { "title": "Biblical Accuracy", "description": "Cross-checking verses, context, and references to keep teaching faithful." },
+        { "title": "Clarity & Beauty", "description": "Design and wording stay clean so the message of Christ shines." },
+        { "title": "Servant Leadership", "description": "Content is published to serve families, churches, and seekers — never to chase trends." }
+      ]
+    },
+    "timeline": {
+      "title": "A simple journey of obedience",
+      "items": [
+        { "label": "Listening", "title": "Learning and praying", "description": "Years of personal Bible study and prayer stirred Dan to share what he was learning." },
+        { "label": "Preparing", "title": "Designing the ministry path", "description": "Dan outlined topics, prayed for mentors, and translated resources so Jesus Near could serve several languages." },
+        { "label": "Serving", "title": "Publishing and refining", "description": "Today he keeps improving articles, visuals, and discoverability so more people receive trustworthy Christian resources." }
+      ]
+    },
+    "trust": {
+      "title": "Built for trust",
+      "description": "From prayerful study to theological sources, nothing is rushed. Dan documents every change so readers know exactly who stands behind the words.",
+      "quote": "“I steward words the way I study the Bible: patiently, prayerfully, and with reverence for every detail.”",
+      "signature": "Dan, steward of Jesus Near",
+      "points": [
+        "Original writing reviewed alongside Scripture references.",
+        "Transparent authorship — one steward who signs every update.",
+        "Secure infrastructure, privacy-minded analytics, and fast load times."
+      ]
+    },
+    "cta": {
+      "title": "Let’s stay in touch",
+      "description": "If you have a testimony, a suggestion, or need prayer, Dan would be honored to read your message.",
+      "button": "Write to Dan",
+      "emailLabel": "Direct email"
+    }
   },
   "bibleBooks": {
     "1": "Genesis",

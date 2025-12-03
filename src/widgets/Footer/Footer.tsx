@@ -12,6 +12,11 @@ const Footer = () => {
                 <nav className={styles.links} aria-label="Footer navigation">
                     <ul>
                         <li>
+                            <Link href="/about" className={styles.link}>
+                                {t('about')}
+                            </Link>
+                        </li>
+                        <li>
                             <Link href="/privacy-policy" className={styles.link}>
                                 {t('privacyPolicy')}
                             </Link>

@@ -119,6 +119,7 @@
     "localeSwitchLabel": "Seleccionar idioma"
   },
   "footer": {
+    "about": "Sobre Jesus Near",
     "privacyPolicy": "Política de Privacidad",
     "contactUs": "Contáctanos",
     "email": "correo electrónico"
@@ -130,6 +131,79 @@
     "title": "Política de privacidad",
     "description": "Descubre cómo recopilamos, usamos y protegemos tu información personal.",
     "keywords": "privacidad, datos, seguridad, información personal"
+  },
+  "about": {
+    "meta": {
+      "title": "Sobre Jesus Near y Dan – Estudiante de la Biblia",
+      "description": "Descubre cómo Dan, un discípulo de Jesús apasionado por las Escrituras, selecciona artículos cristianos en seis idiomas para acercar a los lectores a Cristo.",
+      "keywords": ["Jesus Near", "artículos cristianos", "Sobre Dan", "sitio bíblico", "misión de fe"],
+      "ogDescription": "Conoce a Dan, el mayordomo de Jesus Near que comparte artículos centrados en la Biblia en seis idiomas."
+    },
+    "hero": {
+      "eyebrow": "Sobre Jesus Near",
+      "title": "Enraizado en la Escritura, guiado con oración",
+      "description": "JesusNear.com es cuidado por Dan — un seguidor de Jesús que dedica cada momento libre a meditar en la Palabra, estudiar la historia de la Iglesia y compartir esperanza. Así puede ofrecer enseñanzas cristocéntricas en seis idiomas para que más personas amen a Jesús.",
+      "imageAlt": "Ilustración de Dan estudiando la Biblia mientras sirve en Jesus Near",
+      "badgeTitle": "Dan • Discípulo y estudiante de la Biblia",
+      "badgeSubtitle": "Sirviendo JesusNear.com con oración",
+      "highlights": [
+        { "title": "Centrado en Jesús", "description": "Artículos y devocionales que mantienen el Evangelio en el centro." },
+        { "title": "Mayordomía en oración", "description": "Contenido revisado con devoción, responsabilidad y humildad ante Cristo." },
+        { "title": "Alcance global", "description": "Disponible en English, Español, Deutsch, Français, Português y Русский." }
+      ]
+    },
+    "mission": {
+      "title": "Por qué existe esta misión sencilla",
+      "description": "Cada artículo, traducción e imagen busca dirigir los corazones a Jesús, explicar la Escritura con claridad y animar al discipulado diario.",
+      "list": [
+        "Ofrecer enseñanza bíblica curada con la calidez de un mentor cercano.",
+        "Combinar estudio diligente con discernimiento guiado por el Espíritu.",
+        "Ganar confianza mediante transparencia, acceso multilingüe y fuentes cuidadosas."
+      ]
+    },
+    "dan": {
+      "title": "Conoce a Dan, el corazón del sitio",
+      "lead": "Dan es un discípulo de Jesús que emplea su tiempo libre en estudiar la Biblia, explorar la historia de la Iglesia, orar con amigos y vivir las enseñanzas de Cristo cada día.",
+      "details": [
+        "Guarda notas de estudio bíblico que se convierten en reflexiones accesibles.",
+        "Cree que la teología es creíble cuando se vive sirviendo y acompañando a otros.",
+        "Ama conectar creyentes con maestros confiables, iglesias locales y compañeros de oración."
+      ]
+    },
+    "values": {
+      "title": "Valores guía",
+      "description": "Estos principios dan forma a cada artículo, funcionalidad y detalle visual en Jesus Near.",
+      "items": [
+        { "title": "Fidelidad bíblica", "description": "Versículos, contexto y referencias se revisan para mantener la enseñanza fiel." },
+        { "title": "Claridad y belleza", "description": "Diseño y palabras limpias para que brille el mensaje de Cristo." },
+        { "title": "Liderazgo servicial", "description": "El contenido sirve a familias, iglesias y buscadores — no a las modas." }
+      ]
+    },
+    "timeline": {
+      "title": "Un camino sencillo de obediencia",
+      "items": [
+        { "label": "Escuchar", "title": "Aprender y orar", "description": "Años de estudio bíblico y oración llevaron a Dan a compartir lo que aprendía." },
+        { "label": "Preparar", "title": "Trazar el camino del ministerio", "description": "Dan organizó temas, pidió dirección y tradujo recursos para servir en varios idiomas." },
+        { "label": "Servir", "title": "Publicar y afinar", "description": "Hoy mejora artículos, visuales y el alcance para que más personas encuentren recursos confiables." }
+      ]
+    },
+    "trust": {
+      "title": "Nacido para inspirar confianza",
+      "description": "Desde el estudio orante hasta las fuentes teológicas, nada se hace con prisa. Dan documenta cada cambio para que se sepa quién respalda cada palabra.",
+      "quote": "“Administro las palabras como estudio la Biblia: con paciencia, oración y reverencia por cada detalle.”",
+      "signature": "Dan, mayordomo de Jesus Near",
+      "points": [
+        "Escritura original revisada junto con las referencias bíblicas.",
+        "Autoría transparente — un solo mayordomo firma cada actualización.",
+        "Infraestructura segura, analítica respetuosa y tiempos de carga rápidos."
+      ]
+    },
+    "cta": {
+      "title": "Sigamos en contacto",
+      "description": "Si tienes un testimonio, una sugerencia o una petición de oración, Dan se sentirá honrado de leerte.",
+      "button": "Escríbele a Dan",
+      "emailLabel": "Correo directo"
+    }
   },
   "bibleBooks": {
     "1": "Génesis",

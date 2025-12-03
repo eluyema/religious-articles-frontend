@@ -114,6 +114,7 @@
     "findCategoriesDescription": "Wähle einen Weg, um in Ihm zu wachsen:"
   },
   "footer": {
+    "about": "Über Jesus Near",
     "privacyPolicy": "Datenschutzrichtlinie",
     "contactUs": "Kontaktieren Sie uns",
     "email": "E-Mail"
@@ -130,6 +131,79 @@
     "title": "Datenschutzrichtlinie",
     "description": "Erfahren Sie, wie wir Ihre persönlichen Daten sammeln, verwenden und schützen.",
     "keywords": "Datenschutz, Daten, Sicherheit, persönliche Informationen"
+  },
+  "about": {
+    "meta": {
+      "title": "Über Jesus Near und Dan – Bibelschüler",
+      "description": "Erfahre, wie Dan, ein Jünger Jesu mit Liebe zur Schrift, mehrsprachige Artikel auf JesusNear.com kuratiert, damit Menschen Christus näher kommen.",
+      "keywords": ["Jesus Near", "christliche Artikel", "Über Dan", "Bibelprojekt", "Glaubensmission"],
+      "ogDescription": "Lerne Dan kennen, den Verwalter von Jesus Near, der bibelzentrierte Artikel in sechs Sprachen teilt."
+    },
+    "hero": {
+      "eyebrow": "Über Jesus Near",
+      "title": "In der Schrift verwurzelt, im Gebet getragen",
+      "description": "JesusNear.com wird von Dan betreut — einem Nachfolger Jesu, der jede freie Minute nutzt, um das Wort zu betrachten, Kirchengeschichte zu studieren und Hoffnung zu teilen. So kann er christuszentrierte Einsichten in sechs Sprachen anbieten.",
+      "imageAlt": "Illustration von Dan beim Bibelstudium und Dienst für Jesus Near",
+      "badgeTitle": "Dan • Jünger und Bibelschüler",
+      "badgeSubtitle": "Dient JesusNear.com im Gebet",
+      "highlights": [
+        { "title": "Christus im Mittelpunkt", "description": "Artikel und Impulse, die das Evangelium im Zentrum halten." },
+        { "title": "Gebetvolle Verantwortung", "description": "Inhalte werden mit Hingabe, Verantwortung und Demut vor Jesus geprüft." },
+        { "title": "Globaler Auftrag", "description": "Verfügbar auf English, Español, Deutsch, Français, Português und Русский." }
+      ]
+    },
+    "mission": {
+      "title": "Warum diese einfache Mission besteht",
+      "description": "Jeder Artikel, jede Übersetzung und jedes Bild soll Herzen zu Jesus führen, die Schrift klar erklären und zur täglichen Nachfolge ermutigen.",
+      "list": [
+        "Kuratiertes Bibellehren mit der Wärme eines persönlichen Mentors.",
+        "Sorgfältiges Studium mit geistlich geführtem Urteilsvermögen verbinden.",
+        "Vertrauen durch Transparenz, Mehrsprachigkeit und sorgfältige Quellen gewinnen."
+      ]
+    },
+    "dan": {
+      "title": "Lerne Dan kennen – das Herz des Projekts",
+      "lead": "Dan ist ein Jünger Jesu, der seine freie Zeit nutzt, um die Bibel zu studieren, Kirchengeschichte zu erkunden, mit Freunden zu beten und Jesu Lehre im Alltag auszuleben.",
+      "details": [
+        "Schreibt Studiennotizen, die zu zugänglichen Andachten werden.",
+        "Ist überzeugt, dass Theologie glaubwürdig wird, wenn sie in Dienst und Gemeinschaft gelebt wird.",
+        "Vernetzt gerne Gläubige mit zuverlässigen Lehrern, Gemeinden und Gebetspartnern."
+      ]
+    },
+    "values": {
+      "title": "Verlässliche Leitwerte",
+      "description": "Diese Prinzipien prägen jeden Artikel, jedes Feature und jedes Designdetail auf Jesus Near.",
+      "items": [
+        { "title": "Biblische Treue", "description": "Verse, Kontext und Quellen werden geprüft, damit die Lehre treu bleibt." },
+        { "title": "Klarheit & Schönheit", "description": "Sprache und Gestaltung bleiben schlicht, damit Christi Botschaft strahlt." },
+        { "title": "Dienende Leitung", "description": "Inhalte dienen Familien, Gemeinden und Suchenden — nicht Trends." }
+      ]
+    },
+    "timeline": {
+      "title": "Ein einfacher Weg des Gehorsams",
+      "items": [
+        { "label": "Zuhören", "title": "Lernen und beten", "description": "Jahre persönlichen Bibelstudiums und Gebets bewegten Dan dazu, das Gelernte zu teilen." },
+        { "label": "Vorbereiten", "title": "Den Dienstweg planen", "description": "Dan strukturierte Themen, bat um Führung und übersetzte Inhalte, um mehreren Sprachen zu dienen." },
+        { "label": "Dienen", "title": "Veröffentlichen und verfeinern", "description": "Heute verbessert er Artikel, Visuals und die Auffindbarkeit, damit mehr Menschen zuverlässige Ressourcen finden." }
+      ]
+    },
+    "trust": {
+      "title": "Für Vertrauen gebaut",
+      "description": "Vom betenden Studium bis zur Quellenarbeit wird nichts überhastet. Dan dokumentiert jede Änderung, damit klar ist, wer hinter den Worten steht.",
+      "quote": "„Ich verwalte Worte so, wie ich die Bibel studiere: geduldig, betend und mit Ehrfurcht vor jedem Detail.“",
+      "signature": "Dan, Verwalter von Jesus Near",
+      "points": [
+        "Originaltexte werden mit Bibelstellen gemeinsam geprüft.",
+        "Transparente Autorenschaft — ein Verwalter unterschreibt jede Aktualisierung.",
+        "Sichere Infrastruktur, datenschutzfreundliche Analytik und schnelle Ladezeiten."
+      ]
+    },
+    "cta": {
+      "title": "Lass uns in Verbindung bleiben",
+      "description": "Wenn du ein Zeugnis, einen Hinweis oder ein Gebetsanliegen hast, freut sich Dan, von dir zu hören.",
+      "button": "Schreibe Dan",
+      "emailLabel": "Direkte E-Mail"
+    }
   },
   "bibleBooks": {
     "1": "Genesis",
