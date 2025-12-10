@@ -1,4 +1,4 @@
-@import "vars.module";
+@use "vars.module" as *;
 
 @mixin desktop-only {
   @media (min-width: calc(#{$maxMobileWidth} + 1px)) {

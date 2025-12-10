@@ -1,4 +1,4 @@
-@import "src/core/styles/mixins";
+@use "src/core/styles/mixins" as *;
 
 .footer {
   min-height: 200px;

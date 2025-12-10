@@ -1,4 +1,4 @@
-@import "../../../core/styles/mixins";
+@use "../../../core/styles/mixins" as *;
 
 .page {
   background: linear-gradient(180deg, #fff7ec 0%, #fffdf9 100%);

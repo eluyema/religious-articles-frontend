@@ -1,4 +1,4 @@
-@import "src/core/styles/mixins";
+@use "src/core/styles/mixins" as *;
 
 .articlesSection {
   max-width: 900px;

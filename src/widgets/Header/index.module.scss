@@ -1,5 +1,5 @@
-@import "src/core/styles/mixins";
-@import "src/core/styles/vars.module";
+@use "src/core/styles/mixins" as *;
+@use "src/core/styles/vars.module" as *;
 
 .mobile {
   display: block;
@@ -75,7 +75,7 @@
 .localeSwitcherBlock {
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .navigation {
@@ -83,7 +83,7 @@
   flex: 1;
   padding-left: 10px;
   padding-right: 8px;
-  align-items: end;
+  align-items: flex-end;
 
   & .navigationContent {
     min-height: 100%;

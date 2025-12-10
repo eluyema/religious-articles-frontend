@@ -1,5 +1,5 @@
-@import "src/core/styles/vars.module";
-@import "src/core/styles/mixins";
+@use "src/core/styles/vars.module" as *;
+@use "src/core/styles/mixins" as *;
 
 .menuBlock {
   display: flex;

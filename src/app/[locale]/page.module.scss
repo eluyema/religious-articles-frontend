@@ -1,4 +1,4 @@
-@import "src/core/styles/mixins";
+@use "src/core/styles/mixins" as *;
 
 .mobile {
   display: block;

@@ -1,4 +1,4 @@
-@import "src/core/styles/vars.module";
+@use "src/core/styles/vars.module" as *;
 
 html {
   scroll-behavior: smooth;
