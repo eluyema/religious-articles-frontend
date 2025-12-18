@@ -47,7 +47,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  max-width: 1600px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
   position: relative;
@@ -137,12 +137,7 @@
 }
 
 .articleLayout {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  
   @include desktop-only {
-    grid-template-columns: 280px 1fr 280px;
     max-width: 100%;
   }
 }
