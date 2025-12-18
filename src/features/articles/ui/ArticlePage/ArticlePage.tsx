@@ -6,7 +6,6 @@ import {useTranslations} from "next-intl";
 import ArticleRenderer from "@/features/articles/ui/ArticleRenderer";
 import CategoryArticlesList from "@/features/articles/ui/CateogoryArticleList/CateogoryArticleList";
 import Breadcrumbs from "@/shared/ui/Breadcrumbs";
-import TableOfContents from "@/shared/ui/TableOfContents";
 import ShareButtons from "@/shared/ui/ShareButtons";
 import { extractHeadings } from "@/shared/utils/extractHeadings";
 import { calculateReadingTime } from "@/shared/utils/calculateReadingTime";
@@ -68,17 +67,7 @@ const ArticlePage = ({ article, categoryArticles, locale }: ArticlePageProps) =>
         </section>
         <section className={styles.articleSection}>
             <div className={styles.container}>
-                {headings.length > 0 && (
-                    <div className={styles.tocMobile}>
-                        <TableOfContents headings={headings} />
-                    </div>
-                )}
                 <div className={styles.articleLayout}>
-                    {headings.length > 0 && (
-                        <aside className={styles.tocSidebar}>
-                            <TableOfContents headings={headings} />
-                        </aside>
-                    )}
                     <div className={styles.articleContent}>
                         <ArticleRenderer data={article.content} />
                         <ShareButtons
