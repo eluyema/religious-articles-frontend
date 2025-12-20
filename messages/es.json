@@ -127,6 +127,10 @@
   "common": {
     "notFoundInYouLanguage": "No disponible en tu idioma. Puede estar en otro — puedes cambiarlo si lo deseas."
   },
+  "notFound": {
+    "title": "404 No Encontrado",
+    "goHome": "Ir al Inicio"
+  },
   "privacyPolicy": {
     "title": "Política de privacidad",
     "description": "Descubre cómo recopilamos, usamos y protegemos tu información personal.",

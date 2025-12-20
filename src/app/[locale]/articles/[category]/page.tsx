@@ -5,6 +5,7 @@ import { categoriesConfig } from "@/shared/config/categoriesConfig";
 import Header from "@/widgets/Header";
 import Footer from "@/widgets/Footer";
 import {loadArticlesByCategory} from "@/features/articles/api/endpoints/loadArticlesByCategory";
+import NotFoundPage from "@/shared/ui/NotFoundPage";
 
 export function generateStaticParams() {
     const categories = categoriesConfig.map(({ code }) => code);
@@ -101,15 +102,11 @@ const Page = async ({ params }: Props) => {
     // Validate that category exists in categoriesConfig
     const validCategory = categoriesConfig.find(cat => cat.code === category);
     if (!validCategory) {
-        // If category doesn't exist, this should be handled by middleware or 404
-        // For now, return a simple error message
+        // If category doesn't exist, show 404 page
         return (
             <>
                 <Header />
-                <div style={{ padding: '2rem', textAlign: 'center' }}>
-                    <h1>Category not found</h1>
-                    <p>The category &#34;{category}&#34; does not exist.</p>
-                </div>
+                <NotFoundPage />
                 <Footer />
             </>
         );

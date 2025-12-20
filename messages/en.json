@@ -120,6 +120,10 @@
   "common": {
     "notFoundInYouLanguage": "Not available in your language. It may be available in another — feel free to switch."
   },
+  "notFound": {
+    "title": "404 Not Found",
+    "goHome": "Go Home"
+  },
   "header": {
     "closeMenu": "Close menu",
     "openMenu": "Open menu"
