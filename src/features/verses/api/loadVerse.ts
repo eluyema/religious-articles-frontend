@@ -1,31 +1,15 @@
-import { envConfig } from "@/shared/config/envConfig";
-import {Verse} from "@/features/verses/model/Verse";
+import { Verse } from "@/features/verses/model/Verse";
 import * as Sentry from '@sentry/nextjs';
-
-const minutes = 60;
+import { getVerse } from "@/features/verses/api/staticVerseData";
 
 export const loadVerse = async ({ locale, slug }: { locale: string; slug: string; }): Promise<Verse> => {
-    const headers: HeadersInit = {};
-
-    if (envConfig.secretKey) {
-        headers['X-CLIENT-SECRET'] = envConfig.secretKey;
-    }
-
-    const url = `${envConfig.serverUrl}/api/christianity/client/verse-posts/translations/${slug}/${locale}`;
-    const res = await fetch(url, {
-        headers,
-        next: {
-            revalidate: minutes
-        },
-    });
-
-    if (!res.ok) {
+    try {
+        return getVerse({ locale, slug });
+    } catch (error) {
         Sentry.captureException(new Error(`Verse not found: ${slug}`), {
-            tags: { error_type: 'verse_not_found', http_status: res.status },
-            extra: { url, slug, locale, status: res.status },
+            tags: { error_type: 'verse_not_found', http_status: 404 },
+            extra: { slug, locale },
         });
-        throw new Error(`Verse not found: ${slug}`);
+        throw error;
     }
-
-    return await res.json() as Verse;
 };

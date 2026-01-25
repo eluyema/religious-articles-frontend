@@ -1,28 +1,8 @@
-import {envConfig} from "@/shared/config/envConfig";
-import {Article} from "@/features/articles/model/entities";
+import { Article } from "@/features/articles/model/entities";
+import { getArticleRecommendations } from "@/features/articles/api/staticArticleData";
 
-const minutes = 60;
-
-type Params = { category: string, limit: number }
+type Params = { category: string; limit: number };
 
 export const loadArticlesRecommendations = async ({ category, limit = 5 }: Params): Promise<Article[]> => {
-    const headers: HeadersInit = {};
-
-    if (envConfig.secretKey) {
-        headers['X-CLIENT-SECRET'] = envConfig.secretKey;
-    }
-
-    const res = await fetch(`${envConfig.serverUrl}/api/christianity/client/article/recommendations?category=${category}&limit=${limit}`, {
-        headers,
-        next: {
-            revalidate: minutes
-        }
-    });
-
-    if (!res.ok) {
-
-        throw new Error('Failed to fetch articles');
-    }
-
-    return res.json();
+    return getArticleRecommendations(category, limit);
 };

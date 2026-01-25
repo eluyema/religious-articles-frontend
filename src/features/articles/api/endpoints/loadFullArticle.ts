@@ -1,36 +1,15 @@
-import { envConfig } from "@/shared/config/envConfig";
 import { FullArticle } from "@/features/articles/model/entities";
 import * as Sentry from '@sentry/nextjs';
-
-const minutes = 60;
+import { getFullArticle } from "@/features/articles/api/staticArticleData";
 
 export const loadFullArticle = async ({ locale, slug }: { locale: string; slug: string; }): Promise<FullArticle> => {
-    const headers: HeadersInit = {};
-
-    if (envConfig.secretKey) {
-        headers['X-CLIENT-SECRET'] = envConfig.secretKey;
-    }
-
-    const url = `${envConfig.serverUrl}/api/christianity/client/translations/${slug}/${locale}`;
-    const res = await fetch(url, {
-        headers,
-        next: {
-            revalidate: minutes
-        },
-    });
-
-    if (!res.ok) {
+    try {
+        return getFullArticle({ locale, slug });
+    } catch (error) {
         Sentry.captureException(new Error(`Article not found: ${slug}`), {
-            tags: { error_type: 'article_not_found', http_status: res.status },
-            extra: { url, slug, locale, status: res.status },
+            tags: { error_type: 'article_not_found', http_status: 404 },
+            extra: { slug, locale },
         });
-        throw new Error(`Article not found: ${slug}`);
+        throw error;
     }
-
-    const article = await res.json() as FullArticle & { content: string };
-
-    return {
-        ...article,
-        content: JSON.parse(article.content),
-    };
 };
