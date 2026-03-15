@@ -161,3 +161,9 @@
 .articleContent {
   min-width: 0; // Prevent grid overflow
 }
+
+.adBetweenSections {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 20px;
+}

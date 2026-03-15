@@ -2,6 +2,9 @@ import React, {JSX} from 'react';
 import styles from './index.module.scss';
 import {OutputData} from "@/features/articles/model/entities/outputData";
 import Image from "next/image";
+import AdSenseAd from "@/shared/ui/AdSenseAd/AdSenseAd";
+
+const IN_ARTICLE_AD_SLOT = '8774714496';
 
 type Props = {
     data: OutputData;
@@ -11,6 +14,7 @@ const ArticleRenderer: React.FC<Props> = ({ data }) => {
     if (!data || !data.blocks) return null;
     
     let headingIndex = 0;
+    let inArticleAdInserted = false;
     
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const renderBlock = (block: any, index: number) => {
@@ -19,20 +23,32 @@ const ArticleRenderer: React.FC<Props> = ({ data }) => {
         switch (type) {
             case 'paragraph':
                 return <p key={index} dangerouslySetInnerHTML={{ __html: data.text }} />;
-            case 'header':
+            case 'header': {
                 const Tag = `h${data.level}` as keyof JSX.IntrinsicElements;
-                // Generate ID for headings (h2, h3) for table of contents
-                if (data.level === 2 || data.level === 3) {
-                    // Strip HTML tags from heading text before generating ID
-                    const cleanText = data.text.replace(/<[^>]*>/g, '').trim();
-                    const id = `heading-${headingIndex}-${cleanText
-                        .toLowerCase()
-                        .replace(/[^a-z0-9]+/g, '-')
-                        .replace(/^-+|-+$/g, '')}`;
-                    headingIndex++;
-                    return <Tag key={index} id={id} dangerouslySetInnerHTML={{ __html: data.text }} />;
+                const headingEl = (data.level === 2 || data.level === 3) ? (
+                    (() => {
+                        const cleanText = data.text.replace(/<[^>]*>/g, '').trim();
+                        const id = `heading-${headingIndex}-${cleanText
+                            .toLowerCase()
+                            .replace(/[^a-z0-9]+/g, '-')
+                            .replace(/^-+|-+$/g, '')}`;
+                        headingIndex++;
+                        return <Tag key={index} id={id} dangerouslySetInnerHTML={{ __html: data.text }} />;
+                    })()
+                ) : (
+                    <Tag key={index} dangerouslySetInnerHTML={{ __html: data.text }} />
+                );
+                if (data.level === 2 && !inArticleAdInserted) {
+                    inArticleAdInserted = true;
+                    return (
+                        <React.Fragment key={index}>
+                            {headingEl}
+                            <AdSenseAd adSlot={IN_ARTICLE_AD_SLOT} adFormat="fluid" className={styles.inArticleAd} />
+                        </React.Fragment>
+                    );
                 }
-                return <Tag key={index} dangerouslySetInnerHTML={{ __html: data.text }} />;
+                return headingEl;
+            }
             case 'list':
                 const items = (block.data.items as (string | { content?: string })[]).map((item, idx) => (
                     <li key={idx}>{typeof item === 'string' ? item : item?.content ?? ''}</li>
