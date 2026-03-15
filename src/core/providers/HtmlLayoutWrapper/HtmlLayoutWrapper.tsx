@@ -18,6 +18,11 @@ export default function HtmlLayoutWrapper({ locale, children }: LayoutWrapperPro
         <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <ResourceHints />
         <Script
+            strategy="beforeInteractive"
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7752563209985738"
+            crossOrigin="anonymous"
+        />
+        <Script
             strategy="afterInteractive"
             src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
         />
