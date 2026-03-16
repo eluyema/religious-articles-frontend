@@ -77,9 +77,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: meta.title,
     description: meta.description,
     keywords: meta.keywords,
-    authors: [{ name: "Jesus Near Team", url: "https://jesusnear.com" }],
+    authors: [{ name: "Jesus Near Team", url: baseUrl }],
     creator: "Jesus Near Team",
-    metadataBase: new URL(baseUrl),
     viewport: {
       width: 'device-width',
       initialScale: 1,
@@ -100,6 +99,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       ],
       locale: locale.replace('-', '_'),
       type: "website",
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: meta.title,
+      description: meta.ogDescription,
+      images: ['/jesusnear-v2.png'],
     },
     alternates: {
       canonical,

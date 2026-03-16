@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import CategoryArticleListPage from "@/features/articles/ui/CategoryArticleListPage";
 import { categoriesConfig } from "@/shared/config/categoriesConfig";
+import { baseUrl } from "@/shared/config/baseUrl";
+import { supportedLocales } from "@/shared/config/supportedLocales";
 import Header from "@/widgets/Header";
 import Footer from "@/widgets/Footer";
 import {loadArticlesByCategory} from "@/features/articles/api/endpoints/loadArticlesByCategory";
@@ -63,10 +65,7 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
 
     const t = await getTranslations({ locale, namespace: 'categoriesArticles' });
 
-    const baseUrl = "https://jesusnear.com";
-    const locales = ["en", "es", "de", "fr", "pt", "ru"];
-
-    const { canonical } = generateAlternates({baseUrl, locale, locales, category});
+    const { canonical } = generateAlternates({ baseUrl, locale, locales: supportedLocales, category });
 
     // Use fallback values if translation doesn't exist
     const metaTitle = t(`${category}.metaTitle`, { defaultValue: `${category} Articles` });
@@ -75,7 +74,6 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
     return {
         title: metaTitle,
         description: metaDescription,
-        metadataBase: new URL(baseUrl),
         openGraph: {
             title: metaTitle,
             description: metaDescription,
@@ -92,7 +90,13 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
             locale: locale.replace('-', '_'),
             type: 'website',
         },
-        alternates: generateAlternates({baseUrl, locale, locales, category}),
+        twitter: {
+            card: 'summary_large_image',
+            title: metaTitle,
+            description: metaDescription,
+            images: ['/jesusnear-v2.png'],
+        },
+        alternates: generateAlternates({ baseUrl, locale, locales: supportedLocales, category }),
     };
 }
 

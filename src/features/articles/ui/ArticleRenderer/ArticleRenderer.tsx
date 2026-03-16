@@ -2,9 +2,9 @@ import React, {JSX} from 'react';
 import styles from './index.module.scss';
 import {OutputData} from "@/features/articles/model/entities/outputData";
 import Image from "next/image";
-import AdSenseAd from "@/shared/ui/AdSenseAd/AdSenseAd";
+// import AdSenseAd from "@/shared/ui/AdSenseAd/AdSenseAd"; // Google AdSense – uncomment when site is approved
 
-const IN_ARTICLE_AD_SLOT = '8774714496';
+// const IN_ARTICLE_AD_SLOT = '8774714496';
 
 type Props = {
     data: OutputData;
@@ -38,15 +38,16 @@ const ArticleRenderer: React.FC<Props> = ({ data }) => {
                 ) : (
                     <Tag key={index} dangerouslySetInnerHTML={{ __html: data.text }} />
                 );
-                if (data.level === 2 && !inArticleAdInserted) {
-                    inArticleAdInserted = true;
-                    return (
-                        <React.Fragment key={index}>
-                            {headingEl}
-                            <AdSenseAd adSlot={IN_ARTICLE_AD_SLOT} adFormat="fluid" className={styles.inArticleAd} />
-                        </React.Fragment>
-                    );
-                }
+                // Google AdSense in-article – uncomment when site is approved
+                // if (data.level === 2 && !inArticleAdInserted) {
+                //     inArticleAdInserted = true;
+                //     return (
+                //         <React.Fragment key={index}>
+                //             {headingEl}
+                //             <AdSenseAd adSlot={IN_ARTICLE_AD_SLOT} adFormat="fluid" className={styles.inArticleAd} />
+                //         </React.Fragment>
+                //     );
+                // }
                 return headingEl;
             }
             case 'list':

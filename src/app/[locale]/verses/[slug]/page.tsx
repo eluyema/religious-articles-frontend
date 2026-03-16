@@ -1,14 +1,14 @@
 import { Metadata } from 'next';
 import Header from "@/widgets/Header";
 import Footer from "@/widgets/Footer";
+import { baseUrl } from "@/shared/config/baseUrl";
+import { supportedLocales } from "@/shared/config/supportedLocales";
 
 import {loadVersePreviewList} from "@/features/verses/api/loadVersePreviewList";
 import {loadVerse} from "@/features/verses/api/loadVerse";
 import VersePage from "@/features/verses/ui/VersePage";
 import { logDuplicateDomainUrl } from "@/shared/utils/logDuplicateDomainUrl";
 import { handleNotFound } from "@/shared/utils/handleNotFound";
-
-const baseUrl = 'https://jesusnear.com';
 
 function generateAlternates({
                                 baseUrl,
@@ -71,7 +71,7 @@ export async function generateMetadata({
     const { canonical, languages } = generateAlternates({
         baseUrl,
         locale,
-        locales: ['ru', 'en', 'fr', 'pt', 'es', 'ru'], // hardcode
+        locales: supportedLocales,
         path,
     });
     
@@ -79,7 +79,6 @@ export async function generateMetadata({
     Object.values(languages).forEach(url => logDuplicateDomainUrl(url, { locale, slug }));
 
     return {
-        metadataBase: new URL(baseUrl),
         title: verse.metadata.title,
         description: verse.metadata.description,
         openGraph: {
@@ -120,7 +119,7 @@ export async function generateMetadata({
                 author: {
                     "@type": "Organization",
                     name: "JesusNear",
-                    url: "https://jesusnear.com",
+                    url: baseUrl,
                 },
                 datePublished: verse.createdAt,
                 dateModified: verse.updatedAt,

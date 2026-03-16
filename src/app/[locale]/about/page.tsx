@@ -57,9 +57,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         title: aboutMeta?.title ?? 'About Jesus Near',
         description: aboutMeta?.description,
         keywords: aboutMeta?.keywords,
-        authors: [{ name: 'Dan – Jesus Near', url: 'https://www.jesusnear.com' }],
+        authors: [{ name: 'Dan – Jesus Near', url: baseUrl }],
         creator: 'Dan – Jesus Near',
-        metadataBase: new URL(baseUrl),
         openGraph: {
             title: aboutMeta?.title,
             description: aboutMeta?.ogDescription ?? aboutMeta?.description,
@@ -75,6 +74,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
             ],
             locale: locale.replace('-', '_'),
             type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: aboutMeta?.title,
+            description: aboutMeta?.ogDescription ?? aboutMeta?.description,
+            images: ['/jesusnear-v2.png'],
         },
         alternates: {
             canonical,

@@ -1,15 +1,13 @@
 import type { MetadataRoute } from 'next';
-import { supportedLocales } from "@/shared/config/supportedLocales";
+import { baseUrl } from "@/shared/config/baseUrl";
+import { defaultLocale, supportedLocales } from "@/shared/config/supportedLocales";
 import { categoriesConfig } from "@/shared/config/categoriesConfig";
 import { loadAllArticlePath } from "@/features/articles/api/endpoints/loadAllArticlePath";
 import {loadVersePreviewList} from "@/features/verses/api/loadVersePreviewList";
 import { logDuplicateDomainUrl } from "@/shared/utils/logDuplicateDomainUrl";
 
-const getBase = (locale: string) => {
-    if(locale === "en") return "https://www.jesusnear.com";
-
-    return `https://www.jesusnear.com/${locale}`;
-}
+const getBase = (locale: string) =>
+    locale === defaultLocale ? baseUrl : `${baseUrl}/${locale}`;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> { // TODO: make it more clean 0_0
     const allPath = await loadAllArticlePath();

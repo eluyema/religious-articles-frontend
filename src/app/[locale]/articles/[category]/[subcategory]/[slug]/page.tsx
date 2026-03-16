@@ -6,10 +6,9 @@ import ArticlePage from "@/features/articles/ui/ArticlePage";
 import { loadAllArticlePath } from "@/features/articles/api/endpoints/loadAllArticlePath";
 import {loadArticlesRecommendations} from "@/features/articles/api/endpoints/loadArticlesRecommendations";
 import {categoriesConfig} from "@/shared/config/categoriesConfig";
+import { baseUrl } from "@/shared/config/baseUrl";
 import { logDuplicateDomainUrl } from "@/shared/utils/logDuplicateDomainUrl";
 import { handleNotFound } from "@/shared/utils/handleNotFound";
-
-const baseUrl = 'https://jesusnear.com';
 
 // Make route dynamic if static generation fails
 export const dynamicParams = true;
@@ -100,10 +99,9 @@ export async function generateMetadata({
     Object.values(languages).forEach(url => logDuplicateDomainUrl(url, { locale, category, subcategory, slug }));
 
     return {
-        metadataBase: new URL(baseUrl),
         title: article.title,
         description: article.description,
-        authors: [{ name: "Jesus Near Team", url: "https://jesusnear.com" }],
+        authors: [{ name: "Jesus Near Team", url: baseUrl }],
         openGraph: {
             title: article.title,
             description: article.description,
@@ -143,15 +141,15 @@ export async function generateMetadata({
                 author: {
                     "@type": "Organization",
                     name: "Jesus Near",
-                    url: "https://jesusnear.com",
+                    url: baseUrl,
                 },
                 publisher: {
                     "@type": "Organization",
                     name: "Jesus Near",
-                    url: "https://jesusnear.com",
+                    url: baseUrl,
                     logo: {
                         "@type": "ImageObject",
-                        url: "https://jesusnear.com/jesusnear-v2.png",
+                        url: `${baseUrl}/jesusnear-v2.png`,
                     },
                 },
                 datePublished: article.createdAt,
