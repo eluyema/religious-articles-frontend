@@ -14,7 +14,7 @@ const ArticleRenderer: React.FC<Props> = ({ data }) => {
     if (!data || !data.blocks) return null;
     
     let headingIndex = 0;
-    let inArticleAdInserted = false;
+   // let inArticleAdInserted = false;
     
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const renderBlock = (block: any, index: number) => {
