@@ -7,6 +7,10 @@ import CategoryVerseList from "@/features/verses/ui/CateogoryVerseList/Cateogory
 import ShareButtons from "@/shared/ui/ShareButtons";
 import {baseUrl} from "@/shared/config/baseUrl";
 import classNames from "classnames";
+import AdSenseAd from "@/shared/ui/AdSenseAd/AdSenseAd";
+
+const IN_CONTENT_AD_SLOT = '8774714496';
+const BETWEEN_SECTIONS_AD_SLOT = '3091142973';
 
 type VersePageProps = {
     verse: Verse;
@@ -47,6 +51,7 @@ const VersePage = ({ verse, recommendations, locale, slug }: VersePageProps) => 
             <section className={styles.articleSection}>
                 <div className={classNames(styles.verseArticle, styles.container)}>
                     <div dangerouslySetInnerHTML={{__html: verse.content}} />
+                    <AdSenseAd adSlot={IN_CONTENT_AD_SLOT} adFormat="fluid" className={styles.inContentAd} />
                     <ShareButtons
                         url={shareUrl}
                         title={shareTitle}
@@ -54,6 +59,9 @@ const VersePage = ({ verse, recommendations, locale, slug }: VersePageProps) => 
                     />
                 </div>
             </section>
+            <div className={styles.adBetweenSections}>
+                <AdSenseAd adSlot={BETWEEN_SECTIONS_AD_SLOT} />
+            </div>
             <CategoryVerseList className={styles.categorySection} verses={recommendations} locale={locale}/>)
     </>
     );
