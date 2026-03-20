@@ -23,6 +23,7 @@ export default function HtmlLayoutWrapper({ locale, children }: LayoutWrapperPro
             <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
             <link rel="preconnect" href="https://d3kixxf71ic3lt.cloudfront.net" />
             <link rel="dns-prefetch" href="https://d3kixxf71ic3lt.cloudfront.net" />
+            <meta name="p:domain_verify" content="eef8309d47547069927596cc76d55f09" />
             <script
                 async
                 src={ADSENSE_SCRIPT_SRC}
