@@ -7,7 +7,6 @@ import ArticleRenderer from "@/features/articles/ui/ArticleRenderer";
 import CategoryArticlesList from "@/features/articles/ui/CateogoryArticleList/CateogoryArticleList";
 import Breadcrumbs from "@/shared/ui/Breadcrumbs";
 import ShareButtons from "@/shared/ui/ShareButtons";
-import AdSenseAd from "@/shared/ui/AdSenseAd/AdSenseAd";
 import { extractHeadings } from "@/shared/utils/extractHeadings";
 import { calculateReadingTime } from "@/shared/utils/calculateReadingTime";
 import { baseUrl } from "@/shared/config/baseUrl";
@@ -81,9 +80,6 @@ const ArticlePage = ({ article, categoryArticles, locale }: ArticlePageProps) =>
                 </div>
             </div>
         </section>
-        <div className={styles.adBetweenSections}>
-            <AdSenseAd adSlot="3091142973" />
-        </div>
             {categoryArticles.map(({category, articles}) =>
                 !!articles.length && <CategoryArticlesList className={styles.categorySection} key={category} category={category} locale={locale} articles={articles}/>)}
 

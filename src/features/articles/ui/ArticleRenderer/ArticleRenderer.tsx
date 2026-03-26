@@ -2,9 +2,6 @@ import React, {JSX} from 'react';
 import styles from './index.module.scss';
 import {OutputData} from "@/features/articles/model/entities/outputData";
 import Image from "next/image";
-import AdSenseAd from "@/shared/ui/AdSenseAd/AdSenseAd";
-
-const IN_ARTICLE_AD_SLOT = '8774714496';
 
 type Props = {
     data: OutputData;
@@ -14,7 +11,6 @@ const ArticleRenderer: React.FC<Props> = ({ data }) => {
     if (!data || !data.blocks) return null;
     
     let headingIndex = 0;
-    let inArticleAdInserted = false;
     
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const renderBlock = (block: any, index: number) => {
@@ -38,15 +34,6 @@ const ArticleRenderer: React.FC<Props> = ({ data }) => {
                 ) : (
                     <Tag key={index} dangerouslySetInnerHTML={{ __html: data.text }} />
                 );
-                if (data.level === 2 && !inArticleAdInserted) {
-                    inArticleAdInserted = true;
-                    return (
-                        <React.Fragment key={index}>
-                            {headingEl}
-                            <AdSenseAd adSlot={IN_ARTICLE_AD_SLOT} adFormat="fluid" className={styles.inArticleAd} />
-                        </React.Fragment>
-                    );
-                }
                 return headingEl;
             }
             case 'list':
