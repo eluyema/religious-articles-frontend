@@ -112,7 +112,7 @@
     "introButton": "Lisez des articles et découvrez le véritable sens de la Bible",
     "introImageAlt": "Jésus avec votre famille",
     "missionCaption": "Notre mission",
-    "missionText": "Nous <em><span></span><span>accompagnons</span></em> votre chemin vers la foi, la paix et le sens — en vous aidant à rencontrer Jésus dans votre vie de tous les jours",
+    "missionText": "Nous <em><span>accompagnons</span></em> votre chemin vers la foi, la paix et le sens — en vous aidant à rencontrer Jésus dans votre vie de tous les jours",
     "findCategoriesTitle": "Marche avec le Christ",
     "findCategoriesDescription": "Choisis un chemin pour grandir en Lui :"
   },
@@ -221,6 +221,12 @@
     "shareViaEmail": "Partager par email",
     "copyLink": "Copier le lien",
     "copied": "Copié !"
+  },
+  "support": {
+    "kofi": "Soutenir sur Ko-fi",
+    "kofiHeaderLabel": "Soutenez-nous",
+    "kofiAria": "Soutenir Jesus Near sur Ko-fi (s’ouvre dans un nouvel onglet)",
+    "kofiAriaArticle": "Soutenez-nous sur Ko-fi — Jesus Near (s’ouvre dans un nouvel onglet)"
   },
   "bibleBooks": {
     "1": "Genèse",

@@ -44,6 +44,14 @@
     }
   }
 
+  .kofiFooterLink {
+    color: #ffe1d6;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
   @include desktop-only {
     width: 30%;
     margin-left: 0;

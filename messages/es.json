@@ -109,7 +109,7 @@
     "introButton": "Descubre artículos sobre el verdadero significado de la Biblia",
     "introImageAlt": "Jesús con tu familia",
     "missionCaption": "Nuestra Misión",
-    "missionText": "Nosotros <em><span></span><span>acompañamos</span></em> tu viaje hacia la fe, la paz y el propósito — ayudándote a conectar con Jesús en tu vida diaria",
+    "missionText": "Nosotros <em><span>acompañamos</span></em> tu viaje hacia la fe, la paz y el propósito — ayudándote a conectar con Jesús en tu vida diaria",
     "findCategoriesTitle": "Camina con Cristo",
     "findCategoriesDescription": "Elige un camino para crecer en Él:"
   },
@@ -218,6 +218,12 @@
     "shareViaEmail": "Compartir por email",
     "copyLink": "Copiar enlace",
     "copied": "¡Copiado!"
+  },
+  "support": {
+    "kofi": "Apoyar en Ko-fi",
+    "kofiHeaderLabel": "Apóyanos",
+    "kofiAria": "Apoyar a Jesus Near en Ko-fi (se abre en una pestaña nueva)",
+    "kofiAriaArticle": "Apóyanos en Ko-fi — Jesus Near (se abre en una pestaña nueva)"
   },
   "bibleBooks": {
     "1": "Génesis",

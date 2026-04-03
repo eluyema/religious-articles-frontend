@@ -109,7 +109,7 @@
     "introButton": "Entdecke Artikel über die wahre Bedeutung der Bibel",
     "introImageAlt": "Jesus mit deiner Familie",
     "missionCaption": "Unsere Mission",
-    "missionText": "Wir <em><span></span><span>begleiten</span></em> Ihren Weg zu Glauben, Frieden und Sinn — indem wir Ihnen helfen, Jesus im Alltag zu begegnen",
+    "missionText": "Wir <em><span>begleiten</span></em> Ihren Weg zu Glauben, Frieden und Sinn — indem wir Ihnen helfen, Jesus im Alltag zu begegnen",
     "findCategoriesTitle": "Geh mit Christus",
     "findCategoriesDescription": "Wähle einen Weg, um in Ihm zu wachsen:"
   },
@@ -218,6 +218,12 @@
     "shareViaEmail": "Per E-Mail teilen",
     "copyLink": "Link kopieren",
     "copied": "Kopiert!"
+  },
+  "support": {
+    "kofi": "Auf Ko-fi unterstützen",
+    "kofiHeaderLabel": "Unterstütze uns",
+    "kofiAria": "Jesus Near auf Ko-fi unterstützen (öffnet in neuem Tab)",
+    "kofiAriaArticle": "Unterstütze uns auf Ko-fi — Jesus Near (öffnet in neuem Tab)"
   },
   "bibleBooks": {
     "1": "Genesis",

@@ -5,6 +5,7 @@ import styles from './index.module.scss';
 
 import { useTranslations } from "next-intl";
 import MobileMenu from "./MobileMenu";
+import KoFiHeaderMobile from "./KoFiHeaderMobile";
 import {categoriesConfig} from "@/shared/config/categoriesConfig";
 import classNames from "classnames";
 import HeaderScrollScript from "@/widgets/Header/HeaderScrollScript";
@@ -50,6 +51,8 @@ const Header = ({activeCategory, className = ''}:HeaderProps) => {
                 <div className={styles.localeSwitcherBlock}>
                     <LocaleSwitcher className={styles.localeSwitcher}/>
                 </div>
+                <div className={styles.headerSpacer} aria-hidden />
+                <KoFiHeaderMobile />
             </div>
         </header>
     );

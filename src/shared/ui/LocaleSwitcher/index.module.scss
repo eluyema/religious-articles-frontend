@@ -1,11 +1,17 @@
 .select {
+  display: block;
+  box-sizing: border-box;
   padding: 6px 12px !important;
+  margin-right: 8px;
   font-size: 14px;
   border: 1px solid #ebd3d3;
   border-radius: 6px;
   background-color: white;
   color: #370505;
   cursor: pointer;
+  text-align: left;
+  text-align-last: left;
+  direction: ltr;
 
   &:hover {
     border-color: #e39595;

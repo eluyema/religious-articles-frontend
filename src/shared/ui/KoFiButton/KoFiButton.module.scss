@@ -1,0 +1,61 @@
+.prominent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 1.25rem;
+  padding: 0.65rem 1.1rem;
+  background: #b93032;
+  color: #fff3f3;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 2px solid #b93032;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+
+  &:hover {
+    background: #aa282a;
+    border-color: #aa282a;
+    color: #fff3f3;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #6b1a1b;
+    outline-offset: 3px;
+  }
+}
+
+.prominentSymbol {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+.inlineSymbol {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}

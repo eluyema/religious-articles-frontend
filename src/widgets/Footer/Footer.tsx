@@ -1,6 +1,7 @@
 import styles from "./index.module.scss";
 import {useTranslations} from 'next-intl';
 import {Link} from "@/i18n/navigation";
+import KoFiButton from "@/shared/ui/KoFiButton/KoFiButton";
 
 const Footer = () => {
     const t = useTranslations('footer');
@@ -20,6 +21,9 @@ const Footer = () => {
                             <Link href="/privacy-policy" className={styles.link}>
                                 {t('privacyPolicy')}
                             </Link>
+                        </li>
+                        <li>
+                            <KoFiButton variant="inline" className={styles.kofiFooterLink} />
                         </li>
                     </ul>
                 </nav>

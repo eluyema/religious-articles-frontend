@@ -7,6 +7,7 @@ import ArticleRenderer from "@/features/articles/ui/ArticleRenderer";
 import CategoryArticlesList from "@/features/articles/ui/CateogoryArticleList/CateogoryArticleList";
 import Breadcrumbs from "@/shared/ui/Breadcrumbs";
 import ShareButtons from "@/shared/ui/ShareButtons";
+import KoFiButton from "@/shared/ui/KoFiButton/KoFiButton";
 import { extractHeadings } from "@/shared/utils/extractHeadings";
 import { calculateReadingTime } from "@/shared/utils/calculateReadingTime";
 import { baseUrl } from "@/shared/config/baseUrl";
@@ -70,12 +71,15 @@ const ArticlePage = ({ article, categoryArticles, locale }: ArticlePageProps) =>
                 <div className={styles.articleLayout}>
                     <div className={styles.articleContent}>
                         <ArticleRenderer data={article.content} />
-                        <ShareButtons
-                            url={shareUrl}
-                            title={article.title}
-                            description={article.description}
-                            imageUrl={article.previewImageUrl}
-                        />
+                        <div className={styles.articleFooter}>
+                            <ShareButtons
+                                url={shareUrl}
+                                title={article.title}
+                                description={article.description}
+                                imageUrl={article.previewImageUrl}
+                            />
+                            <KoFiButton variant="prominent" />
+                        </div>
                     </div>
                 </div>
             </div>
