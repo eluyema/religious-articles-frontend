@@ -10,7 +10,7 @@ import ShareButtons from "@/shared/ui/ShareButtons";
 import KoFiButton from "@/shared/ui/KoFiButton/KoFiButton";
 import { extractHeadings } from "@/shared/utils/extractHeadings";
 import { calculateReadingTime } from "@/shared/utils/calculateReadingTime";
-import { baseUrl } from "@/shared/config/baseUrl";
+import { JsonLd, buildLocalizedUrl, getArticleSchema, sitePath } from "@/shared/seo";
 
 type ArticlePageProps = {
     article: FullArticle;
@@ -25,19 +25,25 @@ const ArticlePage = ({ article, categoryArticles, locale }: ArticlePageProps) =>
     const readingTime = calculateReadingTime(article.content);
 
     const breadcrumbItems = [
-        { label: 'Home', href: '/' },
-        { label: t(`${article.category}.title`), href: `/articles/${article.category}` },
-        { label: article.title, href: `/articles/${article.category}/${article.subcategory}/${article.slug}` },
+        { label: 'Home', href: sitePath.home },
+        { label: t(`${article.category}.title`), href: sitePath.category(article.category) },
+        { label: article.title, href: sitePath.article(article.category, article.subcategory, article.slug) },
     ];
 
-    // Generate canonical URL for sharing
-    const articlePath = `articles/${article.category}/${article.subcategory}/${article.slug}`;
-    const localePrefix = locale === 'en' ? '' : `${locale}/`;
-    // Construct URL and normalize slashes (remove double slashes except after protocol)
-    const shareUrl = `${baseUrl}/${localePrefix}${articlePath}`.replace(/([^:]\/)\/+/g, '$1');
+    const pathname = sitePath.article(article.category, article.subcategory, article.slug);
+    const shareUrl = buildLocalizedUrl({ locale, pathname });
+    const articleSchema = getArticleSchema({
+        title: article.title,
+        description: article.description,
+        image: article.previewImageUrl,
+        datePublished: article.createdAt,
+        dateModified: article.updatedAt,
+        canonicalUrl: shareUrl,
+    });
 
     return (
         <>
+        <JsonLd data={articleSchema} />
         <section className={styles.previewSection}>
             <div className={styles.previewSectionContent}>
                 <Breadcrumbs items={breadcrumbItems} locale={locale} />

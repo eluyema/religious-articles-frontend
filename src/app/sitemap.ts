@@ -1,94 +1,73 @@
 import type { MetadataRoute } from 'next';
-import { baseUrl } from "@/shared/config/baseUrl";
-import { defaultLocale, supportedLocales } from "@/shared/config/supportedLocales";
-import { categoriesConfig } from "@/shared/config/categoriesConfig";
+import { articleCategoriesConfig } from "@/shared/config/categoriesConfig";
 import { loadAllArticlePath } from "@/features/articles/api/endpoints/loadAllArticlePath";
 import {loadVersePreviewList} from "@/features/verses/api/loadVersePreviewList";
 import { logDuplicateDomainUrl } from "@/shared/utils/logDuplicateDomainUrl";
+import { SUPPORTED_LOCALES, buildLocalizedUrl, sitePath } from "@/shared/seo";
 
-const getBase = (locale: string) =>
-    locale === defaultLocale ? baseUrl : `${baseUrl}/${locale}`;
+const toLastModified = (value?: string): Date | undefined => {
+    if (!value) {
+        return undefined;
+    }
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> { // TODO: make it more clean 0_0
+    const date = new Date(value);
+    return Number.isNaN(date.getTime()) ? undefined : date;
+};
+
+const withUrl = (url: string, lastModified?: Date): MetadataRoute.Sitemap[number] => {
+    logDuplicateDomainUrl(url, { url });
+    return lastModified ? { url, lastModified } : { url };
+};
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const allPath = await loadAllArticlePath();
     const versePreviews = await loadVersePreviewList();
 
-    const articlesUrls: MetadataRoute.Sitemap = allPath
+    const articlesUrls = allPath
         .filter(({ active }) => active)
         .map(({ slug, language, category, subcategory, updatedAt }) => {
-            const base = getBase(language);
-            const url = `${base}/articles/${category}/${subcategory}/${slug}`;
-            logDuplicateDomainUrl(url, { 
-                language, 
-                category, 
-                subcategory, 
+            const url = buildLocalizedUrl({
+                locale: language,
+                pathname: sitePath.article(category, subcategory, slug),
+            });
+            logDuplicateDomainUrl(url, {
+                language,
+                category,
+                subcategory,
                 slug,
-                base,
-                rawData: { slug, language, category, subcategory }
             });
-            return ({
-            url,
-            lastModified: new Date(updatedAt),
-            changeFrequency: 'yearly',
-            priority: 0.4,
-        })});
-
-    const versesUrls: MetadataRoute.Sitemap = versePreviews
-        .map(({ slug, language, updatedAt }) => {
-            const base = getBase(language);
-            const url = `${base}/verses/${slug}`;
-            logDuplicateDomainUrl(url, { 
-                language, 
-                slug,
-                base,
-                rawData: { slug, language }
-            });
-            return ({
-                url,
-                lastModified: new Date(updatedAt),
-                changeFrequency: 'yearly',
-                priority: 0.4,
-            })});
-
-    const now = new Date();
-
-    const staticUrls: MetadataRoute.Sitemap = supportedLocales.flatMap(locale => {
-        const baseUrl = getBase(locale);
-
-        const categoryUrls = categoriesConfig.map(category => ({
-            url: category.code === "verses" ?`${baseUrl}/verses` : `${baseUrl}/articles/${category.code}`,
-            lastModified: now,
-            changeFrequency: 'weekly' as const,
-            priority: 0.8,
-        }));
-
-        const urls = [
-            {
-                url: baseUrl,
-                lastModified: now,
-                changeFrequency: 'weekly' as 'weekly' | 'monthly',
-                priority: 1,
-            },
-            ...categoryUrls,
-        ];
-
-
-            urls.push({
-                url: `${baseUrl}/privacy-policy`,
-                lastModified: now,
-                changeFrequency: 'monthly' as const,
-                priority: 0.5,
-            });
-        urls.push({
-            url: `${baseUrl}/about`,
-            lastModified: now,
-            changeFrequency: 'monthly' as const,
-            priority: 0.6,
+            return withUrl(url, toLastModified(updatedAt));
         });
 
-        return urls;
+    const versesUrls = versePreviews.map(({ slug, language, updatedAt }) => {
+        const url = buildLocalizedUrl({
+            locale: language,
+            pathname: sitePath.verse(slug),
+        });
+        logDuplicateDomainUrl(url, { language, slug });
+        return withUrl(url, toLastModified(updatedAt));
     });
 
+    const staticPathnames = [
+        sitePath.home,
+        ...articleCategoriesConfig.map(({ code }) => sitePath.category(code)),
+        sitePath.verses,
+        sitePath.about,
+        sitePath.privacyPolicy,
+    ];
 
-    return [...staticUrls, ...articlesUrls, ...versesUrls];
+    const staticUrls = SUPPORTED_LOCALES.flatMap((locale) =>
+        staticPathnames.map((pathname) =>
+            withUrl(buildLocalizedUrl({ locale, pathname }))
+        )
+    );
+
+    const seen = new Set<string>();
+    return [...staticUrls, ...articlesUrls, ...versesUrls].filter(({ url }) => {
+        if (seen.has(url)) {
+            return false;
+        }
+        seen.add(url);
+        return true;
+    });
 }

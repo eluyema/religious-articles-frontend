@@ -1,7 +1,7 @@
 'use client';
 
 import { Link } from '@/i18n/navigation';
-import { baseUrl } from '@/shared/config/baseUrl';
+import { JsonLd, buildLocalizedUrl } from '@/shared/seo';
 import styles from './index.module.scss';
 
 type BreadcrumbItem = {
@@ -14,8 +14,7 @@ type BreadcrumbsProps = {
     locale: string;
 };
 
-const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
-    // Generate structured data
+const Breadcrumbs = ({ items, locale }: BreadcrumbsProps) => {
     const structuredData = {
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
@@ -23,7 +22,7 @@ const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
             '@type': 'ListItem',
             position: index + 1,
             name: item.label,
-            item: `${baseUrl}${item.href}`,
+            item: buildLocalizedUrl({ locale, pathname: item.href }),
         })),
     };
 
@@ -51,10 +50,7 @@ const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
                     ))}
                 </ol>
             </nav>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-            />
+            <JsonLd data={structuredData} />
         </>
     );
 };

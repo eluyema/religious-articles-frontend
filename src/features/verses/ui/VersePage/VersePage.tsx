@@ -5,8 +5,8 @@ import {Verse} from "@/features/verses/model/Verse";
 import {VersePreview} from "@/features/verses/model/VersePreview";
 import CategoryVerseList from "@/features/verses/ui/CateogoryVerseList/CateogoryVerseList";
 import ShareButtons from "@/shared/ui/ShareButtons";
-import {baseUrl} from "@/shared/config/baseUrl";
 import classNames from "classnames";
+import { JsonLd, buildLocalizedUrl, getArticleSchema, sitePath } from "@/shared/seo";
 
 type VersePageProps = {
     verse: Verse;
@@ -19,14 +19,19 @@ const VersePage = ({ verse, recommendations, locale, slug }: VersePageProps) => 
     const t = useTranslations('categoriesArticles');
     const tBooks  = useTranslations('bibleBooks');
     
-    // Generate canonical URL for sharing
-    const versePath = `verses/${slug}`;
-    const localePrefix = locale === 'en' ? '' : `${locale}/`;
-    // Construct URL and normalize slashes (remove double slashes except after protocol)
-    const shareUrl = `${baseUrl}/${localePrefix}${versePath}`.replace(/([^:]\/)\/+/g, '$1');
+    const pathname = sitePath.verse(slug);
+    const shareUrl = buildLocalizedUrl({ locale, pathname });
     const shareTitle = `${verse.verseText} - ${tBooks(`${verse.book}`)} ${verse.chapter}:${verse.verse}`;
+    const verseSchema = getArticleSchema({
+        title: verse.metadata.title,
+        description: verse.metadata.description,
+        datePublished: verse.createdAt,
+        dateModified: verse.updatedAt,
+        canonicalUrl: shareUrl,
+    });
     return (
         <>
+        <JsonLd data={verseSchema} />
         <section className={styles.previewSection}>
             <div className={styles.container}>
                 <div className={styles.textBlock}>

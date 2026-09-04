@@ -1,7 +1,6 @@
 import { getMessages } from 'next-intl/server';
 import { Metadata } from 'next';
-import { baseUrl } from '@/shared/config/baseUrl';
-import {defaultLocale, supportedLocales} from "@/shared/config/supportedLocales";
+import { DEFAULT_LOCALE, SITE_URL, buildAlternates, sitePath } from '@/shared/seo';
 import HomePage from "@/shared/ui/HomePage/HomePage";
 import {categoriesConfig} from "@/shared/config/categoriesConfig";
 import {loadArticlesRecommendations} from "@/features/articles/api/endpoints/loadArticlesRecommendations";
@@ -10,43 +9,21 @@ import HtmlLayoutWrapper from "@/core/providers/HtmlLayoutWrapper";
 import {loadVersePreviewList} from "@/features/verses/api/loadVersePreviewList";
 import {shuffle} from "@/shared/utils/shuffle";
 
-function generateAlternates({
-                                baseUrl,
-                                locale,
-                                locales,
-                                path = '',
-                            }: {
-    baseUrl: string;
-    locale: string;
-    locales: string[];
-    path?: string;
-}) {
-    const normalize = (lng: string) =>
-        `${baseUrl}/${lng === 'en' ? '' : lng}/${path}`.replace(/\/+/g, '/');
-
-    return {
-        canonical: normalize(locale),
-        languages: Object.fromEntries(locales.map((lng) => [lng, normalize(lng)])),
-    };
-}
-
 export async function generateMetadata(): Promise<Metadata> {
-    const locale = 'en';
+    const locale = DEFAULT_LOCALE;
     const messages = await getMessages({ locale });
     const meta = messages.meta as typeof messages.meta;
 
-    const { canonical, languages } = generateAlternates({
-        baseUrl,
+    const { canonical, languages } = buildAlternates({
         locale,
-        locales: supportedLocales,
-        path: '',
+        pathname: sitePath.home,
     });
 
     return {
         title: meta.title,
         description: meta.description,
         keywords: meta.keywords,
-        authors: [{ name: "Jesus Near Team", url: baseUrl }],
+        authors: [{ name: "Jesus Near Team", url: SITE_URL }],
         creator: "Jesus Near Team",
         openGraph: {
             title: meta.title,
@@ -106,6 +83,6 @@ export default async function Page(){
 
     const [categoryArticles,versePreviewList] = await Promise.all([categoryArticlesPromise, versePreviewListPromise]);
 
-    return <HtmlLayoutWrapper locale={defaultLocale}>
-        <NextIntlClientProvider locale={defaultLocale}><HomePage categoryArticles={categoryArticles} versePreviewList={versePreviewList} locale={defaultLocale}/> </NextIntlClientProvider></HtmlLayoutWrapper>;
+    return <HtmlLayoutWrapper locale={DEFAULT_LOCALE}>
+        <NextIntlClientProvider locale={DEFAULT_LOCALE}><HomePage categoryArticles={categoryArticles} versePreviewList={versePreviewList} locale={DEFAULT_LOCALE}/> </NextIntlClientProvider></HtmlLayoutWrapper>;
 };

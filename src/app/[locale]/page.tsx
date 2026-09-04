@@ -1,83 +1,26 @@
 import { getMessages } from 'next-intl/server';
 import { Metadata } from 'next';
-import { baseUrl } from '@/shared/config/baseUrl';
-import {supportedLocales} from "@/shared/config/supportedLocales";
+import { SITE_URL, buildAlternates, sitePath } from '@/shared/seo';
 import HomePage from "@/shared/ui/HomePage/HomePage";
 import {loadArticlesRecommendations} from "@/features/articles/api/endpoints/loadArticlesRecommendations";
 import {categoriesConfig} from "@/shared/config/categoriesConfig";
 import {shuffle} from "@/shared/utils/shuffle";
 import {loadVersePreviewList} from "@/features/verses/api/loadVersePreviewList";
 
-function generateAlternates({
-                              baseUrl,
-                              locale,
-                              locales,
-                              path = '',
-                            }: {
-  baseUrl: string;
-  locale: string;
-  locales: string[];
-  path?: string;
-}) {
-  const normalize = (lng: string) =>
-      `${baseUrl}/${lng === 'en' ? '' : lng}/${path}`.replace(/\/+/g, '/');
-
-  return {
-    canonical: normalize(locale),
-    languages: Object.fromEntries(locales.map((lng) => [lng, normalize(lng)])),
-  };
-}
-
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const {locale} = await params;
   const messages = await getMessages({ locale });
   const meta = messages.meta as typeof messages.meta;
-  const { canonical, languages } = generateAlternates({
-    baseUrl,
+  const { canonical, languages } = buildAlternates({
     locale,
-    locales: supportedLocales,
-    path: '', // Root page
+    pathname: sitePath.home,
   });
-
-  // Organization and WebSite structured data
-  const organizationSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'Jesus Near',
-    url: baseUrl,
-    logo: `${baseUrl}/jesusnear-v2.png`,
-    description: meta.description,
-    sameAs: [],
-    contactPoint: {
-      '@type': 'ContactPoint',
-      email: 'support@jesusnear.com',
-      contactType: 'customer support',
-      availableLanguage: supportedLocales,
-    },
-  };
-
-  const websiteSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: 'Jesus Near',
-    url: baseUrl,
-    description: meta.description,
-    inLanguage: supportedLocales,
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${baseUrl}/search?q={search_term_string}`,
-      },
-      'query-input': 'required name=search_term_string',
-    },
-  };
 
   return {
     title: meta.title,
     description: meta.description,
     keywords: meta.keywords,
-    authors: [{ name: "Jesus Near Team", url: baseUrl }],
+    authors: [{ name: "Jesus Near Team", url: SITE_URL }],
     creator: "Jesus Near Team",
     viewport: {
       width: 'device-width',
@@ -122,9 +65,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         { rel: 'icon', url: '/android-chrome-192x192-v2.png' },
         { rel: 'icon', url: '/android-chrome-512x512-v2.png' },
       ],
-    },
-    other: {
-      'application/ld+json': JSON.stringify([organizationSchema, websiteSchema]),
     },
   };
 }

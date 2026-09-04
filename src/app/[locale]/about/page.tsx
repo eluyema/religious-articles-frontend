@@ -1,43 +1,19 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
-import Script from 'next/script';
 import { getMessages, getTranslations } from 'next-intl/server';
 
 import heroImage from '@/assets/jesus-with-family.png';
 import Header from '@/widgets/Header';
 import Footer from '@/widgets/Footer';
 import styles from './index.module.scss';
-import { baseUrl } from '@/shared/config/baseUrl';
-import { defaultLocale, supportedLocales } from '@/shared/config/supportedLocales';
+import { DEFAULT_LOCALE, SITE_URL, SUPPORTED_LOCALES, JsonLd, buildAlternates, buildLocalizedUrl, sitePath } from '@/shared/seo';
 
 type Highlight = { title: string; description: string };
 type ValueItem = { title: string; description: string };
 type TimelineItem = { label: string; title: string; description: string };
 
-const aboutPath = 'about';
-
-function generateAlternates({
-    baseUrl,
-    locale,
-    locales,
-    path = '',
-}: {
-    baseUrl: string;
-    locale: string;
-    locales: string[];
-    path?: string;
-}) {
-    const normalize = (lng: string) =>
-        `${baseUrl}/${lng === 'en' ? '' : lng}/${path}`.replace(/\/+/g, '/');
-
-    return {
-        canonical: normalize(locale),
-        languages: Object.fromEntries(locales.map((lng) => [lng, normalize(lng)])),
-    };
-}
-
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-    const locale = (await params).locale || defaultLocale;
+    const locale = (await params).locale || DEFAULT_LOCALE;
     const messages = await getMessages({ locale });
     const aboutMeta = (messages as { about?: { meta?: Record<string, unknown> } }).about?.meta as {
         title?: string;
@@ -46,18 +22,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         ogDescription?: string;
     };
 
-    const { canonical, languages } = generateAlternates({
-        baseUrl,
+    const { canonical, languages } = buildAlternates({
         locale,
-        locales: supportedLocales,
-        path: aboutPath,
+        pathname: sitePath.about,
     });
 
     return {
         title: aboutMeta?.title ?? 'About Jesus Near',
         description: aboutMeta?.description,
         keywords: aboutMeta?.keywords,
-        authors: [{ name: 'Dan – Jesus Near', url: baseUrl }],
+        authors: [{ name: 'Dan – Jesus Near', url: SITE_URL }],
         creator: 'Dan – Jesus Near',
         openGraph: {
             title: aboutMeta?.title,
@@ -112,7 +86,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
     const timelineItems = t.raw('timeline.items') as TimelineItem[];
     const trustPoints = t.raw('trust.points') as string[];
 
-    const localizedUrl = `${baseUrl}/${locale === defaultLocale ? '' : `${locale}/`}${aboutPath}`.replace(/\/+/g, '/');
+    const localizedUrl = buildLocalizedUrl({ locale, pathname: sitePath.about });
     const structuredData = {
         '@context': 'https://schema.org',
         '@type': 'Person',
@@ -120,20 +94,20 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         jobTitle: t('hero.badgeTitle'),
         description: t('hero.description'),
         url: localizedUrl,
-        image: `${baseUrl}/jesusnear-v2.png`,
+        image: `${SITE_URL}/jesusnear-v2.png`,
         affiliation: {
             '@type': 'Organization',
             name: 'Jesus Near',
-            url: baseUrl,
+            url: SITE_URL,
         },
         knowsAbout: ['Jesus Christ', 'Bible study', 'Christian discipleship'],
-        sameAs: [baseUrl, localizedUrl],
+        sameAs: [SITE_URL, localizedUrl],
         contactPoint: [
             {
                 '@type': 'ContactPoint',
                 email: 'support@jesusnear.com',
                 contactType: 'customer support',
-                availableLanguage: supportedLocales,
+                availableLanguage: [...SUPPORTED_LOCALES],
             },
         ],
     };
@@ -256,12 +230,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                 </section>
             </main>
             <Footer />
-            <Script
-                id="about-jsonld"
-                type="application/ld+json"
-                strategy="afterInteractive"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-            />
+            <JsonLd data={structuredData} />
         </>
     );
 }

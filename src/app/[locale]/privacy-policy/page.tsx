@@ -3,50 +3,27 @@ import path from 'path';
 import { Metadata } from 'next';
 import { getMessages } from 'next-intl/server';
 
-import { baseUrl } from '@/shared/config/baseUrl';
-import { defaultLocale, supportedLocales } from '@/shared/config/supportedLocales';
+import { DEFAULT_LOCALE, SITE_URL, buildAlternates, sitePath } from '@/shared/seo';
 
 import Header from '@/widgets/Header';
 import Footer from '@/widgets/Footer';
 import styles from './index.module.scss';
 
-function generateAlternates({
-                                baseUrl,
-                                locale,
-                                locales,
-                                path = '',
-                            }: {
-    baseUrl: string;
-    locale: string;
-    locales: string[];
-    path?: string;
-}) {
-    const normalize = (lng: string) =>
-        `${baseUrl}/${lng === 'en' ? '' : lng}/${path}`.replace(/\/+/g, '/');
-
-    return {
-        canonical: normalize(locale),
-        languages: Object.fromEntries(locales.map((lng) => [lng, normalize(lng)])),
-    };
-}
-
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-    const locale = (await params).locale || defaultLocale;
+    const locale = (await params).locale || DEFAULT_LOCALE;
     const messages = await getMessages({ locale });
     const meta = messages.meta?.privacyPolicy as typeof messages.meta.privacyPolicy;
 
-    const { canonical, languages } = generateAlternates({
-        baseUrl,
+    const { canonical, languages } = buildAlternates({
         locale,
-        locales: supportedLocales,
-        path: 'privacy-policy',
+        pathname: sitePath.privacyPolicy,
     });
 
     return {
         title: meta?.title ?? 'Privacy Policy',
         description: meta?.description,
         keywords: meta?.keywords,
-        authors: [{ name: "Jesus Near Team", url: baseUrl }],
+        authors: [{ name: "Jesus Near Team", url: SITE_URL }],
         creator: "Jesus Near Team",
         openGraph: {
             title: meta?.title,

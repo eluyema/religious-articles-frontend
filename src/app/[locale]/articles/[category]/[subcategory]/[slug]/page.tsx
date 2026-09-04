@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import Header from "@/widgets/Header";
 import Footer from "@/widgets/Footer";
 import { loadFullArticle } from "@/features/articles/api/endpoints/loadFullArticle";
@@ -6,33 +7,14 @@ import ArticlePage from "@/features/articles/ui/ArticlePage";
 import { loadAllArticlePath } from "@/features/articles/api/endpoints/loadAllArticlePath";
 import {loadArticlesRecommendations} from "@/features/articles/api/endpoints/loadArticlesRecommendations";
 import {categoriesConfig} from "@/shared/config/categoriesConfig";
-import { baseUrl } from "@/shared/config/baseUrl";
+import { SITE_URL, buildAlternates, sitePath } from "@/shared/seo";
 import { logDuplicateDomainUrl } from "@/shared/utils/logDuplicateDomainUrl";
 import { handleNotFound } from "@/shared/utils/handleNotFound";
+import { FullArticle } from "@/features/articles/model/entities";
 
 // Make route dynamic if static generation fails
 export const dynamicParams = true;
 export const revalidate = 3600; // Revalidate every hour
-
-function generateAlternates({
-                                baseUrl,
-                                locale,
-                                locales,
-                                path,
-                            }: {
-    baseUrl: string;
-    locale: string;
-    locales: string[];
-    path: string;
-}) {
-    const normalize = (lng: string) =>
-        `${baseUrl}/${lng === 'en' ? '' : lng}/${path}`.replace(/\/+/g, '/');
-
-    return {
-        canonical: normalize(locale),
-        languages: Object.fromEntries(locales.map((lng) => [lng, normalize(lng)])),
-    };
-}
 
 export async function generateStaticParams() {
     try {
@@ -67,6 +49,15 @@ type Props = {
     }>;
 };
 
+const assertArticleRoute = (
+    article: FullArticle,
+    { category, subcategory }: { category: string; subcategory: string }
+) => {
+    if (article.category !== category || article.subcategory !== subcategory) {
+        notFound();
+    }
+};
+
 export async function generateMetadata({
                                            params,
                                        }: {
@@ -87,12 +78,13 @@ export async function generateMetadata({
         throw error;
     }
 
-    const path = `articles/${category}/${subcategory}/${slug}`;
-    const { canonical, languages } = generateAlternates({
-        baseUrl,
+    assertArticleRoute(article, { category, subcategory });
+
+    const pathname = sitePath.article(category, subcategory, slug);
+    const { canonical, languages } = buildAlternates({
         locale,
+        pathname,
         locales: article.availableLanguages,
-        path,
     });
     
     logDuplicateDomainUrl(canonical, { locale, category, subcategory, slug });
@@ -101,7 +93,7 @@ export async function generateMetadata({
     return {
         title: article.title,
         description: article.description,
-        authors: [{ name: "Jesus Near Team", url: baseUrl }],
+        authors: [{ name: "Jesus Near Team", url: SITE_URL }],
         openGraph: {
             title: article.title,
             description: article.description,
@@ -131,35 +123,6 @@ export async function generateMetadata({
             canonical,
             languages,
         },
-        other: {
-            'application/ld+json': JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "Article",
-                headline: article.title,
-                description: article.description,
-                image: article.previewImageUrl,
-                author: {
-                    "@type": "Organization",
-                    name: "Jesus Near",
-                    url: baseUrl,
-                },
-                publisher: {
-                    "@type": "Organization",
-                    name: "Jesus Near",
-                    url: baseUrl,
-                    logo: {
-                        "@type": "ImageObject",
-                        url: `${baseUrl}/jesusnear-v2.png`,
-                    },
-                },
-                datePublished: article.createdAt,
-                dateModified: article.updatedAt,
-                mainEntityOfPage: {
-                    "@type": "WebPage",
-                    "@id": canonical,
-                },
-            }),
-        },
     };
 }
 
@@ -173,15 +136,17 @@ const loadRecommendations = async (currentSlug: string) => {
 }
 
 const Page = async ({ params }: Props) => {
-    const { category, locale, slug } = await params;
+    const { category, subcategory, locale, slug } = await params;
     
     let article;
     try {
         article = await loadFullArticle({ slug, locale });
     } catch (error) {
-        handleNotFound(error, { slug, locale, category });
+        handleNotFound(error, { slug, locale, category, subcategory });
         throw error;
     }
+
+    assertArticleRoute(article, { category, subcategory });
     
     const categoryArticles = await loadRecommendations(slug);
 

@@ -2,37 +2,18 @@ import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import Header from "@/widgets/Header";
 import Footer from "@/widgets/Footer";
-import { baseUrl } from "@/shared/config/baseUrl";
-import { supportedLocales } from "@/shared/config/supportedLocales";
+import { SUPPORTED_LOCALES, buildAlternates, sitePath } from "@/shared/seo";
 
 import CategoryVerseListPage from "@/features/verses/ui/CategoryVerseListPage";
 import {loadVersePreviewList} from "@/features/verses/api/loadVersePreviewList";
 
 export function generateStaticParams() {
-    return supportedLocales.map(locale => ({ locale }));
+    return SUPPORTED_LOCALES.map(locale => ({ locale }));
 }
 
 type Props = {
     params: Promise<{ locale: string; }>;
 };
-
-function generateAlternates({
-                                baseUrl: url,
-                                locale,
-                                locales,
-                            }: {
-    baseUrl: string;
-    locale: string;
-    locales: string[];
-}) {
-    const normalize = (lng: string) =>
-        `${url}/${lng === "en" ? "" : lng}/verses`.replace(/\/+/g, "/");
-
-    return {
-        canonical: normalize(locale),
-        languages: Object.fromEntries(locales.map((lng) => [lng, normalize(lng)])),
-    };
-}
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }>; }): Promise<Metadata> {
     const { locale } = await params;
@@ -40,7 +21,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
     const title = t(`verses.metaTitle`);
     const description = t(`verses.metaDescription`);
-    const { canonical, languages } = generateAlternates({ baseUrl, locale, locales: supportedLocales });
+    const { canonical, languages } = buildAlternates({
+        locale,
+        pathname: sitePath.verses,
+    });
 
     return {
         title,

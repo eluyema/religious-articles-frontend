@@ -11,6 +11,7 @@ import CategoryArticlesList from "@/features/articles/ui/CateogoryArticleList/Ca
 import {categoriesConfig} from "@/shared/config/categoriesConfig";
 import {VersePreview} from "@/features/verses/model/VersePreview";
 import CategoryVerseList from "@/features/verses/ui/CateogoryVerseList/CateogoryVerseList";
+import { JsonLd, getOrganizationSchema, getWebsiteSchema } from "@/shared/seo";
 
 type HomePageProps = {
     categoryArticles: {category: string; articles: Article[] }[]
@@ -21,8 +22,11 @@ type HomePageProps = {
 const HomePage = ({categoryArticles, locale, versePreviewList}:HomePageProps) => {
     const t = useTranslations('homepage');
     const tCategories = useTranslations('categories');
+    const tMeta = useTranslations('meta');
+    const siteDescription = tMeta('description');
 
     return (<>
+            <JsonLd data={[getOrganizationSchema(siteDescription), getWebsiteSchema(siteDescription)]} />
             <Header />
             <div className={styles.page}>
                 <main className={styles.main}>

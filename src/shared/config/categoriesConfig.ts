@@ -60,3 +60,10 @@ export const categoriesConfig = [
         subcategories: []
     }
 ]
+
+export const articleCategoriesConfig = categoriesConfig.filter(
+    (category) => category.code !== 'verses'
+);
+
+export const isValidArticleCategory = (category: string): boolean =>
+    articleCategoriesConfig.some((item) => item.code === category);

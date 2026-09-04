@@ -1,20 +1,18 @@
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 import CategoryArticleListPage from "@/features/articles/ui/CategoryArticleListPage";
-import { categoriesConfig } from "@/shared/config/categoriesConfig";
-import { baseUrl } from "@/shared/config/baseUrl";
+import { articleCategoriesConfig, isValidArticleCategory } from "@/shared/config/categoriesConfig";
 import { supportedLocales } from "@/shared/config/supportedLocales";
+import { buildAlternates, sitePath } from "@/shared/seo";
 import Header from "@/widgets/Header";
 import Footer from "@/widgets/Footer";
 import {loadArticlesByCategory} from "@/features/articles/api/endpoints/loadArticlesByCategory";
-import NotFoundPage from "@/shared/ui/NotFoundPage";
 
 export function generateStaticParams() {
-    const categories = categoriesConfig.map(({ code }) => code);
+    const categories = articleCategoriesConfig.map(({ code }) => code);
 
-    const locales = ['en', 'es', 'de', 'fr', 'pt', 'ru'];
-
-    return locales.flatMap(locale =>
+    return supportedLocales.flatMap(locale =>
         categories.map(category => ({
             locale,
             category
@@ -29,45 +27,17 @@ type Props = {
     }>;
 };
 
-function generateAlternates({
-                                       baseUrl,
-                                       locale,
-                                       locales,
-                                       category,
-                                   }: {
-    baseUrl: string;
-    locale: string;
-    locales: string[];
-    category: string;
-}) {
-    const normalize = (lng: string) =>
-        `${baseUrl}/${lng === "en" ? "" : lng}/${category}`.replace(/\/+/g, "/");
-
-    return {
-        canonical: normalize(locale),
-        languages: Object.fromEntries(locales.map((lng) => [lng, normalize(lng)])),
-    };
-}
-
-
 export async function generateMetadata({ params }: { params: Promise<{ category: string; locale: string }>; }): Promise<Metadata> {
     const {locale, category} = await params;
-    
-    // Validate that category exists in categoriesConfig
-    const validCategory = categoriesConfig.find(cat => cat.code === category);
-    if (!validCategory) {
-        // If category doesn't exist, return default metadata
-        return {
-            title: 'Articles - Jesus Near',
-            description: 'Browse Christian articles and resources.',
-        };
+
+    if (!isValidArticleCategory(category)) {
+        notFound();
     }
 
     const t = await getTranslations({ locale, namespace: 'categoriesArticles' });
+    const pathname = sitePath.category(category);
+    const { canonical, languages } = buildAlternates({ locale, pathname });
 
-    const { canonical } = generateAlternates({ baseUrl, locale, locales: supportedLocales, category });
-
-    // Use fallback values if translation doesn't exist
     const metaTitle = t(`${category}.metaTitle`, { defaultValue: `${category} Articles` });
     const metaDescription = t(`${category}.metaDescription`, { defaultValue: `Browse ${category} articles on Jesus Near.` });
 
@@ -96,24 +66,15 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
             description: metaDescription,
             images: ['/jesusnear-v2.png'],
         },
-        alternates: generateAlternates({ baseUrl, locale, locales: supportedLocales, category }),
+        alternates: { canonical, languages },
     };
 }
 
 const Page = async ({ params }: Props) => {
     const { category, locale } = await params;
 
-    // Validate that category exists in categoriesConfig
-    const validCategory = categoriesConfig.find(cat => cat.code === category);
-    if (!validCategory) {
-        // If category doesn't exist, show 404 page
-        return (
-            <>
-                <Header />
-                <NotFoundPage />
-                <Footer />
-            </>
-        );
+    if (!isValidArticleCategory(category)) {
+        notFound();
     }
 
     const articles = await loadArticlesByCategory(category);
